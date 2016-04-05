@@ -5,8 +5,11 @@
   "license": "proprietary",
   "authors": [
     {
-      "name": "author's name",
-      "email": "email@example.com"
+      "name": "Deveron Reniers",
+      "email": "deveron-reniers@hotmail.com"
     }
-  ]
+  ],
+  "require": {
+    "laravel/framework": "5.0.30"
+  }
 }
