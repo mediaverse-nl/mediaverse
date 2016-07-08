@@ -9,6 +9,8 @@
 
                 <div class="panel-body">
                     Your Application's Landing Page.
+
+                    {{route('admin.profile')}}
                 </div>
             </div>
         </div>
