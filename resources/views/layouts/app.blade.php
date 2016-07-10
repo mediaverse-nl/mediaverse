@@ -29,9 +29,9 @@
     <style>
         body {
             font-family: "Open Sans", Arial, sans-serif;
-            margin-top: 50px
+            margin-top: 50px !important;
             /* Margin bottom by footer height */
-            margin-bottom: 130px;
+            margin-bottom: 350px;
         }
 
         .fa-btn {
@@ -47,11 +47,10 @@
             bottom: 0;
             width: 100%;
             /* Set the fixed height of the footer here */
-            height: 130px;
-            background-color: #f5f5f5;
+            height: 300px;
         }
         .page-header{
-            background-color: #171717;
+            background-color: #0E0E0E;
             height: 100px;
         }
         .breadcrumb{
@@ -65,6 +64,26 @@
 
             font-size: 2.6em;
         }
+        .upper-footer{
+            background-color: #0E0E0E;
+            height: 250px;;
+        }
+        .bottom-footer{
+            background-color: #060606;
+            height: 100px;
+            padding: 40px;
+        }
+        .bottom-stash ul{
+            margin-top: 15px;
+        }
+        .bottom-stash li{
+            display: inline-block;
+            border-right: 1px solid white;
+            padding-right: 15px;
+            padding-left: 10px;
+        }
+        .bottom-stash li:last-child {  border-right:none; }
+        .bottom-stash li:first-child {  padding-left: 0px; }
     </style>
 </head>
 <body id="app-layout">
@@ -81,8 +100,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                <a class="navbar-brand" href="{{ url('/') }}" style="color: #267AB7; font-weight: bolder; font-size: 25px">
+                    Mediaverse
                 </a>
             </div>
 
@@ -122,7 +141,7 @@
                 </ul>
                 @if (Auth::check())
                     <ul class="nav navbar-nav pull-right">
-                        <li><a>Admin panel</a> </li>
+                        <li><a href="{{route('admin.index')}}">Admin panel</a></li>
                     </ul>
                 @endif
             </div>
@@ -132,18 +151,32 @@
     @yield('content')
 
     <footer class="footer">
-        <div class="container">
-            <div class="col-lg-3">
-                <ul>
-                    <li><a href="{{ url('/contact') }}">contact</a></li>
+        <div class="upper-footer">
+            <div class="container">
+                <div class="col-lg-3">
+                    <ul>
+
+                        <li><a href="{{ url('/seo') }}">seo</a></li>
+                        <li><a href="{{ url('/applicaties') }}">applicaties</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h3>twitter</h3>
+                    <span></span>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container">
+                <ul class="bottom-stash pull-left">
                     <li><a href="{{ url('/algemene-voorwaarden') }}">algemene voorwaarden</a></li>
                     <li><a href="{{ url('/sitemap') }}">sitemap</a></li>
                     <li><a href="{{ url('/privacy-verklaring') }}">privacy verklaring</a></li>
-                    <li><a href="{{ url('/seo') }}">seo</a></li>
-                    <li><a href="{{ url('/applicaties') }}">applicaties</a></li>
+                    <li><a href="{{ url('/contact') }}">contact</a></li>
                 </ul>
+                <p class="text-muted pull-right">Copyright &copy; 2016 Mediaverse</p>
             </div>
-            <p class="text-muted">Place sticky footer content here.</p>
         </div>
     </footer>
 
