@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
 //Route::get('/', 'HomeController@index');
 Route::get('/', ['as' => 'home', function () { return view('home'); }]);
-Route::get('/referenties', ['as' => 'referenties', function () { return view('referenties'); }]);
+Route::get('/referenties', ['as' => 'referenties', 'uses' => 'ReferenceController@index']);
 Route::get('/algemene-voorwaarden', function () { return view('algemene-voorwaarden'); });
 Route::get('/applicaties', function () { return view('applicaties'); });
 Route::get('/contact', function () { return view('contact'); });

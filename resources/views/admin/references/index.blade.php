@@ -20,9 +20,6 @@
         <div class="col-md-10">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    new reference
-                </div>
-                <div class="panel-footer">
                     <a class="btn btn-primary pull-right" href="{{route('admin.reference.create')}}">edit</a>
                     <table class="table">
                         <thead>
@@ -33,6 +30,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach($references as $reference)
 
                                 <tr>

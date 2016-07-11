@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {{--// parallax background with images--}}
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,11 +61,12 @@
             background-color: transparent;
         }
         .page-header h1{
-            margin-top: -25px;
+            margin-top: -40px;
             color: #ffffff;
             font-weight: 200;
-
+            border-bottom: 4px solid #267AB7;
             font-size: 2.6em;
+            display:inline-block;
         }
         .upper-footer{
             background-color: #0E0E0E;
@@ -84,6 +88,25 @@
         }
         .bottom-stash li:last-child {  border-right:none; }
         .bottom-stash li:first-child {  padding-left: 0px; }
+
+        h2 {
+            color: #0E0E0E !important;
+            font-size: 2.2em;
+            font-weight: 300;
+            line-height: 42px;
+            margin: 0 0 32px 0;
+        }
+        p {
+            color: #777;
+        }
+        .fa{
+            color: #267AB7;
+            margin-top: 15px;
+        }
+
+        .page-header{
+            border-top: 3px solid #777777 ;
+        }
     </style>
 </head>
 <body id="app-layout">
