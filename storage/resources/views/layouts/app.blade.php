@@ -15,11 +15,11 @@
     <meta name="keywords" content="@yield('keywords')">
     <meta name="robots" content="index, follow">
 
-    {{--<meta property="og:title" content="awesome blog"/>--}}
-    {{--<meta property="og:type" content="article"/>--}}
-    {{--<meta property="og:image" content="http://www.google.com/some-thumbnail.jpg"/>--}}
-    {{--<meta property="og:url" content="http://blog.google.com"/>--}}
-    {{--<meta property="og:description" content=""/>--}}
+    <meta property="og:title" content="awesome blog"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="http://www.google.com/some-thumbnail.jpg"/>
+    <meta property="og:url" content="http://blog.google.com"/>
+    <meta property="og:description" content=""/>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -124,7 +124,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ route('home') }}" style="color: #267AB7; font-weight: bolder; font-size: 25px">
+                <a class="navbar-brand" href="{{ url('/') }}" style="color: #267AB7; font-weight: bolder; font-size: 25px">
                     Mediaverse
                 </a>
             </div>
@@ -132,7 +132,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     {{--<li><a href="{{ url('/diensten') }}">Diensten</a></li>--}}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -162,7 +162,7 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('referenties') }}">Referenties</a></li>
-                    <li><a href="{{ route('about') }}">Over ons</a></li>
+                    <li><a href="{{ url('/over-ons') }}">Over ons</a></li>
                 </ul>
                 @if (Auth::check())
                     <ul class="nav navbar-nav pull-right">
@@ -170,8 +170,8 @@
                     </ul>
                 @endif
                 <ul class="nav navbar-nav pull-right">
-                    <li><a><span style=" line-height: 90% !important;">tel: +31 6 53 779 761</span></a></li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
+                    <li><a><span class="text-muted btn btn-primary" style=" line-height: 90% !important;">tel: +31 6 53 779 761</span></a></li>
+                    <li><a href="{{route('admin.index')}}">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -183,29 +183,27 @@
         <div class="upper-footer">
             <div class="container">
                 <div class="col-lg-3">
-                    <h3 style="color: #fff;">Diensten</h3>
-                    <ul class="list-unstyled">
-                        <li>> <a href="{{ route('page.app') }}">Applicaties</a></li>
-                        <li>> <a href="{{ route('page.seo') }}">Search engine optimization </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}">Hosting </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}">Logo / illustraties </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}">Fotografie </a></li>
+                    <h3 style="color: #fff;">Services</h3>
+                    <ul>
+                        <li><a href="{{ url('/seo') }}">SEO</a></li>
+                        <li><a href="{{ url('/applicaties') }}">Applicaties</a></li>
+                        <li><a href="#">Hosting</a></li>
+                        <li><a href="#">Laravel</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <h3 style="color: #fff;">Contact</h3>
-                    <span style="color: #777;"><i class="fa fa-map-marker" aria-hidden="true"></i> Pietercoecke straat 14, 5643 VK Eindhoven</span>
-                    <br>
-                    <span style="color: #fff;"><i class="fa fa-envelope" aria-hidden="true"></i> info@mediaverse.nl</span>
-                    <br>
-                    <span style="color: #777;"><i class="fa fa-phone-square" aria-hidden="true"></i> +31 6 - 53779761</span>
-                    <br>
-                    <div style="font-size:35px;">
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-                    </div>
+                    <i class="fa fa-map-marker" style="color: #777;" aria-hidden="true"></i>
+                    <span style="color: #777;">
+                        Mediaverse<br> Pietercoecke straat 14<br>
+                        5643 VK Eindhoven<br>
+                        <i class="fa fa-phone" style="color: #777;" aria-hidden="true"></i> 06 - 53779761<br>
+                        <i class="fa fa-envelope" style="color: #777;" aria-hidden="true"></i> <a style="color: #fff;">info@mediaverse.nl</a><br>
+                    </span>
+                    <i class="fa fa-twitter fa-lg"  aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
                     <span></span>
                     <p></p>
                 </div>
@@ -214,19 +212,19 @@
                     <span><img src="/images/icons/Slack CMYK.png" class="img-responsiv" style="height: 50px;">
                         <br>
                         <br>
-                    <p>The best communication with slack</p>
+                    {{--<p>The best communication with slack</p>--}}
                     <span><img src="/images/icons/laravel.png" class="img-responsive" style="height: 100px"></span>
-                    <p>We develop your software with laravel 5</p>
+                    {{--<p>We develop your software with laravel 5</p>--}}
                 </div>
             </div>
         </div>
         <div class="bottom-footer">
-            <div class="container"><br>
+            <div class="container">
                 <ul class="bottom-stash pull-left">
-                    <li><a style="color: #777 !important;" href="{{ route('page.algvoorwaarden') }}">algemene voorwaarden</a></li>
-                    <li><a style="color: #777 !important;" href="{{ route('page.sitemap') }}">sitemap</a></li>
-                    <li><a style="color: #777 !important;" href="{{ route('page.priverklaring') }}">privacy verklaring</a></li>
-                    <li><a style="color: #777 !important;" href="{{ route('contact') }}">contact</a></li>
+                    <li><a href="{{ url('/algemene-voorwaarden') }}" style="color: #fff;">algemene voorwaarden</a></li>
+                    <li><a href="{{ url('/sitemap') }}" style="color: #fff;">sitemap</a></li>
+                    <li><a href="{{ url('/privacy-verklaring') }}" style="color: #fff;">privacy verklaring</a></li>
+                    <li><a href="{{ url('/contact') }}" style="color: #fff;">contact</a></li>
                 </ul>
                 <p class="text-muted pull-right">Copyright &copy; 2016 Mediaverse</p>
             </div>

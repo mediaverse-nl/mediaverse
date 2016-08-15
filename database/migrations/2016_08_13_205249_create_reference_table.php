@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTable extends Migration
+class CreateReferenceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateTable extends Migration
     public function up()
     {
         Schema::create('reference', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
+            $table->string('title');
             $table->string('link');
-            $table->string('name');
-            $table->string('description');
+            $table->string('beschrijving');
+            $table->string('werkzaamheden');
+            $table->string('resultaten');
             $table->timestamp('created_at');
         });
     }
@@ -29,6 +31,5 @@ class CreateTable extends Migration
     public function down()
     {
         Schema::drop('reference');
-
     }
 }

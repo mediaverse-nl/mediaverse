@@ -10,6 +10,13 @@ use App\Http\Requests;
 
 class ReferenceController extends Controller
 {
+    protected $reference;
+
+    public function __construct()
+    {
+        $this->reference = new Reference();
+     }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,9 +54,9 @@ class ReferenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($reference)
     {
-        //
+        return view('referentie');
     }
 
     /**

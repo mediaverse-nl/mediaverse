@@ -17,6 +17,12 @@ Breadcrumbs::register('about', function($breadcrumbs) {
     $breadcrumbs->push('about', route('about'));
 });
 
+// Home > Contact
+Breadcrumbs::register('contact', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Contact', 'asdasd');
+});
+
 // Home > Blog
 Breadcrumbs::register('blog', function($breadcrumbs) {
     $breadcrumbs->parent('home');

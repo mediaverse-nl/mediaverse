@@ -13,6 +13,22 @@
 
 Route::auth();
 
+//Route::get('/', 'HomeController@index');
+Route::get('/', ['as' => 'home', function () { return view('home'); }]);
+Route::get('/references', ['as' => 'referenties', 'uses' => 'ReferenceController@index']);
+Route::get('/reference/{reference}', ['as' => 'referenties.show', 'uses' => 'ReferenceController@show']);
+Route::get('/algemene-voorwaarden', ['as' => 'page.algvoorwaarden', function () { return view('algemene-voorwaarden'); }]);
+Route::get('/applicaties', ['as' => 'page.app', function () { return view('applicaties'); }]);
+Route::get('/contact', ['as' => 'contact', function () { return view('contact'); }]);
+Route::get('/diensten', ['as' => 'page.diensten', function () { return view('diensten'); }]);
+Route::get('/over-ons',  ['as' => 'about', function () { return view('over-ons'); }]);
+Route::get('/privacy-verklaring', ['as' => 'page.priverklaring', function () { return view('privacy-verklaring'); }]);
+Route::get('/seo', ['as' => 'page.seo', function () { return view('seo'); }]);
+Route::get('/sitemap', ['as' => 'page.sitemap', function () { return view('sitemap'); }]);
+Route::get('/webshops', ['as' => 'page.webshop', function () { return view('webshops'); }]);
+Route::get('/websites', ['as' => 'page.websites', function () { return view('websites'); }]);
+Route::get('/websites', ['as' => 'page.hosting', function () { return view('hosting'); }]);
+
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
 
     Route::get('/', ['as' => 'index', function () {
@@ -35,17 +51,3 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     });
 
 });
-
-//Route::get('/', 'HomeController@index');
-Route::get('/', ['as' => 'home', function () { return view('home'); }]);
-Route::get('/referenties', ['as' => 'referenties', 'uses' => 'ReferenceController@index']);
-Route::get('/algemene-voorwaarden', function () { return view('algemene-voorwaarden'); });
-Route::get('/applicaties', function () { return view('applicaties'); });
-Route::get('/contact', function () { return view('contact'); });
-Route::get('/diensten', function () { return view('diensten'); });
-Route::get('/over-ons',  ['as' => 'about', function () { return view('over-ons'); }]);
-Route::get('/privacy-verklaring', function () { return view('privacy-verklaring'); });
-Route::get('/seo', function () { return view('seo'); });
-Route::get('/sitemap', function () { return view('sitemap'); });
-Route::get('/webshops', function () { return view('webshops'); });
-Route::get('/websites', function () { return view('websites'); });

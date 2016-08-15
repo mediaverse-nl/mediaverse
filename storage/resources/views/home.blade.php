@@ -4,7 +4,7 @@
 @section('description', 'This is a description')
 
 @section('keywords', 'ik ben een pagina met, blue, black, white keys')
-@section('keywords', 'ik ben een pagina met, blue, black, white keys')
+{{--@section('keywords', 'ik ben een pagina met, blue, black, white keys')--}}
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
@@ -61,39 +61,41 @@
             border-right: 35px solid transparent;
             border-top: 10px solid #1e61b7;
         }
-
     </style>
 @endsection
 
 @section('content')
 
-    <div class="container-fluid">
-        <div class="slider-main row">
-            <div class="col-lg-12 view">
-                <img id="image" src="/images/software-computer-code-1940x900_35196.jpg">
-            </div>
-            <div class="col-lg-12 view">
-                <img id="image" src="/images/software-computer-code-1940x900_35196.jpg">
-            </div>
-            <div class="col-lg-12 view">
-                <img id="image" src="/images/code-cleanup.png">
-            </div>
+    <div class="slider-main">
+        <div class="col-lg-12 view">
+            <img id="image" src="/images/software-computer-code-1940x900_35196.jpg">
+        </div>
+        <div class="col-lg-12 view">
+            <img id="image" src="/images/software-computer-code-1940x900_35196.jpg">
+        </div>
+        <div class="col-lg-12 view">
+            <img id="image" src="/images/code-cleanup.png">
         </div>
     </div>
+
+    {{--get all routes for text on pages--}}
+    {{--@foreach (Route::getRoutes() as $value)--}}
+        {{--{{$value->getName()}}<br>--}}
+    {{--@endforeach--}}
 
     <div class="container">
 
         <div class="row">
-            <a href="http://mediaverse.nl/websites">
+            <a href="{{ url('websites') }}">
                 <div class="col-lg-4 text-center">
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
-                        <img src="/images/icons/responsive.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
+                        <img src="/images/icons/responsive.png" class="img-responsive center-block" style="height: 85%; width: 85%;" >
                     </div>
                     <h1>website</h1>
                 </div>
             </a>
-            <a href="http://mediaverse.nl/seo">
+            <a href="{{ url('seo') }}">
                 <div class="col-lg-4 text-center">
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
@@ -102,7 +104,7 @@
                     <h1>SEO</h1>
                 </div>
             </a>
-            <a href="http://mediaverse.nl/webshops">
+            <a href="{{ url('webshops') }}">
                 <div class="col-lg-4 text-center">
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
@@ -112,48 +114,28 @@
                 </div>
             </a>
         </div>
-
         <hr>
-
-        <div class="container-fluid">
-            <h3 class="text-center">Welke dienst zoekt u?</h3>
+        <div class="row">
+            <h2 class="text-center">Wat zoekt u?</h2>
             <p class="text-center">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek.</p>
             <br>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <i class="fa fa-camera-retro" aria-hidden="true"></i>
-                    Fotografie
-                </div>
+            <div class="col-lg-4 thumbnail">
+                Foto's
             </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <i class="fa fa-server" aria-hidden="true"></i>
-                    Hosting
-                </div>
+            <div class="col-lg-4 thumbnail">
+                Video's
             </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    Vindbaar op google
-                </div>
+            <div class="col-lg-4 thumbnail">
+                Logo's
             </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <i class="fa fa-font" aria-hidden="true"></i>
-                    Teksten voor uw site
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
-                    Logo's / illustraties
-                </div>
+            <div class="col-lg-4 thumbnail">
+                Hosting
             </div>
         </div>
 
     </div>
 
-    <div class="container-fluid" style="background: #f4f4f4; margin-top: 50px; ">
+    <div class="row" style="background: #f4f4f4; margin-top: 50px; ">
         <div class="container" style="padding: 20px 0px 0px 0px">
             <div class="col-lg-6">
                 <img class="img-responsive" src="http://johnpolacek.github.io/scrolldeck.js/decks/responsive/img/responsive_web_design.png">
@@ -165,7 +147,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="row">
         <div class="row" style="background: #267AB7; height: 200px; border-bottom: 20px solid #1e61b7; margin-bottom: 20px">
             <div class="container">
                 <h2 class="text-center " style="color: white !important; margin-top: 25px;"> Take a look at some of our work</h2>
@@ -190,7 +172,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color:#0E0E0E; margin-top: 50px; padding: 20px 0px;">
+    <div class="row" style="background-color:#0E0E0E; margin-top: 50px; padding: 20px 0px;">
         <div class="container">
             <h2 class="text-center" style="color: #fff !important;">Clients queto's</h2>
             <span class="muted center-text">John Doe</span>
@@ -204,7 +186,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color: #F2F2F2; margin-bottom: -50px; padding-bottom: 50px;">
+    <div class="row" style="background-color: #F2F2F2; margin-bottom: -50px; padding-bottom: 50px;">
         <div class="container">
             <h2 class="text-center" style="margin-top: 20px;">Our Team</h2><hr>
             <div class="row">
