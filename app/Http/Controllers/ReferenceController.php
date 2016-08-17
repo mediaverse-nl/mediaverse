@@ -24,7 +24,7 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        return view('referenties')->with('references', Reference::all());
+        return view('referentie.index')->with('references', Reference::all());
     }
 
     /**
@@ -34,7 +34,7 @@ class ReferenceController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -56,8 +56,10 @@ class ReferenceController extends Controller
      */
     public function show($reference)
     {
-        return view('referentie');
-    }
+        $this->reference->where('name', str_replace('-', ' ', $reference))->first();
+
+        return view('referentie.show');
+    }   
 
     /**
      * Show the form for editing the specified resource.

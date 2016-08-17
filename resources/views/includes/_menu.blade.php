@@ -33,35 +33,78 @@
         <span class="text-muted lead"> Tel: 06 53 77 97 61</span>
         <a href="" class="btn btn-primary">Neem contact op</a>
     </div>
-    <div class="panel-group" id="accordion">
-        {{--<div class="panel panel-default">--}}
-            {{--<div class="panel-heading accordion-heading">--}}
-                {{--<h4 class="panel-title">--}}
-                    {{--<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="accordion-toggle glyphicon glyphicon-folder-close">--}}
-                {{--</span>Websites</a>--}}
-                {{--</h4>--}}
-            {{--</div>--}}
-            {{--<div id="collapseOne" class="panel-collapse collapse in">--}}
-                {{--<ul class="list-group">--}}
-                    {{--<li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://fb.com/moinakbarali">Articles</a></li>--}}
 
-                {{--</ul>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading accordion-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#Websites">
+                        {{--<span class="accordion-toggle glyphicon-folder-close">--}}{{--</span>--}}
+                        Websites
+                    </a>
+                </h4>
+            </div>
+            <div id="Websites" class="panel-collapse collapse in">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/">> Laravel Website</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/">> Hosting en Service</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 class="panel-title">sd
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
-                </span>Reports</a>
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#internetmarketing">
+                    {{--<span class="glyphicon glyphicon-file"></span>--}}
+                        internetmarketing
+                    </a>
                 </h4>
             </div>
-            <div id="collapseFour" class="panel-collapse collapse">
+            <div id="internetmarketing" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="#" class="list-group-item active">
-                        Cras justo odio
+                    <a href="#" class="list-group-item active"></a>
+                    {{--<a href="#" class="list-group-item"></a>--}}
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#webshops">
+                        {{--<span class="glyphicon glyphicon-file"></span>--}}
+                        webshops
                     </a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                </h4>
+            </div>
+            <div id="webshops" class="panel-collapse collapse">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Laravel Webshop</a>
+                    <a href="#" class="list-group-item">Webshops</a>
+                    <a href="#" class="list-group-item"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#visueel">
+                        {{--<span class="glyphicon glyphicon-file"></span>--}}
+                        visueel
+                    </a>
+                </h4>
+            </div>
+            <div id="visueel" class="panel-collapse collapse">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Fotografie</a>
+                    <a href="#" class="list-group-item">Logo's & Illustraties</a>
+                    <a href="#" class="list-group-item">Design</a>
                 </div>
             </div>
         </div>

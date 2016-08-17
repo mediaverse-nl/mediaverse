@@ -20,7 +20,7 @@
                 <div class="panel-body">
 
                     @foreach($references as $reference)
-                        {{$references->name}}
+                        {{--{{$references->name}}--}}
                     @endforeach
                     <div class="col-lg-4">
                         <div class="row">

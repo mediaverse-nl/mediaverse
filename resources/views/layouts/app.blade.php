@@ -156,7 +156,11 @@
                             <li><a href="#">webwinkels</a></li>
                             <li><a href="#">Laravel webwinkel</a></li>
                             <li><a href="#">Onderhoud</a></li>
-
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Visueel</li>
+                            <li><a href="#">Fotografie</a></li>
+                            <li><a href="#">Logo's & Illustratie</a></li>
+                            <li><a href="#">Design</a></li>
                             {{--<li role="separator" class="divider"></li>--}}
                             {{--<li role="separator" class="divider"></li>--}}
                         </ul>
