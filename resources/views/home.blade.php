@@ -6,112 +6,79 @@
 @section('keywords', 'ik ben een pagina met, blue, black, white keys')
 @section('keywords', 'ik ben een pagina met, blue, black, white keys')
 
-@section('css')
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-
-    <style>
-        .slider-main{
-            height: 800px;
-            position: relative;
-            opacity: 1;
-        }
-        .slider-main > div{
-            height: 100%;
-        }
-        #image{
-            object-fit: contain;
-            width: 100%;
-        }
-        .slick-dots{
-            position: absolute;
-            display: inline !important;
-            margin-top: -50px !important;
-            z-index: 200;
-            right: 50px;
-        }
-        .slick-dots > li{
-            display: inline-block;
-
-        }
-        .slick-arrow {
-            width:200px;
-            display: inline-block;
-            overflow: auto;
-            white-space: nowrap;
-            margin:0px auto;
-            border:1px red solid;
-            position: absolute;
-            z-index: 100;
-        }
-        .slick-next {
-            top: 40%;
-            right: 0;
-        }
-        .slick-prev {
-            top: 40%;
-            left: 0;
-        }
-        .view {
-            height: 700px;
-        }
-        .triangle-down {
-            width: 0;
-            height: 0;
-            border-left: 35px solid transparent;
-            border-right: 35px solid transparent;
-            border-top: 10px solid #1e61b7;
-        }
-
-    </style>
-@endsection
-
 @section('content')
 
     <div class="container-fluid">
         <div class="slider-main row">
-            <div class="col-lg-12 view">
-                <img id="image" src="/images/software-computer-code-1940x900_35196.jpg">
+            <div class="col-lg-12">
+                <div class="row view one-img"></div>
+                <h1 class="text-center" style="text-align: center;"><b>Webshop nodig?</b></h1>
+                <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels <br>
+                    in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
+
             </div>
-            <div class="col-lg-12 view">
-                <img id="image" src="/images/software-computer-code-1940x900_35196.jpg">
+            <div class="col-lg-12">
+                <div class="row view two-img"></div>
+                <h1 class="text-center" style="text-align: center;"><b>website nodig?</b></h1>
+                <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. <br>
+                    het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
+
             </div>
-            <div class="col-lg-12 view">
-                <img id="image" src="/images/code-cleanup.png">
+            <div class="col-lg-12">
+                <div class="row view three-img"></div>
+                <h1 class="text-center" style="text-align: center;"><b>Oplossing nodig?</b></h1>
+                <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum <br>
+                    niet zomaar willekeurige tekst. het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
+
             </div>
+
+            {{--<div class="col-lg-12 view three-img">--}}
+                {{--<h1 class="text-center" style="text-align: center;">illustraties </h1>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-12 view two-img">--}}
+                {{--<h1 class="text-center" style="text-align: center;">sadas sad</h1>--}}
+                {{--<p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>--}}
+            {{--</div>--}}
+            {{--<button type="button" class="slick-prev">Previouss</button>--}}
+
         </div>
+
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-top: -70px">
 
         <div class="row">
             <a href="http://mediaverse.nl/websites">
                 <div class="col-lg-4 text-center">
+                    <h1>website</h1>
+
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/responsive.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
                     </div>
-                    <h1>website</h1>
                 </div>
             </a>
             <a href="http://mediaverse.nl/seo">
                 <div class="col-lg-4 text-center">
+                    <h1>SEO</h1>
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/seo.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
                     </div>
-                    <h1>SEO</h1>
                 </div>
             </a>
             <a href="http://mediaverse.nl/webshops">
                 <div class="col-lg-4 text-center">
+                    <h1>webshop</h1>
+
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/shopping_cart.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
                     </div>
-                    <h1>webshop</h1>
                 </div>
             </a>
         </div>
+        <br>
 
         <hr>
 
@@ -238,16 +205,148 @@
 
 @endsection
 
-@section('js')
+
+@push('scripts')
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
     <script>
         $('.slider-main').slick({
-            dots: true,
+            focusOnSelect: false,
             infinite: true,
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+//            infinite: true,
             speed: 300,
             slidesToShow: 1,
-            adaptiveHeight: true
+            adaptiveHeight: true,
+//            variableWidth: true,
+            prevArrow:"<div class='prev'></div>",
+            nextArrow:"<div class='next'></div>",
         });
     </script>
-@endsection
+@endpush
+
+@push('css')
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
+<style>
+    .slider-main{
+        height: 800px;
+        position: relative;
+        opacity: 1;
+    }
+    .slider-main > div{
+        height: 100%;
+    }
+    /*#image{*/
+    /*object-fit: contain;*/
+    /*width: 100%;*/
+    /*}*/
+    .slick-dots{
+        position: absolute;
+        display: inline !important;
+        margin-top: -50px !important;
+        z-index: 200;
+        right: 50px;
+    }
+    .slick-dots > li{
+        display: inline-block;
+    }
+    .slick-arrow {
+        /*width:200px;*/
+        display: inline-block;
+        /*overflow: auto;*/
+        white-space: nowrap;
+        margin:0px auto;
+        position: absolute;
+        z-index: 100;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    /*.slick-arrow::selection { background: transparent; }*/
+    .next {
+        height: 120px !important;
+        top: 35%;
+        right: 0;
+        z-index: 100;
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid rgba(38, 122, 183, 0.2);
+    }
+    .prev {
+        height: 120px !important;
+        top: 35%;
+        left: 0;
+        z-index: 100;
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-right: 60px solid rgba(38, 122, 183, 0.2);
+    }
+
+    .view {
+        height: 700px !important;
+        padding: 0px;
+        position: relative;
+        background: #000000;
+        overflow: hidden;
+    }
+    .slider-main h1{
+        top: 230px;
+        min-height: 80px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+        color: #267AB7;
+    }
+    .slider-main p{
+        top: 300px;
+        min-height: 80px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+        color: #F4F4F4;
+    }
+    .slide {
+        position: relative;
+    }
+    .view:before{
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.3;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .one-img:before{
+        background-image: url('/images/software-computer-code-1940x900_35196.jpg');
+    }
+    .two-img:before{
+        background-image: url('/images/software-computer-code-1940x900_35196.jpg');
+    }
+    .three-img:before{
+        background-image: url('/images/code-cleanup.png');
+    }
+    .triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 35px solid transparent;
+        border-right: 35px solid transparent;
+        border-top: 10px solid #1e61b7;
+    }
+
+</style>
+@endpush

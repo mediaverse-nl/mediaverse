@@ -13,7 +13,7 @@ class CreateReferenceImageTable extends Migration
     public function up()
     {
         Schema::create('reference_image', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->increments('id');
             $table->integer('reference_id')->unsigned();
             $table->foreign('reference_id')->references('id')->on('reference');
             $table->string('image')->unique();

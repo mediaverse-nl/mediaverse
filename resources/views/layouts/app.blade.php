@@ -28,7 +28,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-    @yield('css')
+    @stack('css')
 
     <style>
         body {
@@ -76,7 +76,7 @@
         .bottom-footer{
             background-color: #060606;
             height: 100px;
-            padding: 40px;
+            padding: 20px;
         }
         .bottom-stash ul{
             margin-top: 15px;
@@ -102,16 +102,75 @@
         }
         .fa{
             color: #267AB7;
-            margin-top: 15px;
+            /*margin-top: 15px;*/
         }
-
         .page-header{
             border-top: 3px solid #777777 ;
+        }
+
+        /*big menu*/
+        .dropdown-menu-lg {
+            width: 750px;
+            padding: 10px 0px;
+        }
+        .dropdown-menu-lg > li > ul {
+            padding: 0;
+            margin: 0;
+        }
+        .dropdown-menu-lg > li > ul > li {
+            list-style: none;
+        }
+        .dropdown-menu-lg > li > ul > li > a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 1.428571429;
+            color: #333333;
+            white-space: normal;
+        }
+        .dropdown-menu-lg > li ul > li > a:hover,
+        .dropdown-menu-lg > li ul > li > a:focus {
+            text-decoration: none;
+            color: #262626;
+            background-color: #f5f5f5;
+        }
+        .dropdown-menu-lg .disabled > a,
+        .dropdown-menu-lg .disabled > a:hover,
+        .dropdown-menu-lg .disabled > a:focus {
+            color: #999999;
+        }
+        .dropdown-menu-lg .disabled > a:hover,
+        .dropdown-menu-lg .disabled > a:focus {
+            text-decoration: none;
+            background-color: transparent;
+            background-image: none;
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+            cursor: not-allowed;
+        }
+        .dropdown-menu-lg .dropdown-header {
+            color: #428bca;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .dropdown-menu-lg {
+                margin-left: 0 ;
+                margin-right: 0 ;
+            }
+            .dropdown-menu-lg > li {
+                margin-bottom: 30px;
+            }
+            .dropdown-menu-lg > li:last-child {
+                margin-bottom: 0;
+            }
+            .dropdown-menu-lg .dropdown-header {
+                padding: 3px 15px !important;
+            }
         }
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" style="background: #F4F4F4;">
         <div class="container">
             <div class="navbar-header">
 
@@ -134,36 +193,45 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
                     {{--<li><a href="{{ url('/diensten') }}">Diensten</a></li>--}}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Diensten
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            {{--<li role="separator" class="divider"></li>--}}
-                            <li class="dropdown-header">Web applicatie</li>
-                            <li><a href="#">Laravel websites</a></li>
-                            <li><a href="#">contect management</a></li>
-                            <li><a href="#">hosting en service</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Internetmarketing</li>
-                            <li><a href="#">zoekmachine optimalisatie</a></li>
-                            <li><a href="#">Vindbaar op google</a></li>
-                            <li><a href="{{route('page.seo')}}">SEO</a></li>
-                            <li><a href="#"></a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">webwinkel</li>
-                            <li><a href="#">webwinkels</a></li>
-                            <li><a href="#">Laravel webwinkel</a></li>
-                            <li><a href="#">Onderhoud</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Visueel</li>
-                            <li><a href="#">Fotografie</a></li>
-                            <li><a href="#">Logo's & Illustratie</a></li>
-                            <li><a href="#">Design</a></li>
-                            {{--<li role="separator" class="divider"></li>--}}
-                            {{--<li role="separator" class="divider"></li>--}}
+
+                    <li class="dropdown dropdown-lg">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diensten <b class="caret"></b></a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg row">
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header">Web applicatie</li>
+                                    <li><a href="#">Laravel websites</a></li>
+                                    <li><a href="#">contect management</a></li>
+                                    <li><a href="#">hosting en service</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header">Internetmarketing</li>
+                                    <li><a href="#">zoekmachine optimalisatie</a></li>
+                                    <li><a href="#">Vindbaar op google</a></li>
+                                    <li><a href="{{route('page.seo')}}">SEO</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header">webwinkel</li>
+                                    <li><a href="#">webwinkels</a></li>
+                                    <li><a href="#">Laravel webwinkel</a></li>
+                                    <li><a href="#">Onderhoud</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3">
+                                <ul>
+                                    <li class="dropdown-header">Visueel</li>
+                                    <li><a href="#">Fotografie</a></li>
+                                    <li><a href="#">Logo's & Illustratie</a></li>
+                                    <li><a href="#">Design</a></li>
+                                </ul>
+                            </li>
                         </ul>
+
                     </li>
                     <li><a href="{{ route('referenties') }}">Referenties</a></li>
                     <li><a href="{{ route('about') }}">Over ons</a></li>
@@ -241,7 +309,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-    @yield('js')
+    @stack('scripts')
 
 </body>
 </html>

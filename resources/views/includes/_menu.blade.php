@@ -29,8 +29,8 @@
             {{--<li class="{{ Request::url() == route('admin.reference.index') ? 'active' : '' }}"><a href="{{route('admin.reference.index')}}">references</a></li>--}}
         {{--</ul>--}}
     {{--</div>--}}
-    <div class="panel panel-default">
-        <span class="text-muted lead"> Tel: 06 53 77 97 61</span>
+    <div class="panel panel-default thumbnail" style="background: #F4F4F4;">
+        <span class="lead"><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</span>
         <a href="" class="btn btn-primary">Neem contact op</a>
     </div>
 

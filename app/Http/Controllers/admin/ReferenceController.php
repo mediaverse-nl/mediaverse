@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Reference;
 
+use Validator;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,11 +13,11 @@ use App\Http\Controllers\Controller;
 
 class ReferenceController extends Controller
 {
-    public $reference;
+    protected $reference;
 
     public function __construct()
     {
-        $this->reference = new Reference;
+        $this->reference = new Reference();
     }
 
     /**
@@ -25,7 +27,7 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        return view('admin.references.index')->with('references', $this->reference->all());
+        return view('admin.reference.index')->with('references', $this->reference->all());
     }
 
     /**
@@ -35,7 +37,7 @@ class ReferenceController extends Controller
      */
     public function create()
     {
-        return view('admin.references.create');
+        return view('admin.reference.create');
 
     }
 
@@ -47,7 +49,36 @@ class ReferenceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+
+        ];
+        $rules = [
+//            'status'          => 'required',
+            'thumbnails'     => 'mimes:jpg,jpeg',
+            'video'          => 'mimes:mp4,webm',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('admin.reference.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $this->reference->title = $request->title;
+        $this->reference->link = $request->link;
+        $this->reference->beschrijving = $request->beschrijving;
+        $this->reference->werkzaamheden = $request->werkzaamheden;
+        $this->reference->resultaten = $request->resultaten;
+//        $this->reference = $request->beschrijving;
+
+        $this->reference->save();
+
+        \Session::flash('succes_message','successfully.');
+
+        return redirect()->route('admin.reference.index');
     }
 
     /**

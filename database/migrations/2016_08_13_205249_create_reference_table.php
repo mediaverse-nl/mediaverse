@@ -13,13 +13,13 @@ class CreateReferenceTable extends Migration
     public function up()
     {
         Schema::create('reference', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->increments('id');
             $table->string('title');
             $table->string('link');
             $table->string('beschrijving');
             $table->string('werkzaamheden');
             $table->string('resultaten');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

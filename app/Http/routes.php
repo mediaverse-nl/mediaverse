@@ -15,19 +15,23 @@ Route::auth();
 
 //Route::get('/', 'HomeController@index');
 Route::get('/', ['as' => 'home', function () { return view('home'); }]);
-Route::get('/references', ['as' => 'referenties', 'uses' => 'ReferenceController@index']);
+
+Route::get('/reference', ['as' => 'referenties', 'uses' => 'ReferenceController@index']);
 Route::get('/reference/{reference}', ['as' => 'referenties.show', 'uses' => 'ReferenceController@show']);
+
 Route::get('/algemene-voorwaarden', ['as' => 'page.algvoorwaarden', function () { return view('algemene-voorwaarden'); }]);
 Route::get('/applicaties', ['as' => 'page.app', function () { return view('applicaties'); }]);
 Route::get('/contact', ['as' => 'contact', function () { return view('contact'); }]);
 Route::get('/diensten', ['as' => 'page.diensten', function () { return view('diensten'); }]);
 Route::get('/over-ons',  ['as' => 'about', function () { return view('over-ons'); }]);
 Route::get('/privacy-verklaring', ['as' => 'page.priverklaring', function () { return view('privacy-verklaring'); }]);
-Route::get('/seo', ['as' => 'page.seo', function () { return view('seo'); }]);
+Route::get('/seo', ['as' => 'page.seo', function () { return view('pages.seo'); }]);
 Route::get('/sitemap', ['as' => 'page.sitemap', function () { return view('sitemap'); }]);
 Route::get('/webshops', ['as' => 'page.webshop', function () { return view('webshops'); }]);
 Route::get('/websites', ['as' => 'page.websites', function () { return view('websites'); }]);
 Route::get('/websites', ['as' => 'page.hosting', function () { return view('hosting'); }]);
+
+
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
 
@@ -43,11 +47,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::group(['prefix' => 'reference', 'as' => 'reference.'], function () {
         Route::get('/', ['as' => 'index', 'uses' => 'admin\ReferenceController@index']);
         Route::get('/create', ['as' => 'create', 'uses' => 'admin\ReferenceController@create']);
-        Route::post('/', ['as' => 'store', 'uses' => 'ReferenceController@store']);
-        Route::get('/show/{id}', ['as' => 'show', 'uses' => 'ReferenceController@show']);
-        Route::get('/{id}/edit', ['as' => 'edit', 'uses' => 'ReferenceController@edit']);
-        Route::patch('/edit/{id}', ['as' => 'update', 'uses' => 'ReferenceController@update']);
-        Route::delete('/edit/{id}', ['as' => 'destroy', 'uses' => 'ReferenceController@destroy']);
+        Route::post('/', ['as' => 'store', 'uses' => 'admin\ReferenceController@store']);
+        Route::get('/{id}/edit', ['as' => 'edit', 'uses' => 'admin\ReferenceController@edit']);
+        Route::patch('/edit/{id}', ['as' => 'update', 'uses' => 'admin\ReferenceController@update']);
+        Route::delete('/edit/{id}', ['as' => 'destroy', 'uses' => 'admin\ReferenceController@destroy']);
     });
 
 });
