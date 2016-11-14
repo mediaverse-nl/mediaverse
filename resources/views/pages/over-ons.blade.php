@@ -2,16 +2,7 @@
 
 @section('content')
 
-<div class="page-header">
-     <div class="container">
-        <div class="row">
-            {!! Breadcrumbs::render('about') !!}
-            <div class="col-lg-12">
-                <h1>about</h1>
-            </div>
-        </div>
-     </div>
-</div>
+    @include('includes._breadcrumbs', ['breadcrumbs' => Breadcrumbs::render('about')])
 
 
 <div class="container">

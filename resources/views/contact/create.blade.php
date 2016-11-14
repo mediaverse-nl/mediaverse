@@ -1,16 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-                {!! Breadcrumbs::render('contact') !!}
-                <div class="col-lg-12">
-                    <h1>Contact</h1>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    @include('includes._breadcrumbs', ['breadcrumbs' => Breadcrumbs::render('contact')])
 
     <style>
         .control-label{
@@ -60,6 +52,16 @@
                     <div class="col-md-6">
                         <span><b>Contact us through</b></span>
                         <p>tel: +13 0 53779761 <br> Email: info@mediaverse.nl</p>
+
+                        <br>
+                    </div>
+                    <div class="col-md-6">
+                        <span><b>Contact us through</b></span>
+                        <p>
+                            Handelsnaam: Mediaverse<br>
+                            Bank: NL42 ABNA 0594 0761 10<br>
+                            kvk: 58808442 <br> </p>
+                        <br>
                         <br>
                     </div>
                 </div>
@@ -109,34 +111,38 @@
     </div>
 @endsection
 
-@section('js')
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMvcTakOHU-P11jscLB2yR8tiXmQGQDI8&callback=initMap"></script>
-    <script type="text/javascript">
-        function init_map(){
-            var myOptions = {
-                zoom:13,
-                center:new google.maps.LatLng(51.4271692,5.507636199999979),
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                scrollwheel: false,
-            };
-            map = new google.maps.Map(
-                    document.getElementById("gmap_canvas"),
-                    myOptions
-            );
-            marker = new google.maps.Marker({
-                map: map,
-                position: new google.maps.LatLng(51.4271692, 5.507636199999979)
-            });
-            infowindow = new google.maps.InfoWindow({
-                content:"<b>Mediaverse</b><br/>pietercoecke straat 14<br/>5643vk eindhoven"
-            });
-            google.maps.event.addListener(
-                    marker, "click", function(){
-                        infowindow.open(map,marker);
-                    });
-            infowindow.open(map,marker);
-        }
-        google.maps.event.addDomListener(window, 'load', init_map);
-    </script>
-@stop
+@push('css')
+
+@endpush
+
+@push('scripts')
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMvcTakOHU-P11jscLB2yR8tiXmQGQDI8&callback=initMap"></script>
+<script type="text/javascript">
+    function init_map(){
+        var myOptions = {
+            zoom:13,
+            center:new google.maps.LatLng(51.4271692,5.507636199999979),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false,
+        };
+        map = new google.maps.Map(
+                document.getElementById("gmap_canvas"),
+                myOptions
+        );
+        marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(51.4271692, 5.507636199999979)
+        });
+        infowindow = new google.maps.InfoWindow({
+            content:"<b>Mediaverse</b><br/>pietercoecke straat 14<br/>5643vk eindhoven"
+        });
+        google.maps.event.addListener(
+                marker, "click", function(){
+                    infowindow.open(map,marker);
+                });
+        infowindow.open(map,marker);
+    }
+    google.maps.event.addDomListener(window, 'load', init_map);
+</script>
+@endpush

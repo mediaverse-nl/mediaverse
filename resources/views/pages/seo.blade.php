@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'apple 1')
-@section('description', 'apple met gele kleur')
-@section('keywords', 'apple, kleur')
+@section('title', $seo ? $seo->title : '' )
+@section('description', $seo ? $seo->description : '')
+@section('keywords',  $seo ? $seo->keywords : '')
+
+@push('meta-tags')
+
+@endpush
 
 @section('content')
 
-    @include('includes._breadcrumbs', ['breadcrumbs' => Breadcrumbs::render('referenties')])
+    @include('includes._breadcrumbs', ['breadcrumbs' => Breadcrumbs::render('seo')])
 
     <div class="container">
         <div class="row">
@@ -14,7 +18,7 @@
             @include('includes._menu')
 
             <div class="col-lg-8">
-                <h1>title pagina</h1>
+                <h1>Search Engine Optimalisatie</h1>
 
                 <b>kop </b>
                 <p>

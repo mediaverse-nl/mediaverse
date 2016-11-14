@@ -6,46 +6,100 @@
  * Time: 14:06
  */
 
-// Home
 Breadcrumbs::register('home', function($breadcrumbs) {
     $breadcrumbs->push('Home', route('home'));
 });
-
-// Home > About
 Breadcrumbs::register('about', function($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('about', route('about'));
+    $breadcrumbs->push('about', route('page.about'));
 });
-
-// Home > Contact
 Breadcrumbs::register('contact', function($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Contact', 'asdasd');
 });
-
-// Home > Blog
-Breadcrumbs::register('blog', function($breadcrumbs) {
-    $breadcrumbs->parent('home');
-    $breadcrumbs->push('Blog', route('blog'));
-});
-
-// Home > Referenties
 Breadcrumbs::register('referenties', function($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Referenties', route('referenties'));
 });
-
-// Home > Blog > [Category]
-Breadcrumbs::register('category', function($breadcrumbs, $category) {
-    $breadcrumbs->parent('blog');
-    $breadcrumbs->push($category->title, route('category', $category->id));
+Breadcrumbs::register('algemene-voorwaarden', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Algemene voorwaarden', route('page.algvoorwaarden'));
+});
+Breadcrumbs::register('content-management', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Content Management', route('page.cms'));
+});
+Breadcrumbs::register('design', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Design', route('page.design'));
+});
+Breadcrumbs::register('hosting', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Hosting & Service', route('page.hosting'));
+});
+Breadcrumbs::register('laravel-websites', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Laravel Websites', route('page.laravel_websites'));
+});
+Breadcrumbs::register('laravel-webshop', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Laravel Webwinkel', route('page.laravel_webshop'));
+});
+Breadcrumbs::register('logo-illustraties', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push("Logo's & Illustratie's", route('page.logo_illustratie'));
+});
+Breadcrumbs::register('onderhoud', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Onderhoud', route('page.onderhoud'));
+});
+Breadcrumbs::register('over-ons', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Over Ons', route('page.about'));
+});
+Breadcrumbs::register('fotografie', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Fotografie', route('page.photography'));
+});
+Breadcrumbs::register('privacy', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Privacy Verklaring', route('page.priverklaring'));
+});
+Breadcrumbs::register('seo', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Search Engine Optimalisatie', route('page.seo'));
+});
+Breadcrumbs::register('sitemap', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Sitemap', route('page.sitemap'));
+});
+Breadcrumbs::register('vindbaarheid', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Vindbaar Op Google', route('page.vindbaarheid'));
+});
+Breadcrumbs::register('webshop', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Webwinkel', route('page.webshop'));
+});
+Breadcrumbs::register('websites', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Websites', route('page.websites'));
 });
 
-// Home > Blog > [Category] > [Page]
-Breadcrumbs::register('page', function($breadcrumbs, $page) {
-    $breadcrumbs->parent('category', $page->category);
-    $breadcrumbs->push($page->title, route('page', $page->id));
+Breadcrumbs::register('zoekmachine', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Zoekmachine Optimalisatie', route('page.internet_marketing'));
 });
+
+//Breadcrumbs::register('', function($breadcrumbs) {
+//    $breadcrumbs->parent('home');
+//    $breadcrumbs->push('', route('page.'));
+//});
+//
+//Breadcrumbs::register('', function($breadcrumbs) {
+//    $breadcrumbs->parent('home');
+//    $breadcrumbs->push('', route('page.'));
+//});
 
 
 //Admin panel

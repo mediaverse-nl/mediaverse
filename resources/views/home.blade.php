@@ -2,9 +2,11 @@
 
 @section('title', 'This is an individual page title')
 @section('description', 'This is a description')
+@section('keywords', 'ik ben een pagina met, blue, black, white keys')
 
-@section('keywords', 'ik ben een pagina met, blue, black, white keys')
-@section('keywords', 'ik ben een pagina met, blue, black, white keys')
+@push('meta-tags')
+    <meta name="google-site-verification" content="eN2ZhbgwWLU3wuEhlogHC2uuYJlk08uzhqjqF4zE7x4" />
+@endpush
 
 @section('content')
 
@@ -15,31 +17,19 @@
                 <h1 class="text-center" style="text-align: center;"><b>Webshop nodig?</b></h1>
                 <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels <br>
                     in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
-
             </div>
             <div class="col-lg-12">
                 <div class="row view two-img"></div>
                 <h1 class="text-center" style="text-align: center;"><b>website nodig?</b></h1>
                 <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. <br>
                     het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
-
             </div>
             <div class="col-lg-12">
                 <div class="row view three-img"></div>
                 <h1 class="text-center" style="text-align: center;"><b>Oplossing nodig?</b></h1>
                 <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum <br>
                     niet zomaar willekeurige tekst. het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
-
             </div>
-
-            {{--<div class="col-lg-12 view three-img">--}}
-                {{--<h1 class="text-center" style="text-align: center;">illustraties </h1>--}}
-            {{--</div>--}}
-            {{--<div class="col-lg-12 view two-img">--}}
-                {{--<h1 class="text-center" style="text-align: center;">sadas sad</h1>--}}
-                {{--<p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>--}}
-            {{--</div>--}}
-            {{--<button type="button" class="slick-prev">Previouss</button>--}}
 
         </div>
 
@@ -48,18 +38,17 @@
     <div class="container" style="margin-top: -70px">
 
         <div class="row">
-            <a href="http://mediaverse.nl/websites">
-                <div class="col-lg-4 text-center">
+            <a href="{{route('page.websites')}}">
+                <div class="col-lg-4 text-center main-service animated">
                     <h1>website</h1>
-
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/responsive.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
                     </div>
                 </div>
             </a>
-            <a href="http://mediaverse.nl/seo">
-                <div class="col-lg-4 text-center">
+            <a href="{{route('page.seo')}}">
+                <div class="col-lg-4 text-center main-service animated">
                     <h1>SEO</h1>
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
@@ -67,8 +56,8 @@
                     </div>
                 </div>
             </a>
-            <a href="http://mediaverse.nl/webshops">
-                <div class="col-lg-4 text-center">
+            <a href="{{route('page.webshop')}}">
+                <div class="col-lg-4 text-center main-service animated">
                     <h1>webshop</h1>
 
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
@@ -82,7 +71,7 @@
 
         <hr>
 
-        <div class="container-fluid">
+        <div class="container-fluid services animated">
             <h3 class="text-center">Welke dienst zoekt u?</h3>
             <p class="text-center">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek.</p>
             <br>
@@ -122,10 +111,10 @@
 
     <div class="container-fluid" style="background: #f4f4f4; margin-top: 50px; ">
         <div class="container" style="padding: 20px 0px 0px 0px">
-            <div class="col-lg-6">
+            <div id="slider-left" class="col-lg-6 animated">
                 <img class="img-responsive" src="http://johnpolacek.github.io/scrolldeck.js/decks/responsive/img/responsive_web_design.png">
             </div>
-            <div class="col-lg-6">
+            <div id="slider-right" class="col-lg-6 animated">
                 <h2 class="lead text-center">Responsive Website Mobile, Tablet en Computer</h2>
                 <p class="lead text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
             </div>
@@ -157,7 +146,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color:#0E0E0E; margin-top: 50px; padding: 20px 0px;">
+    <div class="container-fluid" style="background-color:#0E0E0E; margin-top: 0px; padding: 0px 0px;">
         <div class="container">
             <h2 class="text-center" style="color: #fff !important;">Clients queto's</h2>
             <span class="muted center-text">John Doe</span>
@@ -171,7 +160,7 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color: #F2F2F2; margin-bottom: -50px; padding-bottom: 50px;">
+    <div class="container-fluid" style="background-color: #F2F2F2; margin-bottom: -0px; padding-bottom: 0px;">
         <div class="container">
             <h2 class="text-center" style="margin-top: 20px;">Our Team</h2><hr>
             <div class="row">
@@ -208,6 +197,7 @@
 
 @push('scripts')
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
 
     <script>
         $('.slider-main').slick({
@@ -224,13 +214,45 @@
             prevArrow:"<div class='prev'></div>",
             nextArrow:"<div class='next'></div>",
         });
+
+        //http://daneden.github.io/animate.css/
+        $("#slider-left").waypoint(function() {
+            $('#slider-left').addClass('bounceInLeft');
+        },{ offset: '100%' });
+
+        $("#slider-right").waypoint(function() {
+            $('#slider-right').addClass('bounceIn');
+        },{ offset: '100%' });
+
+        $(".main-service").waypoint(function() {
+            $('.main-service').addClass('bounceIn');
+        },{ offset: '100%' });
+
+        $(".services").waypoint(function() {
+            $('.services').addClass('fadeInUp');
+        },{ offset: '100%' });
+
     </script>
 @endpush
 
 @push('css')
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 
-<style>
+    <style>
+
+    #slider-left {
+        -webkit-animation-duration: 0.8s;
+        -webkit-animation-delay: 0.2s;
+        -webkit-animation-iteration-count: 1;
+    }
+
+    #slider-right {
+        -webkit-animation-duration: 0.8s;
+        -webkit-animation-delay: 0.6s;
+        -webkit-animation-iteration-count: 1;
+    }
+
     .slider-main{
         height: 800px;
         position: relative;

@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
+@section('title', $seo ? $seo->title : '' )
+@section('description', $seo ? $seo->description : '')
+@section('keywords',  $seo ? $seo->keywords : '')
+
 @section('content')
-<div class="container">
+
+    @include('includes._breadcrumbs', ['breadcrumbs' => Breadcrumbs::render('sitemap')])
+
+    <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">

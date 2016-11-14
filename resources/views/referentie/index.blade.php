@@ -1,20 +1,12 @@
 @extends('layouts.app')
 
+@section('title', $seo ? $seo->title : '' )
+@section('description', $seo ? $seo->description : '')
+@section('keywords',  $seo ? $seo->keywords : '')
+
 @section('content')
 
-    {{--@include('includes._breadcrumbs')--}}
-    {{--@section('breadcrumbs', Breadcrumbs::render('referenties'))--}}
-
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-                {!! Breadcrumbs::render('referenties') !!}
-                <div class="col-lg-12">
-                    <h1>referenties</h1>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('includes._breadcrumbs', ['breadcrumbs' => Breadcrumbs::render('sitemap')])
 
     <div class="container">
         <div class="row">
@@ -23,6 +15,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('js')

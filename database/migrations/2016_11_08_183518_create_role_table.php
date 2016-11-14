@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReferenceImageTable extends Migration
+class CreateRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class CreateReferenceImageTable extends Migration
      */
     public function up()
     {
-        Schema::create('reference_image', function (Blueprint $table) {
+        Schema::create('role', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('reference_id')->unsigned();
-            $table->foreign('reference_id')->references('id')->on('reference');
-            $table->string('image')->unique();
+            $table->string('status');
         });
     }
 
@@ -27,6 +25,6 @@ class CreateReferenceImageTable extends Migration
      */
     public function down()
     {
-        Schema::drop('reference_image');
+        Schema::drop('role');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReferenceTable extends Migration
+class CreateUserRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,15 @@ class CreateReferenceTable extends Migration
      */
     public function up()
     {
-        Schema::create('reference', function (Blueprint $table) {
+        Schema::create('user_role', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('link');
-            $table->string('beschrijving');
-            $table->string('werkzaamheden');
-            $table->string('resultaten');
+            $table->integer('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('role');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateReferenceTable extends Migration
      */
     public function down()
     {
-        Schema::drop('reference');
+        Schema::drop('user_role');
     }
 }

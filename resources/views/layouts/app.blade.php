@@ -15,6 +15,10 @@
     <meta name="keywords" content="@yield('keywords')">
     <meta name="robots" content="index, follow">
 
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    @stack('meta-tags')
+
     {{--<meta property="og:title" content="awesome blog"/>--}}
     {{--<meta property="og:type" content="article"/>--}}
     {{--<meta property="og:image" content="http://www.google.com/some-thumbnail.jpg"/>--}}
@@ -75,8 +79,8 @@
         }
         .bottom-footer{
             background-color: #060606;
-            height: 100px;
-            padding: 20px;
+            height: 60px;
+            padding: 0px;
         }
         .bottom-stash ul{
             margin-top: 15px;
@@ -112,10 +116,18 @@
         .dropdown-menu-lg {
             width: 750px;
             padding: 10px 0px;
+            background-color: #F4F4F4;
+            border-bottom: 3px solid #267AB7;
+
         }
         .dropdown-menu-lg > li > ul {
             padding: 0;
             margin: 0;
+        }
+        .dropdown-header {
+            color: #267AB7;
+            border-bottom: 1px solid #267AB7;
+            margin-bottom: 10px;
         }
         .dropdown-menu-lg > li > ul > li {
             list-style: none;
@@ -170,7 +182,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-fixed-top" style="background: #F4F4F4;">
+    <nav class="navbar navbar-default navbar-fixed-top" style="background: #F4F4F4; border: none;">
         <div class="container">
             <div class="navbar-header">
 
@@ -188,7 +200,7 @@
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <div class="collapse navbar-collapse pull-right" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
@@ -201,52 +213,67 @@
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Web applicatie</li>
-                                    <li><a href="#">Laravel websites</a></li>
-                                    <li><a href="#">contect management</a></li>
-                                    <li><a href="#">hosting en service</a></li>
+                                    <li><a href="{{route('page.websites')}}">Websites</a></li>
+                                    <li><a href="{{route('page.laravel_websites')}}">Laravel websites</a></li>
+                                    <li><a href="{{route('page.cms')}}">content management</a></li>
+                                    <li><a href="{{route('page.hosting')}}">hosting en service</a></li>
                                 </ul>
                             </li>
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Internetmarketing</li>
-                                    <li><a href="#">zoekmachine optimalisatie</a></li>
-                                    <li><a href="#">Vindbaar op google</a></li>
+                                    <li><a href="{{route('page.internet_marketing')}}">zoekmachine optimalisatie</a></li>
+                                    <li><a href="{{route('page.vindbaarheid')}}">Vindbaar op google</a></li>
                                     <li><a href="{{route('page.seo')}}">SEO</a></li>
                                 </ul>
                             </li>
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">webwinkel</li>
-                                    <li><a href="#">webwinkels</a></li>
-                                    <li><a href="#">Laravel webwinkel</a></li>
-                                    <li><a href="#">Onderhoud</a></li>
+                                    <li><a href="{{route('page.webshop')}}">webwinkels</a></li>
+                                    <li><a href="{{route('page.laravel_webshop')}}">Laravel webwinkel</a></li>
+                                    <li><a href="{{route('page.onderhoud')}}">Onderhoud</a></li>
                                 </ul>
                             </li>
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Visueel</li>
-                                    <li><a href="#">Fotografie</a></li>
-                                    <li><a href="#">Logo's & Illustratie</a></li>
-                                    <li><a href="#">Design</a></li>
+                                    <li><a href="{{route('page.photography')}}">Fotografie</a></li>
+                                    <li><a href="{{route('page.logo_illustratie')}}">Logo's & Illustratie</a></li>
+                                    <li><a href="{{route('page.design')}}">Design</a></li>
                                 </ul>
                             </li>
                         </ul>
 
                     </li>
                     <li><a href="{{ route('referenties') }}">Referenties</a></li>
-                    <li><a href="{{ route('about') }}">Over ons</a></li>
+                    <li><a href="{{ route('page.about') }}">Over ons</a></li>
+                    <li><a href="{{ route('contact.create')}}">Contact</a></li>
                 </ul>
                 @if (Auth::check())
                     <ul class="nav navbar-nav pull-right">
-                        <li><a href="{{route('admin.index')}}">Admin panel</a></li>
+                        <li><a href="{{route('admin.dashboard')}}">Admin panel</a></li>
                     </ul>
                 @endif
                 <ul class="nav navbar-nav pull-right">
-                    <li><a><span style=" line-height: 90% !important;">tel: +31 6 53 779 761</span></a></li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
                 </ul>
             </div>
         </div>
+
+        <div class="" style="height: 25px; background-color: #267AB7; line-height: 25px;">
+            <div class="container">
+                <a href="/" class="fa fa-facebook-square" style="color: #fff;"></a>
+                <a href="/" class="fa fa-twitter-square" style="color: #fff;"></a>
+                <a href="/" class="fa fa-linkedin-square" style="color: #fff;"></a>
+                <a href="/" class="fa fa-google-plus-square" style="color: #fff;"></a>
+
+                <div class="pull-right">
+                    <a href="" class="" style="color: #fff;">info@mediaverse.nl</a> <span style="color: #fff; padding: 0px 10px;"> | </span>
+                    <span style="color: #fff;">06 53 77 97 61</span>
+                </div>
+            </div>
+        </div>
+
     </nav>
 
     @yield('content')
@@ -257,38 +284,38 @@
                 <div class="col-lg-3">
                     <h3 style="color: #fff;">Diensten</h3>
                     <ul class="list-unstyled">
-                        <li>> <a href="{{ route('page.app') }}">Applicaties</a></li>
-                        <li>> <a href="{{ route('page.seo') }}">Search engine optimization </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}">Hosting </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}">Logo / illustraties </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}">Fotografie </a></li>
+                        <li>> <a href="{{ route('page.app') }}" style="color:#777;">Applicaties</a></li>
+                        <li>> <a href="{{ route('page.seo') }}" style="color:#777;">Search engine optimization </a></li>
+                        <li>> <a href="{{ route('page.hosting') }}" style="color:#777;">Hosting </a></li>
+                        <li>> <a href="{{ route('page.hosting') }}" style="color:#777;">Logo / illustraties </a></li>
+                        <li>> <a href="{{ route('page.hosting') }}" style="color:#777;">Fotografie </a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <h3 style="color: #fff;">Contact</h3>
-                    <span style="color: #777;"><i class="fa fa-map-marker" aria-hidden="true"></i> Pietercoecke straat 14, 5643 VK Eindhoven</span>
-                    <br>
-                    <span style="color: #fff;"><i class="fa fa-envelope" aria-hidden="true"></i> info@mediaverse.nl</span>
-                    <br>
-                    <span style="color: #777;"><i class="fa fa-phone-square" aria-hidden="true"></i> +31 6 - 53779761</span>
-                    <br>
+                    <span style="color: #777; margin-bottom: 20px;"><i class="fa fa-map-marker" style="color: #777;" aria-hidden="true"></i> Pietercoecke straat 14, 5643 VK Eindhoven</span>
+                    <div class="clearfix" style="margin-bottom: 10px;"></div>
+
+                    <span style="color: #fff;"><i class="fa fa-envelope" style="color: #777;" aria-hidden="true"></i> info@mediaverse.nl</span>
+                    <div class="clearfix" style="margin-bottom: 10px;"></div>
+
+                    <span style="color: #777;"><i class="fa fa-phone-square" style="color: #777;" aria-hidden="true"></i> +31 6 - 53779761</span>
+                    <div class="clearfix" style="margin-bottom: 10px;"></div>
                     <div style="font-size:35px;">
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square" style="color: #3B5998; " aria-hidden="true"></i>
+                        <i class="fa fa-facebook-square" style="color: #00ACED; " aria-hidden="true"></i>
+                        <i class="fa fa-linkedin-square" style="color: #0077B5; " aria-hidden="true"></i>
+                        <i class="fa fa-google-plus-square" style="color: #DC4A38; " aria-hidden="true"></i>
                     </div>
-                    <span></span>
-                    <p></p>
                 </div>
                 <div class="col-lg-4">
                     <br>
                     <span><img src="/images/icons/Slack CMYK.png" class="img-responsiv" style="height: 50px;">
                         <br>
                         <br>
-                    <p>The best communication with slack</p>
+                    {{--<p>The best communication with slack</p>--}}
                     <span><img src="/images/icons/laravel.png" class="img-responsive" style="height: 100px"></span>
-                    <p>We develop your software with laravel 5</p>
+                    {{--<p>We develop your software with laravel 5</p>--}}
                 </div>
             </div>
         </div>
@@ -298,7 +325,7 @@
                     <li><a style="color: #777 !important;" href="{{ route('page.algvoorwaarden') }}">algemene voorwaarden</a></li>
                     <li><a style="color: #777 !important;" href="{{ route('page.sitemap') }}">sitemap</a></li>
                     <li><a style="color: #777 !important;" href="{{ route('page.priverklaring') }}">privacy verklaring</a></li>
-                    <li><a style="color: #777 !important;" href="{{ route('contact') }}">contact</a></li>
+                    <li><a style="color: #777 !important;" href="{{ route('contact.create') }}">contact</a></li>
                 </ul>
                 <p class="text-muted pull-right">Copyright &copy; 2016 Mediaverse</p>
             </div>

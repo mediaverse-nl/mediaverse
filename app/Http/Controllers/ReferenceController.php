@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Reference;
+use App\Page;
 
 use Illuminate\Http\Request;
 
@@ -11,10 +12,12 @@ use App\Http\Requests;
 class ReferenceController extends Controller
 {
     protected $reference;
+    protected $page;
 
     public function __construct()
     {
         $this->reference = new Reference();
+        $this->page = Page::where('page', \Request::route()->getPath())->first();
     }
 
     /**
@@ -24,7 +27,7 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        return view('referentie.index')->with('references', Reference::all());
+        return view('referentie.index')->with('references', Reference::all())->with('seo', $this->page);
     }
 
     /**

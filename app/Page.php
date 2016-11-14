@@ -4,21 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Reference extends Model
+class Page extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'reference';
+    protected $table = 'page';
 
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * The storage format of the model's date columns.
@@ -32,20 +32,20 @@ class Reference extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['title', 'keys', 'description', 'keywords'];
 
     /**
      * The attributes that aren't mass assignable.
      *
      * @var array
      */
-    protected $guarded = ['price'];
+    protected $guarded = [];
 
-    /**
-     * Get the comments for the blog post.
-     */
-    public function referenceimage()
-    {
-        return $this->hasMany('App\referenceimage');
-    }
+//    /**
+//     * Get the comments for the blog post.
+//     */
+//    public function referenceimage()
+//    {
+//        return $this->hasMany('App\referenceimage');
+//    }
 }

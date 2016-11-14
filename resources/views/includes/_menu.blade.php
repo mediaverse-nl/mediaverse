@@ -23,15 +23,15 @@
 </style>
 
 <div class="col-lg-3">
-    {{--<div class="panel">--}}
-        {{--<ul class="nav navbar-nav menu-bar">--}}
+    <div class="panel">
+        <ul class="nav navbar-nav menu-bar">
             {{--<li class="{{ Request::url() == route('admin.index') ? 'active' : '' }}"><a href="{{route('admin.index')}}">home</a></li>--}}
             {{--<li class="{{ Request::url() == route('admin.reference.index') ? 'active' : '' }}"><a href="{{route('admin.reference.index')}}">references</a></li>--}}
-        {{--</ul>--}}
-    {{--</div>--}}
+        </ul>
+    </div>
     <div class="panel panel-default thumbnail" style="background: #F4F4F4;">
         <span class="lead"><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</span>
-        <a href="" class="btn btn-primary">Neem contact op</a>
+        <a href="{{route('contact.create')}}" class="btn btn-primary">Neem contact op</a>
     </div>
 
     <div class="panel-group" id="accordion">
@@ -44,13 +44,19 @@
                     </a>
                 </h4>
             </div>
-            <div id="Websites" class="panel-collapse collapse in">
+            <div id="Websites" class="panel-collapse collapse {{ in_array(Request::url(), [route('page.websites'), route('page.laravel_websites'), route('page.hosting'), route('page.cms')]) ? 'in' : '' }}">
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="/">> Laravel Website</a>
+                    <li class="list-group-item {{ route('page.websites') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.websites')}}"> Website</a>
                     </li>
-                    <li class="list-group-item">
-                        <a href="/">> Hosting en Service</a>
+                    <li class="list-group-item {{ route('page.laravel_websites') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.laravel_websites')}}"> Laravel Website</a>
+                    </li>
+                    <li class="list-group-item {{ route('page.cms') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.cms')}}"> Content Management</a>
+                    </li>
+                    <li class="list-group-item {{ route('page.hosting') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.hosting')}}"> Hosting en Service</a>
                     </li>
                 </ul>
             </div>
@@ -65,10 +71,17 @@
                     </a>
                 </h4>
             </div>
-            <div id="internetmarketing" class="panel-collapse collapse">
+            <div id="internetmarketing" class="panel-collapse collapse {{ in_array(Request::url(), [route('page.internet_marketing'), route('page.vindbaarheid'), route('page.seo')]) ? 'in' : '' }}">
                 <div class="list-group">
-                    <a href="#" class="list-group-item active"></a>
-                    {{--<a href="#" class="list-group-item"></a>--}}
+                    <li class="list-group-item {{ route('page.internet_marketing') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.internet_marketing')}}"> Zoekmachine Optimalisatie</a>
+                    </li>
+                    <li class="list-group-item {{ route('page.vindbaarheid') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.vindbaarheid')}}"> Vindbaar op Google</a>
+                    </li>
+                    <li class="list-group-item {{ route('page.seo') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.seo')}}"> SEO</a>
+                    </li>
                 </div>
             </div>
         </div>
@@ -82,11 +95,14 @@
                     </a>
                 </h4>
             </div>
-            <div id="webshops" class="panel-collapse collapse">
+            <div id="webshops" class="panel-collapse collapse {{ in_array(Request::url(), [route('page.webshop'), route('page.onderhoud'), route('page.laravel_webshop')]) ? 'in' : '' }}">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Laravel Webshop</a>
-                    <a href="#" class="list-group-item">Webshops</a>
-                    <a href="#" class="list-group-item"></a>
+                    <li class="list-group-item {{ route('page.webshop') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.webshop')}}"> Webwinkel</a>
+                    </li>
+                    {{--<li class="list-group-item {{ route('page.laravel_webshop') == Request::url() ? 'active' : null }}">--}}
+                        {{--<a href="{{route('page.laravel_webshop')}}"> Laravel Webwinkel</a>--}}
+                    {{--</li>--}}
                 </div>
             </div>
         </div>
@@ -100,11 +116,17 @@
                     </a>
                 </h4>
             </div>
-            <div id="visueel" class="panel-collapse collapse">
+            <div id="visueel" class="panel-collapse collapse {{ in_array(Request::url(), [route('page.photography'), route('page.logo_illustratie'), route('page.design')]) ? 'in' : '' }}">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Fotografie</a>
-                    <a href="#" class="list-group-item">Logo's & Illustraties</a>
-                    <a href="#" class="list-group-item">Design</a>
+                    <li class="list-group-item {{ route('page.photography') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.photography')}}"> Fotografie</a>
+                    </li>
+                    <li class="list-group-item {{ route('page.logo_illustratie') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.logo_illustratie')}}"> Logo's & Illustraties</a>
+                    </li>
+                    <li class="list-group-item {{ route('page.design') == Request::url() ? 'active' : null }}">
+                        <a href="{{route('page.design')}}"> Design</a>
+                    </li>
                 </div>
             </div>
         </div>
