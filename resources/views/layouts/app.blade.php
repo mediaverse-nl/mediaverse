@@ -37,7 +37,7 @@
     <style>
         body {
             font-family: "Open Sans", Arial, sans-serif;
-            margin-top: 50px !important;
+            margin-top: 75px !important;
             /* Margin bottom by footer height */
             margin-bottom: 350px;
         }
@@ -58,7 +58,7 @@
             height: 300px;
         }
         .page-header{
-            background-color: #0E0E0E;
+            /*background-color: #0E0E0E;*/
             height: 100px;
         }
         .breadcrumb{
@@ -69,7 +69,7 @@
             margin-top: -40px;
             color: #ffffff;
             font-weight: 200;
-            border-bottom: 4px solid #267AB7;
+            /*border-bottom: 4px solid #267AB7;*/
             font-size: 2.6em;
             display:inline-block;
         }
@@ -109,7 +109,7 @@
             /*margin-top: 15px;*/
         }
         .page-header{
-            border-top: 3px solid #777777 ;
+            border: none ;
         }
 
         /*big menu*/
@@ -200,7 +200,7 @@
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse pull-right" id="app-navbar-collapse">
+            <div class="collapse navbar-collapse pull-center" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
@@ -209,7 +209,7 @@
                     <li class="dropdown dropdown-lg">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diensten <b class="caret"></b></a>
 
-                        <ul class="dropdown-menu dropdown-menu-lg row">
+                        <ul class="dropdown-menu pull-left dropdown-menu-lg row">
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Web applicatie</li>

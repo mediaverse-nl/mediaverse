@@ -146,51 +146,52 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color:#0E0E0E; margin-top: 0px; padding: 0px 0px;">
-        <div class="container">
-            <h2 class="text-center" style="color: #fff !important;">Clients queto's</h2>
-            <span class="muted center-text">John Doe</span>
-            <i class="fa fa-quote-left" aria-hidden="true"></i>
-            <div class="col-md-6 col-md-offset-3 ">
-                <p class="text-center">n indruk te geven van het grafische effect van tekst op deze plek.
-                    Wat u hier leest is een voorbeeldtekst. Deze wordt later
-                    vervangen door de uiteindelijke</p>
-            </div>
-            <i class="fa fa-quote-right" aria-hidden="true"></i>
-        </div>
-    </div>
+    {{--<div class="container-fluid" style="background-color:#0E0E0E; margin-top: 0px; padding: 0px 0px;">--}}
+        {{--<div class="container">--}}
+            {{--<h2 class="text-center" style="color: #fff !important;">Clients queto's</h2>--}}
+            {{--<span class="muted center-text">John Doe</span>--}}
+            {{--<i class="fa fa-quote-left" aria-hidden="true"></i>--}}
+            {{--<div class="col-md-6 col-md-offset-3 ">--}}
+                {{--<p class="text-center">--}}
+                    {{--n indruk te geven van het grafische effect van tekst op deze plek.--}}
+                    {{--Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke--}}
+                {{--</p>--}}
+            {{--</div>--}}
+            {{--<i class="fa fa-quote-right" aria-hidden="true"></i>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
-    <div class="container-fluid" style="background-color: #F2F2F2; margin-bottom: -0px; padding-bottom: 0px;">
-        <div class="container">
-            <h2 class="text-center" style="margin-top: 20px;">Our Team</h2><hr>
-            <div class="row">
-                <div class="col-md-3 text-center">
-                    <img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">
-                    <br>
-                    <span class="text-muted text-center">CEO</span><br>
-                    <span>Jonh Doe</span>
-                </div>
-                <div class="col-md-3 text-center">
-                    <img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">
-                    <br>
-                    <span class="text-muted text-center">Developer</span><br>
-                    <span>Jonh Doe</span>
-                </div>
-                <div class="col-md-3 text-center">
-                    <img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">
-                    <br>
-                    <span class="text-muted text-center">Lead developer</span><br>
-                    <span>Jonh Doe</span>
-                </div>
-                <div class="col-md-3 text-center">
-                    <img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">
-                    <br>
-                    <span class="text-muted text-center">Designer</span><br>
-                    <span>Jonh Doe</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--<div class="container-fluid" style="background-color: #F2F2F2; margin-bottom: -50px; padding-bottom: 50px;">--}}
+        {{--<div class="container">--}}
+            {{--<h2 class="text-center" style="margin-top: 20px;">Our Team</h2><hr>--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-3 text-center">--}}
+                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
+                    {{--<br>--}}
+                    {{--<span class="text-muted text-center">CEO</span><br>--}}
+                    {{--<span>Jonh Doe</span>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-3 text-center">--}}
+                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
+                    {{--<br>--}}
+                    {{--<span class="text-muted text-center">Developer</span><br>--}}
+                    {{--<span>Jonh Doe</span>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-3 text-center">--}}
+                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
+                    {{--<br>--}}
+                    {{--<span class="text-muted text-center">Lead developer</span><br>--}}
+                    {{--<span>Jonh Doe</span>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-3 text-center">--}}
+                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
+                    {{--<br>--}}
+                    {{--<span class="text-muted text-center">Designer</span><br>--}}
+                    {{--<span>Jonh Doe</span>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 @endsection
 

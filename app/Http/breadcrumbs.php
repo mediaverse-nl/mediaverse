@@ -21,6 +21,10 @@ Breadcrumbs::register('referenties', function($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Referenties', route('referenties'));
 });
+Breadcrumbs::register('referentie', function($breadcrumbs, $project) {
+    $breadcrumbs->parent('referenties');
+    $breadcrumbs->push('Referentie', route('referenties.show', $project->name));
+});
 Breadcrumbs::register('algemene-voorwaarden', function($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Algemene voorwaarden', route('page.algvoorwaarden'));

@@ -16,8 +16,8 @@ Route::auth();
 //Route::get('/', 'HomeController@index');
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
-Route::get('/reference', ['as' => 'referenties', 'uses' => 'ReferenceController@index']);
-Route::get('/reference/{reference}', ['as' => 'referenties.show', 'uses' => 'ReferenceController@show']);
+Route::get('/reference', ['as' => 'referenties', 'uses' => 'ProjectController@index']);
+Route::get('/reference/{reference}', ['as' => 'referenties.show', 'uses' => 'ProjectController@show']);
 
 Route::get('/algemene-voorwaarden', ['as' => 'page.algvoorwaarden', 'uses' => 'PagesController@algemeneVoorwaarden']);
 Route::get('/privacy-verklaring', ['as' => 'page.priverklaring', 'uses' => 'PagesController@privacy']);

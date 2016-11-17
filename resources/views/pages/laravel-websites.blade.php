@@ -19,7 +19,16 @@
 
             <div class="col-lg-8">
                 <h1>Laravel Websites</h1>
-
+                <p>
+                    Laravel is een een framework die wij zoveel mogelijk proberen te hanteren in het schrijven van onze website, -shops en -applicaties. Om de
+                    gebruiksvriendelijkheid en functionaliteit van onze producten te kunnen waarborgen houden wij onophoudelijk onze aandacht gevestigd op nieuwe
+                    ontwikkelingen in de ICT-branche. Laravel is voor ons dus een bewuste keuze. Het is een framework dat zorgt voor snelle producten en het verhoogt de
+                    productiviteit van onze programmeurs.
+                </p>
+                <p>
+                    Door gebruik te maken van nieuwe frameworks, zoals Laravel, worden de applicaties die gebouwd worden ook een stuk veiliger. Nieuwe functies kunnen
+                    moeiteloos worden toegevoegd zonder dat dit gevolg zal hebben voor de functionaliteit en stabiliteit van het product.
+                </p>
             </div>
 
         </div>
