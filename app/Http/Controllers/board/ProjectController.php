@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\board;
 
+use App\Project;
 use App\Role;
+use App\Skill;
 use App\User;
 use Validator;
 
@@ -15,11 +17,15 @@ class ProjectController extends Controller
 {
     protected $users;
     protected $roles;
+    protected $skills;
+    protected $projects;
 
     public function __construct()
     {
         $this->users = new User();
         $this->roles = new Role();
+        $this->skills = new Skill();
+        $this->projects = new Project();
     }
 
     /**
@@ -29,7 +35,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.board.project.index')->with('projects', $this->projects->get() );
     }
 
     /**
@@ -41,7 +47,8 @@ class ProjectController extends Controller
     {
         return view('admin.board.project.create')
             ->with('users', $this->users->get())
-            ->with('roles', $this->roles->get());
+            ->with('roles', $this->roles->get())
+            ->with('skills', $this->skills->get());
     }
 
     /**
@@ -53,7 +60,10 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'value'          => 'required|unique:details,value',
+            'name'          => 'required|unique:project,name',
+            'customer'          => 'required',
+            'price'          => 'required',
+            'email'          => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -65,31 +75,21 @@ class ProjectController extends Controller
                 ->withInput();
         }
 
-        $details = $this->detail;
+        $project = $this->projects;
 
-        $details->type = $request->type;
-        $details->value = $request->value;
+        $project->name = $request->name;
+        $project->customer = $request->customer;
+        $project->price = $request->price;
+        $project->email = $request->email;
 
-        $details->save();
-
-
+        $project->save();
 
 
         \Session::flash('succes_message','successfully.');
 
-        return redirect()->route('admin_property_index');
+        return redirect()->route('board.project.store');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,7 +99,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.board.project.edit')->with('project', $this->projects->find($id));
     }
 
     /**
@@ -111,7 +111,31 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = $this->projects->find($id);
+
+        $rules = [
+            'name' => 'required|unique:project,name,'.$id,
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('board.project.edit', $id)
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $project->name = $request->name;
+        $project->customer = $request->customer;
+        $project->price = $request->price;
+        $project->email = $request->email;
+
+        $project->save();
+
+        \Session::flash('succes_message','successfully.');
+
+        return redirect()->route('board.project.edit', $id);
     }
 
     /**

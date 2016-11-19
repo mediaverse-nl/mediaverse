@@ -5,9 +5,9 @@
 
 @section('content')
 
-    {!! Form::open(['route' => 'board.project.store']) !!}
-
-        <div class="col-md-6">
+    <div class="col-md-6">
+{{--        {!! Form::model($project, ['route' => ['board.project.update', ['id' => $project->id]], 'method' => 'patch']) !!}--}}
+        {!! Form::model($project, array('route' => array('board.project.update', $project->id)))!!}
 
             <!-- created_at -->
             <div class="form-group">
@@ -71,37 +71,16 @@
                 {{ Form::select('type', ['color' => 'kleur', 'battery' => 'battery', 'nicotine' => 'nicotine'], null, ['class' => 'form-control']) }}
             </div>
 
-            {!! Form::submit('aanmaken', ['class' => 'btn btn-primary pull-right'])!!}
+            {!! Form::submit('aanpassen', ['class' => 'btn btn-primary pull-right'])!!}
 
-        </div>
+        {!! Form::close() !!}
 
-        <div class="col-md-6">
+    </div>
 
-            <div class="form-group">
-                {!! Form::label('users', 'users') !!}<br>
-                @foreach($users as $user)
-                    {!! Form::checkbox('users[]', $user->id, Input::old('users')) !!}
-                    {!! Form::label('users', $user->name) !!}
-                @endforeach
-            </div>
+    <div class="col-md-6">
 
-            <div class="form-group">
-                {!! Form::label('roles', 'roles') !!}<br>
-                @foreach($roles as $role)
-                    {!! Form::checkbox('roles[]', $role->id, Input::old('roles')) !!}
-                    {!! Form::label('roles', $role->status) !!}<br>
-                @endforeach
-            </div>
+        <a href="{{route('board.project.create')}}">nieuw skill</a>
 
-            <div class="form-group">
-                {!! Form::label('skills', 'skills') !!}<br>
-                @foreach($skills as $skill)
-                    {!! Form::checkbox('skills[]', $skill->id, Input::old('skills')) !!}
-                    {!! Form::label('skills', $skill->skill) !!}<br>
-                @endforeach
-            </div>
-        </div>
-
-    {!! Form::close() !!}
+    </div>
 
 @endsection

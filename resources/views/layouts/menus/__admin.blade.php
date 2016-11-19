@@ -66,56 +66,94 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            {{--<li class="{{ Request::is('dashboard') ? 'active' : null }}">--}}
-                {{--<a href="{{route('admin.dashboard')}}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>--}}
-            {{--</li>--}}
-            {{--<li class="{{ Request::is('dashboard') ? 'active' : null }}">--}}
-                {{--<a href="{{route('admin.pages.create')}}"><i class="fa fa-fw fa-dashboard"></i> New page</a>--}}
-            {{--</li>--}}
-            {{--<li class="{{ Request::is('dashboard') ? 'active' : null }}">--}}
-                {{--<a href="{{route('admin.pages.index')}}"><i class="fa fa-fw fa-dashboard"></i> index page</a>--}}
-            {{--</li>--}}
-            <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="collapsed" aria-expanded="false"><i class="fa fa-fw fa-arrows-v"></i> Pages <i class="fa fa-fw fa-caret-down"></i></a>
-                <ul id="demo" class="collapse" aria-expanded="false" style="height: 0px;">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">privacy policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms</a>
-                    </li>
-                    <li>
-                        <a href="#">cookie policy</a>
-                    </li>
-                    <li>
-                        <a href="#"> Support</a>
-                    </li>
-                    <li>
-                        <a href="#"> FAQ</a>
-                    </li>
-                    <li>
-                        <a href="#"> contact</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
-                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Dashboard</a>
-            </li>
-            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
-                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Users</a>
-            </li>
-            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
-                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Skills</a>
-            </li>
-            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
-                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Projects</a>
-            </li>
-            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
-                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> administratie</a>
-            </li>
+
+            @if(Auth::user()->hasRole('board'))
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#board" class="collapsed" aria-expanded="false">
+                        <i class="fa fa-fw fa-arrows-v"></i> Board <i class="fa fa-fw fa-caret-down"></i>
+                    </a>
+                    <ul id="board" class="collapse" aria-expanded="false" style="height: 0px;">
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> dashboard</a>
+                        </li>
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('board.project.index')}}"><i class="fa fa-fw fa-bars"></i> projects</a>
+                        </li>
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('board.skill.index')}}"><i class="fa fa-fw fa-bars"></i> skills</a>
+                        </li>
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> users</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="collapsed" aria-expanded="false"><i class="fa fa-fw fa-arrows-v"></i> Pages <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="demo" class="collapse" aria-expanded="false" style="height: 0px;">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">privacy policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms</a>
+                        </li>
+                        <li>
+                            <a href="#">cookie policy</a>
+                        </li>
+                        <li>
+                            <a href="#"> Support</a>
+                        </li>
+                        <li>
+                            <a href="#"> FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#"> contact</a>
+                        </li>
+                    </ul>
+                </li>
+
+            @endif
+
+            @if(Auth::user()->hasRole('developer'))
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#developer" class="collapsed" aria-expanded="false">
+                        <i class="fa fa-fw fa-arrows-v"></i> Developer <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="developer" class="collapse" aria-expanded="false" style="height: 0px;">
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> dashboard</a>
+                        </li>
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> project</a>
+                        </li>
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> skill</a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
+
+            @if(Auth::user()->hasRole('marketing'))
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#board" class="collapsed" aria-expanded="false">
+                        <i class="fa fa-fw fa-arrows-v"></i> Board <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="board" class="collapse" aria-expanded="false" style="height: 0px;">
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> dashboard</a>
+                        </li>
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> project</a>
+                        </li>
+                        <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> skill</a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
+
+
             {{--<li class="{{ Request::is('admin/orders*') ? 'active' : null }}">--}}
                 {{--<a href="{{route('admin_orders_all')}}"><i class="fa fa-fw fa-shopping-cart"></i> Orders</a>--}}
             {{--</li>--}}

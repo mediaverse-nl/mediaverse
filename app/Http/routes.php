@@ -121,12 +121,19 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'board', 'as' => 'board.', 'middleware' => ['role:board']], function ()
     {
-        Route::get('project/create', ['as' => 'project.create', 'uses' => 'board\ProjectController@create']);
         Route::get('project', ['as' => 'project.index', 'uses' => 'board\ProjectController@index']);
+        Route::get('project/create', ['as' => 'project.create', 'uses' => 'board\ProjectController@create']);
         Route::get('project/{id}/edit', ['as' => 'project.edit', 'uses' => 'board\ProjectController@edit']);
         Route::post('project', ['as' => 'project.store', 'uses' => 'board\ProjectController@store']);
         Route::patch('project', ['as' => 'project.update', 'uses' => 'board\ProjectController@update']);
         Route::delete('project/destroy/{id}', ['as' => 'project.destroy', 'uses' => 'board\ProjectController@destroy']);
+
+        Route::get('skill', ['as' => 'skill.index', 'uses' => 'board\SkillController@index']);
+        Route::get('skill/create', ['as' => 'skill.create', 'uses' => 'board\SkillController@create']);
+        Route::get('skill/{id}/edit', ['as' => 'skill.edit', 'uses' => 'board\SkillController@edit']);
+        Route::post('skill', ['as' => 'skill.store', 'uses' => 'board\SkillController@store']);
+        Route::patch('skill', ['as' => 'skill.update', 'uses' => 'board\SkillController@update']);
+        Route::delete('skill/destroy/{id}', ['as' => 'skill.destroy', 'uses' => 'board\SkillController@destroy']);
 
     });
 
