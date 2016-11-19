@@ -34,6 +34,11 @@ class User extends Authenticatable
         return $this->hasMany('App\UserRole', 'user_id', 'id');
     }
 
+    public function projectUser()
+    {
+        return $this->hasMany('App\ProjectUser', 'user_id', 'id');
+    }
+
     public function hasRole($role)
     {
         $role_id = Role::where('status', $role)->first();

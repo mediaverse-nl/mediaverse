@@ -14,6 +14,7 @@ return array(
     'CreateProjectSkillTable' => $baseDir . '/database/migrations/2016_11_08_183747_create_project_skill_table.php',
     'CreateProjectTable' => $baseDir . '/database/migrations/2016_11_08_183632_create_project_table.php',
     'CreateProjectTaskTable' => $baseDir . '/database/migrations/2016_11_08_183720_create_project_task_table.php',
+    'CreateProjectUserTable' => $baseDir . '/database/migrations/2016_11_19_031629_create_project_user_table.php',
     'CreateRoleTable' => $baseDir . '/database/migrations/2016_11_08_183518_create_role_table.php',
     'CreateServiceTable' => $baseDir . '/database/migrations/2016_11_16_020549_create_service_table.php',
     'CreateSkillTable' => $baseDir . '/database/migrations/2016_11_08_183434_create_skill_table.php',

@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{route('admin.dashboard')}}">Admin</a>
+        <a class="navbar-brand" href="{{route('dashboard')}}">Admin</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -54,7 +54,7 @@
                     <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                 </li>
                 <li>
-                    <a href="{{route('home')}}"><i class="fa fa-fw fa-envelope"></i> website</a>
+{{--                    <a href="{{route('home')}}"><i class="fa fa-fw fa-envelope"></i> website</a>--}}
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -66,15 +66,15 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="{{ Request::is('dashboard') ? 'active' : null }}">
-                <a href="{{route('admin.dashboard')}}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-            </li>
-            <li class="{{ Request::is('dashboard') ? 'active' : null }}">
-                <a href="{{route('admin.pages.create')}}"><i class="fa fa-fw fa-dashboard"></i> New page</a>
-            </li>
-            <li class="{{ Request::is('dashboard') ? 'active' : null }}">
-                <a href="{{route('admin.pages.index')}}"><i class="fa fa-fw fa-dashboard"></i> index page</a>
-            </li>
+            {{--<li class="{{ Request::is('dashboard') ? 'active' : null }}">--}}
+                {{--<a href="{{route('admin.dashboard')}}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>--}}
+            {{--</li>--}}
+            {{--<li class="{{ Request::is('dashboard') ? 'active' : null }}">--}}
+                {{--<a href="{{route('admin.pages.create')}}"><i class="fa fa-fw fa-dashboard"></i> New page</a>--}}
+            {{--</li>--}}
+            {{--<li class="{{ Request::is('dashboard') ? 'active' : null }}">--}}
+                {{--<a href="{{route('admin.pages.index')}}"><i class="fa fa-fw fa-dashboard"></i> index page</a>--}}
+            {{--</li>--}}
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="collapsed" aria-expanded="false"><i class="fa fa-fw fa-arrows-v"></i> Pages <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse" aria-expanded="false" style="height: 0px;">
@@ -102,7 +102,19 @@
                 </ul>
             </li>
             <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
-                <a href="{{route('admin.reference.index')}}"><i class="fa fa-fw fa-bars"></i> reference</a>
+                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Dashboard</a>
+            </li>
+            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Users</a>
+            </li>
+            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Skills</a>
+            </li>
+            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> Projects</a>
+            </li>
+            <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
+                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> administratie</a>
             </li>
             {{--<li class="{{ Request::is('admin/orders*') ? 'active' : null }}">--}}
                 {{--<a href="{{route('admin_orders_all')}}"><i class="fa fa-fw fa-shopping-cart"></i> Orders</a>--}}

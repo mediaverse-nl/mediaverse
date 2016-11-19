@@ -53,6 +53,8 @@
                 </div>
             </div>
             <!-- /.row -->
+            @include('errors.message')
+
             @yield('content')
         </div>
     </div>

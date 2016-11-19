@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - mediaverse@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="mediaverse">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="laravel-webshop"/>
+    <schema id="4" name="mysql"/>
+    <schema id="5" name="performance_schema"/>
+    <schema id="6" name="primera"/>
+    <schema id="7" name="repairplace"/>
+    <schema id="8" name="superangel"/>
+    <schema id="9" name="sys"/>
+    <schema id="10" name="webshop"/>
+    <schema id="11" name="xeedus"/>
+    <schema id="12" name="yourgiftcards"/>
+    <table id="13" parent="1" name="contract"/>
+    <table id="14" parent="1" name="hosting"/>
+    <table id="15" parent="1" name="migrations"/>
+    <table id="16" parent="1" name="password_resets"/>
+    <table id="17" parent="1" name="project"/>
+    <table id="18" parent="1" name="project_role"/>
+    <table id="19" parent="1" name="project_skill"/>
+    <table id="20" parent="1" name="project_task"/>
+    <table id="21" parent="1" name="role"/>
+    <table id="22" parent="1" name="skill"/>
+    <table id="23" parent="1" name="support"/>
+    <table id="24" parent="1" name="ticket"/>
+    <table id="25" parent="1" name="user_role"/>
+    <table id="26" parent="1" name="user_skill"/>
+    <table id="27" parent="1" name="users"/>
+    <table id="28" parent="1" name="project_service"/>
+    <table id="29" parent="1" name="project_user"/>
+    <table id="30" parent="1" name="service"/>
+    <column id="31" parent="13" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="32" parent="13" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="33" parent="13" name="file_path">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="34" parent="13" name="contract_user_id_foreign">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="35" parent="13" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="36" parent="14" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="37" parent="14" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="38" parent="14" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="39" parent="14" name="min">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="40" parent="14" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="41" parent="14" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="42" parent="14" name="hosting_project_id_foreign">
+      <columns>project_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="43" parent="14" name="hosting_user_id_foreign">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="44" parent="14" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="45" parent="15" name="migration">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="46" parent="15" name="batch">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="47" parent="16" name="email">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="48" parent="16" name="token">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="49" parent="16" name="created_at">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="50" parent="16" name="password_resets_email_index">
+      <columns>email</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="51" parent="16" name="password_resets_token_index">
+      <columns>token</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <column id="52" parent="17" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="53" parent="17" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="54" parent="17" name="customer">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="55" parent="17" name="price">
+      <mandatory>1</mandatory>
+      <data-type>decimal(5,2)|0</data-type>
+    </column>
+    <column id="56" parent="17" name="duur">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="57" parent="17" name="email">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="58" parent="17" name="telefoon">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="59" parent="17" name="status">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="60" parent="17" name="type">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="61" parent="17" name="uml">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="62" parent="17" name="usecase">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="63" parent="17" name="pva">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="64" parent="17" name="contract">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="65" parent="17" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="66" parent="17" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <key id="67" parent="17" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="68" parent="18" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="69" parent="18" name="role_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="70" parent="18" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="71" parent="18" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="72" parent="18" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="73" parent="18" name="project_role_project_id_foreign">
+      <columns>project_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="74" parent="18" name="project_role_role_id_foreign">
+      <columns>role_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="75" parent="18" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="76" parent="19" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="77" parent="19" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="78" parent="19" name="skill_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="79" parent="19" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="80" parent="19" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="81" parent="19" name="project_skill_project_id_foreign">
+      <columns>project_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="82" parent="19" name="project_skill_skill_id_foreign">
+      <columns>skill_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="83" parent="19" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="84" parent="20" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="85" parent="20" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="86" parent="20" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="87" parent="20" name="moscow">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="88" parent="20" name="done_min">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="89" parent="20" name="do_min">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="90" parent="20" name="description">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="91" parent="20" name="remark">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="92" parent="20" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="93" parent="20" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="94" parent="20" name="project_task_project_id_foreign">
+      <columns>project_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="95" parent="20" name="project_task_user_id_foreign">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="96" parent="20" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="97" parent="21" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="98" parent="21" name="status">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="99" parent="21" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="100" parent="22" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="101" parent="22" name="skill">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="102" parent="22" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="103" parent="23" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="104" parent="23" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="105" parent="23" name="min">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="106" parent="23" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="107" parent="23" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="108" parent="23" name="support_user_id_foreign">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="109" parent="23" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="110" parent="24" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="111" parent="24" name="support_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="112" parent="24" name="title">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="113" parent="24" name="description">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="114" parent="24" name="urge_level">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="115" parent="24" name="duur_min">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="116" parent="24" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="117" parent="24" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="118" parent="24" name="ticket_support_id_foreign">
+      <columns>support_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="119" parent="24" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="120" parent="25" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="121" parent="25" name="role_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="122" parent="25" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="123" parent="25" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="124" parent="25" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="125" parent="25" name="user_role_role_id_foreign">
+      <columns>role_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="126" parent="25" name="user_role_user_id_foreign">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="127" parent="25" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="128" parent="26" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="129" parent="26" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="130" parent="26" name="skill_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="131" parent="26" name="level">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="132" parent="26" name="user_skill_skill_id_foreign">
+      <columns>skill_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="133" parent="26" name="user_skill_user_id_foreign">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="134" parent="26" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="135" parent="27" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="136" parent="27" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="137" parent="27" name="email">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="138" parent="27" name="password">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="139" parent="27" name="remember_token">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="140" parent="27" name="firstname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="141" parent="27" name="lastname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="142" parent="27" name="address">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="143" parent="27" name="postcode">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="144" parent="27" name="hourly_wage">
+      <mandatory>1</mandatory>
+      <data-type>decimal(5,2)|0</data-type>
+    </column>
+    <column id="145" parent="27" name="bank_id">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="146" parent="27" name="id_front">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="147" parent="27" name="id_back">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="148" parent="27" name="profile_image">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="149" parent="27" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="150" parent="27" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="151" parent="27" name="users_email_unique">
+      <columns>email</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="152" parent="27" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <key id="153" parent="27" name="users_email_unique">
+      <columns>email</columns>
+      <underlying-index>users_email_unique</underlying-index>
+    </key>
+    <column id="154" parent="28" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="155" parent="28" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="156" parent="28" name="service_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="157" parent="28" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="158" parent="28" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="159" parent="28" name="project_service_project_id_foreign">
+      <columns>project_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="160" parent="28" name="project_service_service_id_foreign">
+      <columns>service_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="161" parent="28" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="162" parent="29" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="163" parent="29" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="164" parent="29" name="project_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="165" parent="29" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="166" parent="29" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="167" parent="29" name="project_user_project_id_foreign">
+      <columns>project_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="168" parent="29" name="project_user_user_id_foreign">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="169" parent="29" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="170" parent="30" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="171" parent="30" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="172" parent="30" name="created_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="173" parent="30" name="updated_at">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <key id="174" parent="30" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

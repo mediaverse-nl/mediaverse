@@ -103,4 +103,16 @@
     </div>
     <!-- /.row -->
 
+    {{--{{Auth::user()->userRole()->}}--}}
+
+    {{--@switch()--}}
+        {{--@case(1)--}}
+            {{--`E-mail` input is empty!--}}
+            {{--@break--}}
+        {{--@case(2)--}}
+            {{--`Password` input is empty!--}}
+            {{--@break--}}
+    {{--@endswitch--}}
+
+
 @endsection

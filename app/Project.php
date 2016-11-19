@@ -28,4 +28,9 @@ class Project extends Model
 
     public $timestamps = true;
 
+    public function projectUser()
+    {
+        return $this->hasMany('App\ProjectUser', 'project_id', 'id');
+    }
+
 }

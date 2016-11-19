@@ -32,6 +32,11 @@ class PagesController extends Controller
         return view('pages.laravel-websites')->with('seo', $this->page);
     }
 
+    public function diensten()
+    {
+        return view('pages.diensten')->with('seo', $this->page);
+    }
+
     public function contentManagement()
     {
         return view('pages.content-management')->with('seo', $this->page);
