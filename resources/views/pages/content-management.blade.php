@@ -20,9 +20,12 @@
             <div class="col-lg-8">
                 <h1>Content Management</h1>
                 <p>
+                    Content Management
+                </p>
+                <p>
                     Eén van de belangrijkste zaken voor een succesvolle bedrijfsvoering is het verzamelen van feedback. Door de terugkoppeling met klanten kan informatie
                     worden vergaard over wat zij willen, op welke tijden en dagdelen klanten actief zijn en naar het soort producten en/of diensten dat in bepaalde seizoenen
-                    of periodes wordt gezocht
+                    of periodes wordt gezocht.
                 </p>
                 <p>
                     Mode, zoals aangeboden door kledingsites als Zalando of Wehkamp, is zeer seizoensgevoelig. Hier zie je dat sites compleet wordt aangepast aan de tijd van
@@ -39,6 +42,9 @@
                 <p>
                     <strong><em>– Anonymous</em></strong>
                 </p>
+                <h2>
+                    Het syteem
+                </h2>
                 <p>
                     Een Content Management System, ook afgekort als CMS, komt hierbij enorm van pas. Dit is een webapplicatie die kan worden toegevoegd aan uw site. Via een
                     CMS kunnen individuele webpagina’s, de online winkel of de hele website worden aangepast. Door middel van zogenaamde ‘creation en/of modification’ is het
@@ -50,6 +56,9 @@
                     een van deze opties. Door het indexeren is het mogelijk snel door uw website te “bladeren” op zoek naar verschillende keywords, die u in een zoekbalk
                     aangeeft. Deze optie kunt u natuurlijk ook toevoegen aan uw live website, zodat klanten hier gebruik van kunnen maken.
                 </p>
+                <h2>
+                    De feedback is uw vriend
+                </h2>
                 <p>
                     Zoals eerder aangegeven, is dat het buitengewoon belangrijk om informatie over wat bezoekers op uw webpagina’s of in uw webwinkel doen, te verwerken en te
                     gebruiken. Via de interface van een CMS kunnen deze gegevens worden omgezet in grafieken en tabellen, die u nieuwe inzichten kunnen geven in de behoeftes
@@ -57,6 +66,9 @@
                     en nog veel meer. Dit is cruciale bedrijfsinformatie, die u permanent in staat stelt uw site of shop te optimaliseren en als onderneming beter in te spelen
                     op de markt.
                 </p>
+                <h2>
+                    Controle op de site
+                </h2>
                 <p>
                     Om te zorgen dat niet iedere bezoeker alle delen van uw site kan zien, kunt u als administrator een ‘userinterface’ toevoegen aan de site. Dit betekent dat
                     gebruikers zich kunnen aanmelden en zo kunnen inloggen op uw webshop of -site om verdere (digitale) content te zien of een bestelling te doen. Op die wijze

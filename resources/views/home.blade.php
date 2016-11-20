@@ -116,7 +116,7 @@
             </div>
             <div id="slider-right" class="col-lg-6 animated">
                 <h2 class="lead text-center">Responsive Website Mobile, Tablet en Computer</h2>
-                <p class="lead text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                <p class="lead text-center">Uw site overal en altijd berijkbaar.</p>
             </div>
         </div>
     </div>

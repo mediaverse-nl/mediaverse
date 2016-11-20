@@ -205,46 +205,20 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
                     {{--<li><a href="{{ url('/diensten') }}">Diensten</a></li>--}}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diensten <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="border-bottom: 5px solid #267AB7; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+                            <li><a href="{{route('page.websites')}}"><i class="fa fa-globe" aria-hidden="true"></i> Websites</a></li>
+                            <li><a href="{{route('page.cms')}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> content management</a></li>
+                            <li><a href="{{route('page.hosting')}}"><i class="fa fa-server" aria-hidden="true"></i> hosting en service</a></li>
+                            <li><a href="{{route('page.internet_marketing')}}"><i class="fa fa-search" aria-hidden="true"></i> zoekmachine optimalisatie</a></li>
+                            <li><a href="{{route('page.vindbaarheid')}}"><i class="fa fa-google" aria-hidden="true"></i> Vindbaar op google</a></li>
+                            <li><a href="{{route('page.webshop')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> webwinkels</a></li>
+                            <li><a href="{{route('page.onderhoud')}}"><i class="fa fa-cogs" aria-hidden="true"></i> Onderhoud</a></li>
+                            <li><a href="{{route('page.photography')}}"><i class="fa fa-camera-retro" aria-hidden="true"></i> Fotografie</a></li>
 
-                    <li class="dropdown dropdown-lg">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diensten <b class="caret"></b></a>
-
-                        <ul class="dropdown-menu pull-left dropdown-menu-lg row">
-                            <li class="col-sm-3">
-                                <ul>
-                                    <li class="dropdown-header">Web applicatie</li>
-                                    <li><a href="{{route('page.websites')}}">Websites</a></li>
-                                    <li><a href="{{route('page.laravel_websites')}}">Laravel websites</a></li>
-                                    <li><a href="{{route('page.cms')}}">content management</a></li>
-                                    <li><a href="{{route('page.hosting')}}">hosting en service</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-sm-3">
-                                <ul>
-                                    <li class="dropdown-header">Internetmarketing</li>
-                                    <li><a href="{{route('page.internet_marketing')}}">zoekmachine optimalisatie</a></li>
-                                    <li><a href="{{route('page.vindbaarheid')}}">Vindbaar op google</a></li>
-                                    <li><a href="{{route('page.seo')}}">SEO</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-sm-3">
-                                <ul>
-                                    <li class="dropdown-header">webwinkel</li>
-                                    <li><a href="{{route('page.webshop')}}">webwinkels</a></li>
-                                    <li><a href="{{route('page.laravel_webshop')}}">Laravel webwinkel</a></li>
-                                    <li><a href="{{route('page.onderhoud')}}">Onderhoud</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-sm-3">
-                                <ul>
-                                    <li class="dropdown-header">Visueel</li>
-                                    <li><a href="{{route('page.photography')}}">Fotografie</a></li>
-                                    <li><a href="{{route('page.logo_illustratie')}}">Logo's & Illustratie</a></li>
-                                    <li><a href="{{route('page.design')}}">Design</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{route('page.design')}}"><i class="fa fa-eye" aria-hidden="true"></i> Design</a></li>
                         </ul>
-
                     </li>
                     <li><a href="{{ route('referenties') }}">Referenties</a></li>
                     <li><a href="{{ route('page.about') }}">Over ons</a></li>
@@ -252,7 +226,7 @@
                 </ul>
                 @if (Auth::check())
                     <ul class="nav navbar-nav pull-right">
-                        <li><a href="{{route('admin.dashboard')}}">Admin panel</a></li>
+                        <li><a href="{{route('dashboard')}}">Admin panel</a></li>
                     </ul>
                 @endif
                 <ul class="nav navbar-nav pull-right">
