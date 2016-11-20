@@ -84,6 +84,9 @@ class ProjectController extends Controller
 
         $project->save();
 
+        foreach ($request->roles as $role){
+            $project->projectRole()->insert([['project_id' => $project->id, 'role_id' => $role,],]);
+        }
 
         \Session::flash('succes_message','successfully.');
 
@@ -99,7 +102,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.board.project.edit')->with('project', $this->projects->find($id));
+        return view('admin.board.project.edit')
+            ->with('project', $this->projects->find($id))
+            ->with('roles', $this->roles->get());
     }
 
     /**
@@ -109,19 +114,19 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $project = $this->projects->find($id);
+        $project = $this->projects->find($request->id);
 
         $rules = [
-            'name' => 'required|unique:project,name,'.$id,
+            'name' => 'required|unique:project,name,'.$request->id,
         ];
 
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('board.project.edit', $id)
+                ->route('board.project.edit', $request->id)
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -135,7 +140,7 @@ class ProjectController extends Controller
 
         \Session::flash('succes_message','successfully.');
 
-        return redirect()->route('board.project.edit', $id);
+        return redirect()->route('board.project.edit', $request->id);
     }
 
     /**

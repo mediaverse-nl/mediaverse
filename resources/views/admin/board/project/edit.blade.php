@@ -4,11 +4,10 @@
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')
+    {!! Form::model($project, array('route' => 'board.project.update', 'method' => 'patch')) !!}
 
     <div class="col-md-6">
-{{--        {!! Form::model($project, ['route' => ['board.project.update', ['id' => $project->id]], 'method' => 'patch']) !!}--}}
-        {!! Form::model($project, array('route' => array('board.project.update', $project->id)))!!}
-
+            {!! Form::hidden('id', $project->id) !!}
             <!-- created_at -->
             <div class="form-group">
                 {!! Form::label('name', 'name') !!}
@@ -73,14 +72,23 @@
 
             {!! Form::submit('aanpassen', ['class' => 'btn btn-primary pull-right'])!!}
 
-        {!! Form::close() !!}
-
     </div>
 
     <div class="col-md-6">
 
         <a href="{{route('board.project.create')}}">nieuw skill</a>
 
+        <hr>
+        <div class="form-group">
+            {!! Form::label('roles', 'roles') !!}<br>
+            @foreach($roles as $role)
+                {!! Form::checkbox('roles[]', $role->id, in_array($role->id, collect($project->projectRole->lists('role_id'))->toArray())) !!}
+                {!! Form::label('roles', $role->status) !!}<br>
+            @endforeach
+        </div>
+
     </div>
+
+    {!! Form::close() !!}
 
 @endsection

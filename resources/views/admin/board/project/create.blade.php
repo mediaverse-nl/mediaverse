@@ -71,7 +71,7 @@
                 {{ Form::select('type', ['color' => 'kleur', 'battery' => 'battery', 'nicotine' => 'nicotine'], null, ['class' => 'form-control']) }}
             </div>
 
-            {!! Form::submit('aanmaken', ['class' => 'btn btn-primary pull-right'])!!}
+            {!! Form::submit('upload', ['class' => 'btn btn-primary pull-right'])!!}
 
         </div>
 

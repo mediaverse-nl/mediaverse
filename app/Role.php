@@ -14,4 +14,9 @@ class Role extends Model
     {
         return $this->hasMany('App\UserRole', 'role_id', 'id');
     }
+
+    public function projectRole()
+    {
+        return $this->hasMany('App\ProjectRole', 'role_id', 'id');
+    }
 }
