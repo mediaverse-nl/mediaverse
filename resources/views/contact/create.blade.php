@@ -16,16 +16,6 @@
         }
     </style>
 
-    <div class="container-full">
-
-        <div style="overflow:hidden;height:500px;width:100%;">
-            <div id="gmap_canvas" style="height:500px;width:100%; ">
-                <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
-            </div>
-        </div>
-
-    </div>
-
     <div class="container">
         <div class="container-fluid">
             <br>
@@ -35,13 +25,13 @@
                     <h1 class="col-md-12">Info</h1>
 
                     <div class="col-md-6">
-                        <span><b>Location</b></span>
-                        <p>Pietercoecke straat 14,<br> 5643 VK Eindhoven</p>
+                        <span><b>Locatie</b></span>
+                        <p>Pietercoecke straat 14,<br> 5643VK Eindhoven</p>
                         <br>
-                        <span><b>Contact us through</b></span>
+                        <span><b>Contact</b></span>
                         <p>tel: +13 0 53779761 <br> Email: info@mediaverse.nl</p>
                         <br>
-                        <span><b>Find us on</b></span>
+                        <span><b>Vind ons op</b></span>
                         <p style="font-size: 35px;">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
                             <i class="fa fa-facebook-square" aria-hidden="true"></i>
@@ -49,66 +39,95 @@
                             <i class="fa fa-google-plus-square" aria-hidden="true"></i>
                         </p>
                     </div>
-                    <div class="col-md-6">
-                        <span><b>Contact us through</b></span>
-                        <p>tel: +13 0 53779761 <br> Email: info@mediaverse.nl</p>
 
-                        <br>
-                    </div>
                     <div class="col-md-6">
-                        <span><b>Contact us through</b></span>
+                        <span><b>Bedrijfsgegevens</b></span>
                         <p>
                             Handelsnaam: Mediaverse<br>
-                            Bank: NL42 ABNA 0594 0761 10<br>
-                            kvk: 58808442 <br> </p>
+                            Bank: NL42 ABNA 0594 0761 10<br><br>
+                            kvk: 58808442 <br>
+                            btw nr: 212068842B01 <br> </p>
                         <br>
                         <br>
+                    </div>
+
+                    <h1 class="col-md-12"><hr> Locatie</h1>
+
+                    <div class="col-md-12">
+
+                        <div style="overflow:hidden;height:300px;width:100%;">
+                            <div id="gmap_canvas" style="height:300px;width:100%; ">
+                                <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <h1>Contact Us</h1>
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="name" class="control-label">Naam *</label>
+                <h1>Neem contact op</h1>
+                {!! Form::open(['route' => 'contact.store', 'class' => 'form-horizontal']) !!}
+
+                    <div class="form-group {{!$errors->has('naam') ? : 'has-error'}}">
+                        {!! Form::label('naam', 'Naam *', ['class' => 'control-label']) !!}
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
+                            {!! Form::text('naam', null, ['class' => 'form-control', 'placeholder' => 'Voor & Achternaam']) !!}
+                            @if($errors->has('naam'))
+                                <label class="control-label small">{{ $errors->first('naam') }}</label>
+                            @endif
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <label for="email" class="control-label">Email *</label>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="form-group {{!$errors->has('email') ? : 'has-error'}}">
+                                {!! Form::label('email', 'Email *', ['class' => 'control-label']) !!}
                                 <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="info@mediaverse.nl" value="">
+                                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'info@mediaverse.nl']) !!}
+                                    @if($errors->has('email'))
+                                        <label class="control-label small">{{ $errors->first('email') }}</label>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="human" class=" control-label">Tel</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row" style="margin-left: 0px;">
+                            <div class="form-group">
+                                {!! Form::label('telefoon_nr', 'Telefoon Nr', ['class' => 'control-label']) !!}
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="human" name="human" placeholder="+31 6 53 779761">
+                                    {!! Form::text('telefoon_nr', null, ['class' => 'form-control', 'placeholder' => '+31 6 53 779761']) !!}
+                                    @if($errors->has('email'))
+                                        <label class="control-label small" style="color: transparent"> 0</label>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="message" class="control-label">Message *</label>
+                    {{--</div>--}}
+
+                    <div class="form-group {{!$errors->has('bericht') ? : 'has-error'}}">
+                        {!! Form::label('bericht', 'Bericht *', ['class' => 'control-label']) !!}
                         <div class="col-sm-12">
-                            <textarea class="form-control" rows="6" name="message"></textarea>
+                            {!! Form::textarea('bericht', null, ['class' => 'form-control', 'rows' => '6']) !!}
+                            @if($errors->has('bericht'))
+                                <label class="control-label small">{{ $errors->first('bericht') }}</label>
+                            @endif
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary col-md-12">
+                            <input id="submit" name="submit" type="submit" value="Verzenden" class="btn btn-primary col-md-12">
                         </div>
                     </div>
-                </form>
+                {!! Form::close() !!}
 
             </div>
         </div>
+        <hr>
     </div>
+
 @endsection
 
 @push('css')

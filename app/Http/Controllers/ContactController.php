@@ -34,9 +34,9 @@ class ContactController extends Controller
 
         ];
         $rules = [
-            'name' => 'required',
+            'naam' => 'required|alpha',
             'email' => 'required|email',
-            'message' => 'required',
+            'bericht' => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -48,7 +48,7 @@ class ContactController extends Controller
                 ->withInput();
         }
 
-        Mail::send('contact.create', $request->all(), function($message) use ($request)
+        Mail::send('email', $request->all(), function($message) use ($request)
         {
             //$message->from($data['email'] , $data['first_name']); uncomment if using first name and email fields
             $message->from('info@mediaverse.nl', 'We zullen zo spoedig mogelijk contact met u opnemen.');

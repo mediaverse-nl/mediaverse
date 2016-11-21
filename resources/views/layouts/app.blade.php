@@ -200,11 +200,10 @@
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse pull-center" id="app-navbar-collapse">
+            <div class="collapse navbar-collapse pull-right" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    {{--<li><a href="{{ url('/diensten') }}">Diensten</a></li>--}}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diensten <span class="caret"></span></a>
                         <ul class="dropdown-menu" style="border-bottom: 5px solid #267AB7; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
@@ -216,7 +215,6 @@
                             <li><a href="{{route('page.webshop')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> webwinkels</a></li>
                             <li><a href="{{route('page.onderhoud')}}"><i class="fa fa-cogs" aria-hidden="true"></i> Onderhoud</a></li>
                             <li><a href="{{route('page.photography')}}"><i class="fa fa-camera-retro" aria-hidden="true"></i> Fotografie</a></li>
-
                             <li><a href="{{route('page.design')}}"><i class="fa fa-eye" aria-hidden="true"></i> Design</a></li>
                         </ul>
                     </li>
