@@ -164,6 +164,7 @@
             color: #428bca;
             font-size: 18px;
         }
+        .
         @media (max-width: 768px) {
             .dropdown-menu-lg {
                 margin-left: 0 ;
@@ -182,7 +183,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-fixed-top" style="background: #F4F4F4; border: none;">
+    <nav class="navbar navbar-default navbar-fixed-top" style="background: #fff !important; border: none;">
         <div class="container">
             <div class="navbar-header">
 
@@ -211,7 +212,7 @@
                             <li><a href="{{route('page.cms')}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> content management</a></li>
                             <li><a href="{{route('page.hosting')}}"><i class="fa fa-server" aria-hidden="true"></i> hosting en service</a></li>
                             <li><a href="{{route('page.internet_marketing')}}"><i class="fa fa-search" aria-hidden="true"></i> zoekmachine optimalisatie</a></li>
-                            <li><a href="{{route('page.vindbaarheid')}}"><i class="fa fa-google" aria-hidden="true"></i> Vindbaar op google</a></li>
+                            {{--<li><a href="{{route('page.vindbaarheid')}}"><i class="fa fa-google" aria-hidden="true"></i> Vindbaar op google</a></li>--}}
                             <li><a href="{{route('page.webshop')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> webwinkels</a></li>
                             <li><a href="{{route('page.onderhoud')}}"><i class="fa fa-cogs" aria-hidden="true"></i> Onderhoud</a></li>
                             <li><a href="{{route('page.photography')}}"><i class="fa fa-camera-retro" aria-hidden="true"></i> Fotografie</a></li>
@@ -256,11 +257,11 @@
                 <div class="col-lg-3">
                     <h3 style="color: #fff;">Diensten</h3>
                     <ul class="list-unstyled">
-                        <li>> <a href="{{ route('page.app') }}" style="color:#777;">Applicaties</a></li>
-                        <li>> <a href="{{ route('page.seo') }}" style="color:#777;">Search engine optimization </a></li>
+                        <li>> <a href="{{ route('page.websites') }}" style="color:#777;">Applicaties</a></li>
+                        <li>> <a href="{{ route('page.internet_marketing') }}" style="color:#777;">Search engine optimization </a></li>
                         <li>> <a href="{{ route('page.hosting') }}" style="color:#777;">Hosting </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}" style="color:#777;">Logo / illustraties </a></li>
-                        <li>> <a href="{{ route('page.hosting') }}" style="color:#777;">Fotografie </a></li>
+                        <li>> <a href="{{ route('page.design') }}" style="color:#777;">Logo / illustraties </a></li>
+                        <li>> <a href="{{ route('page.photography') }}" style="color:#777;">Fotografie </a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">

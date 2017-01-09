@@ -96,7 +96,12 @@
 @stop
 
 @push('css')
-
+    <style>
+        h2{
+            font-size: 18px !important;
+            margin-bottom: 7px !important;
+        }
+    </style>
 @endpush
 
 @push('scripts')

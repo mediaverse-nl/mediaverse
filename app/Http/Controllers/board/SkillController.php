@@ -79,9 +79,9 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+
     }
 
     /**
@@ -92,7 +92,8 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.board.skill.edit')
+            ->with('skill', $this->skills->find($id));
     }
 
     /**
@@ -102,9 +103,30 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $skill = $this->skills->find($request->id);
+
+        $rules = [
+            'skill' => 'required|unique:skill,skill,'.$request->id,
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('board.skill.edit', $request->id)
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $skill->skill = $request->skill;
+
+        $skill->save();
+
+        \Session::flash('succes_message','successfully.');
+
+        return redirect()->route('board.skill.edit', $request->id);
     }
 
     /**

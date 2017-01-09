@@ -14,7 +14,7 @@
 
     <div class="container">
         <div class="row">
-            asadas
+
         </div>
     </div>
 

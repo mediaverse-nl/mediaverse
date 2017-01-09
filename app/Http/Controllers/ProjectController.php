@@ -18,9 +18,9 @@ class ProjectController extends Controller
         return view('referentie.index')->with('project', $this->project->where('status', 'ready')->get());
     }
 
-    public function show($id)
+    public function show($name)
     {
-        return view('referentie.show')->with('project', $this->project->where('name', $id)->first());
+        return view('referentie.show')->with('project', $this->project->where('name', str_replace('-', ' ', $name))->first());
     }
 
 }

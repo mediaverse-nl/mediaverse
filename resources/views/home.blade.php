@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'This is an individual page title')
-@section('description', 'This is a description')
-@section('keywords', 'ik ben een pagina met, blue, black, white keys')
+@section('title', trans('page.home.title'))
+@section('description', trans('page.home.description'))
+@section('keywords', trans('page.home.keywords'))
 
 @push('meta-tags')
     <meta name="google-site-verification" content="eN2ZhbgwWLU3wuEhlogHC2uuYJlk08uzhqjqF4zE7x4" />
@@ -14,20 +14,20 @@
         <div class="slider-main row">
             <div class="col-lg-12">
                 <div class="row view one-img"></div>
-                <h1 class="text-center" style="text-align: center;"><b>Webshop nodig?</b></h1>
-                <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels <br>
+                <h1 class="text-center" style="text-align: center;"><b>@lang('banner.title_1') Webshop nodig?</b></h1>
+                <p class="text-center">@lang('banner.text_1') n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels <br>
                     in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
             </div>
             <div class="col-lg-12">
                 <div class="row view two-img"></div>
-                <h1 class="text-center" style="text-align: center;"><b>website nodig?</b></h1>
-                <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. <br>
+                <h1 class="text-center" style="text-align: center;"><b>@lang('banner.title_2') website nodig?</b></h1>
+                <p class="text-center">@lang('banner.text_2') n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. <br>
                     het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
             </div>
             <div class="col-lg-12">
                 <div class="row view three-img"></div>
-                <h1 class="text-center" style="text-align: center;"><b>Oplossing nodig?</b></h1>
-                <p class="text-center">n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum <br>
+                <h1 class="text-center" style="text-align: center;"><b>@lang('banner.title_3') Oplossing nodig?</b></h1>
+                <p class="text-center">@lang('banner.text_3') n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum <br>
                     niet zomaar willekeurige tekst. het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
             </div>
 
@@ -40,7 +40,7 @@
         <div class="row">
             <a href="{{route('page.websites')}}">
                 <div class="col-lg-4 text-center main-service animated">
-                    <h1>website</h1>
+                    <h1>@lang('services.website.title')</h1>
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/responsive.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
@@ -49,7 +49,7 @@
             </a>
             <a href="{{route('page.seo')}}">
                 <div class="col-lg-4 text-center main-service animated">
-                    <h1>SEO</h1>
+                    <h1>@lang('services.seo.title')</h1>
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/seo.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
@@ -58,7 +58,7 @@
             </a>
             <a href="{{route('page.webshop')}}">
                 <div class="col-lg-4 text-center main-service animated">
-                    <h1>webshop</h1>
+                    <h1>@lang('services.webshop.title')</h1>
 
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
@@ -72,8 +72,8 @@
         <hr>
 
         <div class="container-fluid services animated">
-            <h3 class="text-center">Welke dienst zoekt u?</h3>
-            <p class="text-center">Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek.</p>
+            <h3 class="text-center">@lang('text.services_title') Welke dienst zoekt u?</h3>
+            <p class="text-center">@lang('text.services_text')Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek.</p>
             <br>
             <div class="col-md-4">
                 <div class="thumbnail">
@@ -85,6 +85,12 @@
                 <div class="thumbnail">
                     <i class="fa fa-server" aria-hidden="true"></i>
                     Hosting
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    Content management
                 </div>
             </div>
             <div class="col-md-4">
@@ -115,8 +121,8 @@
                 <img class="img-responsive" src="http://johnpolacek.github.io/scrolldeck.js/decks/responsive/img/responsive_web_design.png">
             </div>
             <div id="slider-right" class="col-lg-6 animated">
-                <h2 class="lead text-center">Responsive Website Mobile, Tablet en Computer</h2>
-                <p class="lead text-center">Uw site overal en altijd berijkbaar.</p>
+                <h2 class="lead text-center">@lang('text.responsive_title') Responsive Website Mobile, Tablet en Computer</h2>
+                <p class="lead text-center">@lang('text.responsive_text') Uw site overal en altijd berijkbaar.</p>
             </div>
         </div>
     </div>
@@ -124,9 +130,9 @@
     <div class="container-fluid">
         <div class="row" style="background: #267AB7; height: 200px; border-bottom: 20px solid #1e61b7; margin-bottom: 20px">
             <div class="container">
-                <h2 class="text-center " style="color: white !important; margin-top: 25px;"> Take a look at some of our work</h2>
+                <h2 class="text-center " style="color: white !important; margin-top: 25px;">@lang('text.our_work_title') Take a look at some of our work</h2>
                 <div class="col-md-6 col-md-offset-3 ">
-                    <p class="text-center" style="color: #fff;">n indruk te geven van het grafische effect van tekst op deze plek.
+                    <p class="text-center" style="color: #fff;">@lang('text.our_work_text')n indruk te geven van het grafische effect van tekst op deze plek.
                         Wat u hier leest is een voorbeeldtekst. Deze wordt later
                         vervangen door de uiteindelijke</p>
                 </div>
@@ -145,55 +151,7 @@
             </div>
         </div>
     </div>
-
-    {{--<div class="container-fluid" style="background-color:#0E0E0E; margin-top: 0px; padding: 0px 0px;">--}}
-        {{--<div class="container">--}}
-            {{--<h2 class="text-center" style="color: #fff !important;">Clients queto's</h2>--}}
-            {{--<span class="muted center-text">John Doe</span>--}}
-            {{--<i class="fa fa-quote-left" aria-hidden="true"></i>--}}
-            {{--<div class="col-md-6 col-md-offset-3 ">--}}
-                {{--<p class="text-center">--}}
-                    {{--n indruk te geven van het grafische effect van tekst op deze plek.--}}
-                    {{--Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke--}}
-                {{--</p>--}}
-            {{--</div>--}}
-            {{--<i class="fa fa-quote-right" aria-hidden="true"></i>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<div class="container-fluid" style="background-color: #F2F2F2; margin-bottom: -50px; padding-bottom: 50px;">--}}
-        {{--<div class="container">--}}
-            {{--<h2 class="text-center" style="margin-top: 20px;">Our Team</h2><hr>--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-3 text-center">--}}
-                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
-                    {{--<br>--}}
-                    {{--<span class="text-muted text-center">CEO</span><br>--}}
-                    {{--<span>Jonh Doe</span>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-3 text-center">--}}
-                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
-                    {{--<br>--}}
-                    {{--<span class="text-muted text-center">Developer</span><br>--}}
-                    {{--<span>Jonh Doe</span>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-3 text-center">--}}
-                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
-                    {{--<br>--}}
-                    {{--<span class="text-muted text-center">Lead developer</span><br>--}}
-                    {{--<span>Jonh Doe</span>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-3 text-center">--}}
-                    {{--<img class="img-circle img-responsive center-block" src="/images/users/default-avatar.gif">--}}
-                    {{--<br>--}}
-                    {{--<span class="text-muted text-center">Designer</span><br>--}}
-                    {{--<span>Jonh Doe</span>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-@endsection
+@stop
 
 
 @push('scripts')

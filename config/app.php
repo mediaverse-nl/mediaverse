@@ -159,6 +159,7 @@ return [
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
 
     ],
 

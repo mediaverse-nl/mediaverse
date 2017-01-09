@@ -26,7 +26,7 @@ class ProjectController extends Controller
     {
 //        $this->project->where()->
 
-        return view('developer.project.index');
+        return view('admin.developer.project.index');
     }
 
     /**

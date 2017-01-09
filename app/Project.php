@@ -33,9 +33,24 @@ class Project extends Model
         return $this->hasMany('App\ProjectUser', 'project_id', 'id');
     }
 
+    public function projectService()
+    {
+        return $this->hasMany('App\ProjectService', 'project_id', 'id');
+    }
+
+    public function projectSkill()
+    {
+        return $this->hasMany('App\ProjectSkill', 'project_id', 'id');
+    }
+
     public function projectTask()
     {
         return $this->hasMany('App\ProjectTask', 'project_id', 'id');
+    }
+
+    public function projectImage()
+    {
+        return $this->hasMany('App\ProjectImages', 'project_id', 'id');
     }
 
     public function projectRole()

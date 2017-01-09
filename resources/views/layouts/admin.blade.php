@@ -21,7 +21,7 @@
     <!-- Custom Fonts -->
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="http://vjs.zencdn.net/5.10.4/video-js.css" rel="stylesheet">
+    @stack('stylesheet')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

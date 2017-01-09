@@ -1,10 +1,43 @@
 @extends('layouts.admin')
 
-@section('title', 'Projecten')
+@section('title', 'nieuw project')
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')
 
-    <a href="{{route('board.project.create')}}">Nieuw project</a>
+    <div class="col-md-6">
+
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>project</th>
+                    <th>uren</th>
+                    <th>prijs</th>
+                    <th>status</th>
+                    <th>type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($projects as $project)
+                    <tr class="table-row" data-href="{{route('board.project.edit', $project->id)}}">
+                        <td>{{$project->id}}</td>
+                        <td>{{$project->name}}</td>
+                        <td>{{$project->duur}}</td>
+                        <td>{{$project->price}}</td>
+                        <td>{{$project->status}}</td>
+                        <td>{{$project->type}}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <a href="{{route('board.project.create')}}">nieuw skill</a>
+
+    </div>
 
 @endsection

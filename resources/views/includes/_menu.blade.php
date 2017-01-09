@@ -1,12 +1,14 @@
 <style>
-    .active > a{
+    .panel-group .active {
+        transition: all 0.5s ease;
         background-color: #267AB7;
     }
     .active a{
         color: white !important;
     }
-    .active:hover a{
-        background-color: #0E0E0E !important;
+    .panel-group .active:hover {
+        background-color: #0E0E0E;
+        /*opacity: 0.6;*/
     }
     .menu-bar > li{
         background: #B0BEC5;
@@ -23,15 +25,21 @@
 </style>
 
 <div class="col-lg-3">
-    <div class="panel">
-        <ul class="nav navbar-nav menu-bar">
+    {{--<div class="panel">--}}
+        {{--<ul class="nav navbar-nav menu-bar">--}}
             {{--<li class="{{ Request::url() == route('admin.index') ? 'active' : '' }}"><a href="{{route('admin.index')}}">home</a></li>--}}
             {{--<li class="{{ Request::url() == route('admin.reference.index') ? 'active' : '' }}"><a href="{{route('admin.reference.index')}}">references</a></li>--}}
-        </ul>
-    </div>
-    <div class="panel panel-default thumbnail" style="background: #F4F4F4;">
-        <span class="lead"><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</span>
+        {{--</ul>--}}
+    {{--</div>--}}
+    <div class="" style="">
+        {{--<h2>Bel ons</h2>--}}
+        <hr>
+        <p>Offerte aanvraagn? neem contact met ons op via ons contactformulier</p>
         <a href="{{route('contact.create')}}" class="btn btn-primary">Neem contact op</a>
+        <hr>
+        <h3 style="font-size: 18px;">Bel ons op:</h3>
+        <span class="lead"><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</span>
+        <hr>
     </div>
 
     <div class="panel-group" id="accordion">
@@ -76,9 +84,9 @@
                     <li class="list-group-item {{ route('page.internet_marketing') == Request::url() ? 'active' : null }}">
                         <a href="{{route('page.internet_marketing')}}"> Zoekmachine Optimalisatie</a>
                     </li>
-                    <li class="list-group-item {{ route('page.vindbaarheid') == Request::url() ? 'active' : null }}">
-                        <a href="{{route('page.vindbaarheid')}}"> Vindbaar op Google</a>
-                    </li>
+                    {{--<li class="list-group-item {{ route('page.vindbaarheid') == Request::url() ? 'active' : null }}">--}}
+                        {{--<a href="{{route('page.vindbaarheid')}}"> Vindbaar op Google</a>--}}
+                    {{--</li>--}}
                     {{--<li class="list-group-item {{ route('page.seo') == Request::url() ? 'active' : null }}">--}}
                         {{--<a href="{{route('page.seo')}}"> SEO</a>--}}
                     {{--</li>--}}

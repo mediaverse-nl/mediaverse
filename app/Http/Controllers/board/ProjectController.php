@@ -6,7 +6,10 @@ use App\Project;
 use App\Role;
 use App\Skill;
 use App\User;
+use App\Service;
+
 use Validator;
+use Input;
 
 use Illuminate\Http\Request;
 
@@ -19,6 +22,7 @@ class ProjectController extends Controller
     protected $roles;
     protected $skills;
     protected $projects;
+    protected $services;
 
     public function __construct()
     {
@@ -26,6 +30,7 @@ class ProjectController extends Controller
         $this->roles = new Role();
         $this->skills = new Skill();
         $this->projects = new Project();
+        $this->services = new Service();
     }
 
     /**
@@ -88,6 +93,10 @@ class ProjectController extends Controller
             $project->projectRole()->insert([['project_id' => $project->id, 'role_id' => $role,],]);
         }
 
+        foreach ($request->users as $user){
+            $project->projectUser()->insert([['project_id' => $project->id, 'user_id' => $user,],]);
+        }
+
         \Session::flash('succes_message','successfully.');
 
         return redirect()->route('board.project.store');
@@ -104,6 +113,9 @@ class ProjectController extends Controller
     {
         return view('admin.board.project.edit')
             ->with('project', $this->projects->find($id))
+            ->with('users', $this->users->get())
+            ->with('services', $this->services->get())
+            ->with('skills', $this->skills->get())
             ->with('roles', $this->roles->get());
     }
 
@@ -119,7 +131,7 @@ class ProjectController extends Controller
         $project = $this->projects->find($request->id);
 
         $rules = [
-            'name' => 'required|unique:project,name,'.$request->id,
+//            'name' => 'required|unique:project,name,'.$request->id,
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -134,9 +146,50 @@ class ProjectController extends Controller
         $project->name = $request->name;
         $project->customer = $request->customer;
         $project->price = $request->price;
+        $project->duur = $request->duur;
         $project->email = $request->email;
+        $project->telefoon = $request->telefoon;
+        $project->status = $request->status;
+        $project->type = $request->type;
+        $project->uml = $request->uml;
+        $project->usecase = $request->usecase;
+        $project->pva = $request->pva;
+        $project->contract = $request->contract;
 
         $project->save();
+
+        $project->projectRole()->where('project_id', $project->id)->delete();
+        $project->projectUser()->where('project_id', $project->id)->delete();
+        $project->projectSkill()->where('project_id', $project->id)->delete();
+        $project->projectService()->where('project_id', $project->id)->delete();
+
+        foreach ($request->roles as $role){
+            $project->projectRole()->insert([['project_id' => $project->id, 'role_id' => $role,],]);
+        }
+        foreach ($request->users as $user){
+            $project->projectUser()->insert([['project_id' => $project->id, 'user_id' => $user,],]);
+        }
+        foreach ($request->skills as $skill){
+            $project->projectSkill()->insert([['project_id' => $project->id, 'skill_id' => $skill,],]);
+        }
+        foreach ($request->services as $service){
+            $project->projectService()->insert([['project_id' => $project->id, 'service_id' => $service,],]);
+        }
+
+        $images = Input::file('images');
+        if (Input::hasFile('images')){
+            foreach ($images as $image){
+                $extension = $image->getClientOriginalExtension();
+                $new_filename = str_random(5) . '.' . $extension;
+                $image->move(public_path().'/images/portfolio/', $new_filename);
+                $project->projectImage()->insert([
+                    [
+                        'path' => $new_filename,
+                        'project_id' => $project->id,
+                    ],
+                ]);
+            }
+        }
 
         \Session::flash('succes_message','successfully.');
 

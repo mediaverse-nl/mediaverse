@@ -42,6 +42,7 @@
                 <p>
                     <strong><em>– Anonymous</em></strong>
                 </p>
+                <hr>
                 <h2>
                     Het syteem
                 </h2>
@@ -56,6 +57,7 @@
                     een van deze opties. Door het indexeren is het mogelijk snel door uw website te “bladeren” op zoek naar verschillende keywords, die u in een zoekbalk
                     aangeeft. Deze optie kunt u natuurlijk ook toevoegen aan uw live website, zodat klanten hier gebruik van kunnen maken.
                 </p>
+                <hr>
                 <h2>
                     De feedback is uw vriend
                 </h2>
@@ -66,6 +68,7 @@
                     en nog veel meer. Dit is cruciale bedrijfsinformatie, die u permanent in staat stelt uw site of shop te optimaliseren en als onderneming beter in te spelen
                     op de markt.
                 </p>
+                <hr>
                 <h2>
                     Controle op de site
                 </h2>
@@ -79,6 +82,7 @@
                     Kortom CMS is dé webapplicatie om uw website of -shop te bewerken en informatie te verzamelen over uw gebruikers en met de verwerking daarvan uw klanten
                     beter te bedienen.
                 </p>
+                <hr>
 
             </div>
 
@@ -88,7 +92,12 @@
 @stop
 
 @push('css')
-
+<style>
+    h2{
+        font-size: 18px !important;
+        margin-bottom: 7px !important;
+    }
+</style>
 @endpush
 
 @push('scripts')

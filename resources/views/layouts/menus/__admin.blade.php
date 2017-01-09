@@ -67,6 +67,22 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
 
+            <li>
+                <a href="{{route('board.service.index')}}">Services</a>
+            </li>
+            <li>
+                <a href="{{route('board.role.index')}}">Roles</a>
+            </li>
+            <li>
+                <a href="{{route('board.skill.index')}}">Skills</a>
+            </li>
+            <li>
+                <a href="{{route('board.user.index')}}">Users</a>
+            </li>
+            <li>
+                <a href="{{route('board.project.index')}}">Project</a>
+            </li>
+
             @if(Auth::user()->hasRole('board'))
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#board" class="collapsed" aria-expanded="false">
@@ -126,7 +142,7 @@
                             <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> dashboard</a>
                         </li>
                         <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
-                            <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> project</a>
+                            <a href="{{route('developer.project.index')}}"><i class="fa fa-fw fa-bars"></i> project</a>
                         </li>
                         <li class="{{ Request::is('admin/categories*') ? 'active' : null }}">
                             <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-bars"></i> skill</a>

@@ -10,4 +10,9 @@ class Skill extends Model
 
     public $timestamps = false;
 
+    public function projectSkill()
+    {
+        return $this->hasMany('App\ProjectSkill', 'skill_id', 'id');
+    }
+
 }
