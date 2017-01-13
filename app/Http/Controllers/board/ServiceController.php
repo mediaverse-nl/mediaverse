@@ -73,17 +73,6 @@ class ServiceController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -91,7 +80,7 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.board.service.edit')->with('service', $this->service->find($id));
     }
 
     /**
@@ -106,25 +95,25 @@ class ServiceController extends Controller
         $service = $this->service->find($request->id);
 
         $rules = [
-            'skill' => 'required|unique:skill,skill,'.$request->id,
+            'name' => 'required|unique:service,name,'.$request->id,
         ];
 
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('board.skill.edit', $request->id)
+                ->route('board.service.edit', $request->id)
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        $service->skill = $request->skill;
+        $service->name = $request->name;
 
         $service->save();
 
         \Session::flash('succes_message','successfully.');
 
-        return redirect()->route('board.skill.edit', $request->id);
+        return redirect()->route('board.service.index');
     }
 
     /**

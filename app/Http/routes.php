@@ -102,25 +102,23 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
-    Route::group(['prefix' => 'developer', 'as' => 'developer.', 'middleware' => 'role:developer'], function () {
-        Route::get('/', ['as' => 'index', 'uses' => function(){return 'index';}]);
+    Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'role:developer,marketing,board'], function () {
+        Route::get('/', ['as' => 'index', 'uses' => 'Auth\ProfileController@index']);
+        Route::get('/create', ['as' => 'create', 'uses' => 'Auth\ProfileController@create']);
+        Route::get('/{id}/edit', ['as' => 'edit', 'uses' => 'Auth\ProfileController@edit']);
+        Route::get('/{id}/show', ['as' => 'show', 'uses' => 'Auth\ProfileController@show']);
+        Route::patch('/', ['as' => 'update', 'uses' => 'Auth\ProfileController@update']);
+    });
 
+    Route::group(['prefix' => 'developer', 'as' => 'developer.', 'middleware' => 'role:developer'], function () {
         Route::get('project', ['as' => 'project.index', 'uses' => 'developer\ProjectController@index']);
         Route::get('project/create', ['as' => 'project.create', 'uses' => 'developer\ProjectController@create']);
         Route::get('project/{id}/edit', ['as' => 'project.edit', 'uses' => 'developer\ProjectController@edit']);
+        Route::get('project/{id}/show', ['as' => 'project.show', 'uses' => 'developer\ProjectController@show']);
+        Route::post('project', ['as' => 'project.store', 'uses' => 'developer\ProjectController@store']);
         Route::patch('project', ['as' => 'project.update', 'uses' => 'developer\ProjectController@update']);
-
-        Route::get('skill', ['as' => 'skill.index', 'uses' => function(){return 'hello';}]);
-
-        Route::get('task', ['as' => 'task.index', 'uses' => function(){return 'hello';}]);
-        Route::get('task/show/{id}', ['as' => 'task.show', 'uses' => function(){return 'hello';}]);
-        Route::get('task/edit/{id}', ['as' => 'task.edit', 'uses' => function(){return 'hello';}]);
-        Route::post('task', ['as' => 'task.store', 'uses' => function(){return 'hello';}]);
-        Route::delete('task/destroy/{id}', ['as' => 'task.destroy', 'uses' => function(){return 'hello';}]);
-    });
-
-    Route::group(['prefix' => 'marketing', 'as' => 'developer.', 'middleware' => 'role:developer'], function () {
-        Route::get('task', ['as' => 'task', 'uses' => function(){return 'hello';}]);
+        Route::patch('project/start', ['as' => 'project.start', 'uses' => 'developer\ProjectController@startTimer']);
+        Route::delete('project/task/destroy', ['as' => 'task.destroy', 'uses' => 'developer\ProjectController@destroy']);
     });
 
     Route::group(['prefix' => 'board', 'as' => 'board.', 'middleware' => ['role:board']], function ()
@@ -128,8 +126,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('project', ['as' => 'project.index', 'uses' => 'board\ProjectController@index']);
         Route::get('project/create', ['as' => 'project.create', 'uses' => 'board\ProjectController@create']);
         Route::get('project/{id}/edit', ['as' => 'project.edit', 'uses' => 'board\ProjectController@edit']);
-        Route::post('project', ['as' => 'project.store', 'uses' => 'board\ProjectController@store']);
         Route::patch('project', ['as' => 'project.update', 'uses' => 'board\ProjectController@update']);
+        Route::post('project', ['as' => 'project.store', 'uses' => 'board\ProjectController@store']);
         Route::delete('project/destroy/{id}', ['as' => 'project.destroy', 'uses' => 'board\ProjectController@destroy']);
 
         Route::get('service', ['as' => 'service.index', 'uses' => 'board\ServiceController@index']);
@@ -152,13 +150,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('user', ['as' => 'user.store', 'uses' => 'board\UserController@store']);
         Route::patch('user', ['as' => 'user.update', 'uses' => 'board\UserController@update']);
         Route::delete('user/destroy/{id}', ['as' => 'user.destroy', 'uses' => 'board\UserController@destroy']);
-
-        Route::get('role', ['as' => 'role.index', 'uses' => 'board\RoleController@index']);
-        Route::get('role/create', ['as' => 'role.create', 'uses' => 'board\RoleController@create']);
-        Route::get('role/{id}/edit', ['as' => 'role.edit', 'uses' => 'board\RoleController@edit']);
-        Route::post('role', ['as' => 'role.store', 'uses' => 'board\RoleController@store']);
-        Route::patch('role', ['as' => 'role.update', 'uses' => 'board\RoleController@update']);
-        Route::delete('user/destroy/{id}', ['as' => 'role.destroy', 'uses' => 'board\RoleController@destroy']);
 
         //admin image delete
         Route::delete('image/{id}', ['as' => 'image.destroy', 'uses' => 'board\ImageController@remove']);

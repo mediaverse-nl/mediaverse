@@ -53,6 +53,7 @@ class ProjectController extends Controller
         return view('admin.board.project.create')
             ->with('users', $this->users->get())
             ->with('roles', $this->roles->get())
+            ->with('services', $this->services->get())
             ->with('skills', $this->skills->get());
     }
 
@@ -68,7 +69,11 @@ class ProjectController extends Controller
             'name'          => 'required|unique:project,name',
             'customer'          => 'required',
             'price'          => 'required',
-            'email'          => 'required',
+            'email'          => 'required|email',
+            'roles'          => 'required',
+            'users'          => 'required',
+            'services'          => 'required',
+            'skills'          => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -85,16 +90,35 @@ class ProjectController extends Controller
         $project->name = $request->name;
         $project->customer = $request->customer;
         $project->price = $request->price;
+        $project->website = $request->website;
+        $project->duur = $request->duur;
         $project->email = $request->email;
+        $project->telefoon = $request->telefoon;
+        $project->status = $request->status;
+        $project->omschrijving = $request->omschrijving;
+        $project->resultaat = $request->resultaat;
 
         $project->save();
 
-        foreach ($request->roles as $role){
-            $project->projectRole()->insert([['project_id' => $project->id, 'role_id' => $role,],]);
+        if(!empty($request->roles)){
+            foreach ($request->roles as $role){
+                $project->projectRole()->insert([['project_id' => $project->id, 'role_id' => $role,],]);
+            }
         }
-
-        foreach ($request->users as $user){
-            $project->projectUser()->insert([['project_id' => $project->id, 'user_id' => $user,],]);
+        if(!empty($request->users)){
+            foreach ($request->users as $user){
+                $project->projectUser()->insert([['project_id' => $project->id, 'user_id' => $user,],]);
+            }
+        }
+        if(!empty($request->skills)){
+            foreach ($request->skills as $skill){
+                $project->projectSkill()->insert([['project_id' => $project->id, 'skill_id' => $skill,],]);
+            }
+        }
+        if(!empty($request->services)){
+            foreach ($request->services as $service){
+                $project->projectService()->insert([['project_id' => $project->id, 'service_id' => $service,],]);
+            }
         }
 
         \Session::flash('succes_message','successfully.');
@@ -146,34 +170,44 @@ class ProjectController extends Controller
         $project->name = $request->name;
         $project->customer = $request->customer;
         $project->price = $request->price;
+        $project->website = $request->website;
         $project->duur = $request->duur;
         $project->email = $request->email;
         $project->telefoon = $request->telefoon;
         $project->status = $request->status;
-        $project->type = $request->type;
-        $project->uml = $request->uml;
-        $project->usecase = $request->usecase;
-        $project->pva = $request->pva;
-        $project->contract = $request->contract;
+        $project->omschrijving = $request->omschrijving;
+        $project->resultaat = $request->resultaat;
+//        $project->uml = $request->uml;
+//        $project->usecase = $request->usecase;
+//        $project->pva = $request->pva;
+//        $project->contract = $request->contract;
 
         $project->save();
 
-        $project->projectRole()->where('project_id', $project->id)->delete();
         $project->projectUser()->where('project_id', $project->id)->delete();
+        $project->projectRole()->where('project_id', $project->id)->delete();
         $project->projectSkill()->where('project_id', $project->id)->delete();
         $project->projectService()->where('project_id', $project->id)->delete();
 
-        foreach ($request->roles as $role){
-            $project->projectRole()->insert([['project_id' => $project->id, 'role_id' => $role,],]);
+        if(!empty($request->roles)){
+            foreach ($request->roles as $role){
+                $project->projectRole()->insert([['project_id' => $project->id, 'role_id' => $role,],]);
+            }
         }
-        foreach ($request->users as $user){
-            $project->projectUser()->insert([['project_id' => $project->id, 'user_id' => $user,],]);
+        if(!empty($request->users)){
+            foreach ($request->users as $user){
+                $project->projectUser()->insert([['project_id' => $project->id, 'user_id' => $user,],]);
+            }
         }
-        foreach ($request->skills as $skill){
-            $project->projectSkill()->insert([['project_id' => $project->id, 'skill_id' => $skill,],]);
+        if(!empty($request->skills)){
+            foreach ($request->skills as $skill){
+                $project->projectSkill()->insert([['project_id' => $project->id, 'skill_id' => $skill,],]);
+            }
         }
-        foreach ($request->services as $service){
-            $project->projectService()->insert([['project_id' => $project->id, 'service_id' => $service,],]);
+        if(!empty($request->services)){
+            foreach ($request->services as $service){
+                $project->projectService()->insert([['project_id' => $project->id, 'service_id' => $service,],]);
+            }
         }
 
         $images = Input::file('images');

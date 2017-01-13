@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 
-@section('title', 'skill aanpassen')
+@section('title', 'Service aanpassen')
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')
-    {!! Form::model($skill, array('route' => 'board.skill.update', 'method' => 'patch')) !!}
+    {!! Form::model($service, array('route' => 'board.service.update', 'method' => 'patch')) !!}
 
     <div class="col-md-6">
-            {!! Form::hidden('id', $skill->id) !!}
+            {!! Form::hidden('id', $service->id) !!}
             <!-- created_at -->
             <div class="form-group">
-                {!! Form::label('skill', 'skill') !!}
-                {!! Form::text('skill', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+                {!! Form::label('name', 'name') !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '']) !!}
             </div>
 
             {!! Form::submit('aanpassen', ['class' => 'btn btn-primary pull-right'])!!}

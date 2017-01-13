@@ -1,23 +1,41 @@
 @extends('layouts.admin')
 
-@section('title', 'nieuw project')
+@section('title', 'Project aanpassen')
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')
 
     {!! Form::open(['route' => 'board.project.store']) !!}
 
-        <div class="col-md-6">
+        <div class="col-md-4">
 
-            <!-- created_at -->
+        {{--{!! Form::hidden('id', $project->id) !!}--}}
+        <!-- created_at -->
             <div class="form-group">
-                {!! Form::label('name', 'name') !!}
+                {!! Form::label('name', 'project naam') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '']) !!}
             </div>
             <!-- created_at -->
             <div class="form-group">
-                {!! Form::label('customer', 'customer') !!}
+                {!! Form::label('customer', 'klant naam') !!}
                 {!! Form::text('customer', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+            </div>
+            <!-- created_at -->
+            <div class="form-group">
+                {!! Form::label('website', 'website') !!}
+                {!! Form::text('website', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+            </div>
+            <!-- created_at -->
+            <div class="form-group">
+                {!! Form::label('email', 'email') !!}
+                <small class="text-muted">Klant</small>
+                {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+            </div>
+            <!-- created_at -->
+            <div class="form-group">
+                {!! Form::label('telefoon', 'telefoon') !!}
+                <small class="text-muted">Klant</small>
+                {!! Form::text('telefoon', null, ['class' => 'form-control', 'placeholder' => '']) !!}
             </div>
             <!-- created_at -->
             <div class="form-group">
@@ -26,79 +44,97 @@
             </div>
             <!-- created_at -->
             <div class="form-group">
-                {!! Form::label('duur', 'duur') !!}
-                {!! Form::text('duur', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+                {!! Form::label('duur', 'ingeschatte duur ') !!}
+                <small class="text-muted">(duur in uren)</small>
+                {!! Form::number('duur', null, ['class' => 'form-control', 'placeholder' => '']) !!}
             </div>
-            <!-- created_at -->
-            <div class="form-group">
-                {!! Form::label('email', 'email') !!}
-                {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-            </div>
+
             <!-- created_at -->
             <div class="form-group">
                 {!! Form::label('status', 'status') !!}
-                {!! Form::text('status', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-            </div>
-            <!-- created_at -->
-            <div class="form-group">
-                {!! Form::label('type', 'type') !!}
-                {!! Form::text('type', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-            </div>
-            <!-- created_at -->
-            <div class="form-group">
-                {!! Form::label('uml', 'uml') !!}
-                {!! Form::file('uml', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-            </div>
-            <!-- created_at -->
-            <div class="form-group">
-                {!! Form::label('usecase', 'usecase') !!}
-                {!! Form::file('usecase', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-            </div>
-            <!-- created_at -->
-            <div class="form-group">
-                {!! Form::label('pva', 'pva') !!}
-                {!! Form::file('pva', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-            </div>
-            <!-- created_at -->
-            <div class="form-group">
-                {!! Form::label('contract', 'contract') !!}
-                {!! Form::file('contract', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('type', 'type') !!}
-                {{--{!! Form::select('name', null, ['class' => 'form-control', 'placeholder' => '']) !!}--}}
-                {{ Form::select('type', ['color' => 'kleur', 'battery' => 'battery', 'nicotine' => 'nicotine'], null, ['class' => 'form-control']) }}
+                {{--                {!! Form::select('status', null, ['class' => 'form-control', 'placeholder' => '']) !!}--}}
+                {{ Form::select('status', ['none' => 'none', 'ready' => 'ready', 'prograss' => 'prograss'], null, ['class' => 'form-control']) }}
             </div>
 
             {!! Form::submit('upload', ['class' => 'btn btn-primary pull-right'])!!}
 
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <div class="form-group">
+                {!! Form::label('omschrijving', 'omschrijving') !!}
+                <small class="text-muted">project</small>
+                {!! Form::textarea('omschrijving', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+            </div>
+            <!-- created_at -->
+            <div class="form-group">
+                {!! Form::label('resultaat', 'resultaat') !!}
+                <small class="text-muted">project</small>
+                {!! Form::textarea('resultaat', null, ['class' => 'form-control', 'placeholder' => '']) !!}
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
 
             <div class="form-group">
                 {!! Form::label('users', 'users') !!}<br>
-                @foreach($users as $user)
-                    {!! Form::checkbox('users[]', $user->id, Input::old('users')) !!}
-                    {!! Form::label('users', $user->name) !!}
-                @endforeach
+                <div class="row">
+                    @foreach($users as $user)
+                        <div class="col-lg-6" style="margin-bottom: 10px;">
+                            {!! Form::checkbox('users[]', $user->id, Input::old('users')) !!}
+                            {!! Form::label('users', $user->name) !!}
+                            <br>
+                            (
+                            @foreach($user->userRole as $role)
+                                <small>{{$role->role->status}},</small>
+                            @endforeach
+                            )
+                        </div>
+                    @endforeach
+                </div>
+                <hr class="col-lg-12">
+
             </div>
 
             <div class="form-group">
                 {!! Form::label('roles', 'roles') !!}<br>
-                @foreach($roles as $role)
-                    {!! Form::checkbox('roles[]', $role->id, Input::old('roles')) !!}
-                    {!! Form::label('roles', $role->status) !!}<br>
-                @endforeach
+                <div class="row">
+
+                    @foreach($roles as $role)
+                        <div class="col-lg-4">
+                            {!! Form::checkbox('roles[]', $role->id, Input::old('roles')) !!}
+                            {!! Form::label('roles', $role->status) !!}<br>
+                        </div>
+                    @endforeach
+                </div>
+                <hr class="col-lg-12">
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('services', 'services') !!}<br>
+                <div class="row">
+                    @foreach($services as $service)
+                        <div class="col-lg-4">
+                            {!! Form::checkbox('services[]', $service->id, Input::old('roles')) !!}
+                            {!! Form::label('services', $service->name) !!}
+                        </div>
+                    @endforeach
+                </div>
+                <hr class="col-lg-12">
             </div>
 
             <div class="form-group">
                 {!! Form::label('skills', 'skills') !!}<br>
-                @foreach($skills as $skill)
-                    {!! Form::checkbox('skills[]', $skill->id, Input::old('skills')) !!}
-                    {!! Form::label('skills', $skill->skill) !!}<br>
-                @endforeach
+                <div class="row">
+                    @foreach($skills as $skill)
+                        <div class="col-lg-4">
+                            {!! Form::checkbox('skills[]', $skill->id, Input::old('skills')) !!}
+                            {!! Form::label('skills', $skill->skill) !!}<br>
+                        </div>
+                    @endforeach
+                </div>
+                <hr class="col-lg-12">
             </div>
         </div>
 

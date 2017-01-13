@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'nieuwe skill')
+@section('title', 'nieuw project')
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')

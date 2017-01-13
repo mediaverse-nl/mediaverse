@@ -111,6 +111,11 @@
                     Logo's / illustraties
                 </div>
             </div>
+            <div class="col-lg-12">
+                <hr>
+                <a class="btn btn-default center-block" style="width: 250px;">Bekijk al onze diensten</a>
+
+            </div>
         </div>
 
     </div>
@@ -142,13 +147,26 @@
         <div class="triangle-down center-block" style="margin-top: -20px;"> </div>
 
         <div class="container" style="margin-top: 30px;">
-            <div class="col-lg-3">
-                <div class="col-ms-12" style="border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 3px;">
-                    <img class="img-responsive" style="margin: 5px;" src="http://www.routes4media.com/wp-content/uploads/2015/04/responsive_design_shop.png">
+
+            @foreach($portfolio as $item)
+                <div class="col-lg-3">
+                    <div class="panel panel-default" style="border-radius: 0px; padding: 3px; background-color: #F4F4F4">
+                        <a href="{{route('referenties.show', $item->name)}}">
+                            <div class="col-ms-12" style="border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 0px; padding: 3px;">
+                                <img class="img-responsive" style="height: 120px;" src="/images/portfolio/{{$item->projectImage->first()->path}}">
+                            </div>
+                            <h2 class="" style="margin: 0px 15px 0px 0px !important; color: #267AB7 !important;">{{$item->name}}</h2>
+                            <small style="color: #0E0E0E">
+                                @foreach($item->projectService as $task)
+                                    {{$task->service->name}}
+                                @endforeach
+                            </small>
+                        </a>
+                    </div>
                 </div>
-                <span class="text-center">project website</span><br>
-                <span class="text-center">www.google.com</span>
-            </div>
+            @endforeach
+
+
         </div>
     </div>
 @stop

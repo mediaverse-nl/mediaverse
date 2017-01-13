@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'nieuw project')
+@section('title', 'Mijn projecten')
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')
@@ -13,20 +13,20 @@
                     <th>id</th>
                     <th>project</th>
                     <th>uren</th>
-                    <th>prijs</th>
+                    {{--<th>prijs</th>--}}
                     <th>status</th>
-                    <th>type</th>
+                    {{--<th>type</th>--}}
                 </tr>
             </thead>
             <tbody>
                 @foreach ($projects as $project)
-                    <tr class="table-row" data-href="{{route('board.project.edit', $project->id)}}">
-                        <td>{{$project->id}}</td>
-                        <td>{{$project->name}}</td>
-                        <td>{{$project->duur}}</td>
-                        <td>{{$project->price}}</td>
-                        <td>{{$project->status}}</td>
-                        <td>{{$project->type}}</td>
+                    <tr class="table-row" data-href="{{route('developer.project.show', $project->project->id)}}">
+                        <td>{{$project->project->id}}</td>
+                        <td>{{$project->project->name}}</td>
+                        <td>{{$project->project->duur}}</td>
+                        {{--<td>{{$project->project->price}}</td>--}}
+                        <td>{{$project->project->status}}</td>
+{{--                        <td>{{$project->project->type}}</td>--}}
                     </tr>
                 @endforeach
             </tbody>
@@ -36,7 +36,7 @@
 
     <div class="col-md-6">
 
-        <a href="{{route('board.project.create')}}">nieuw skill</a>
+        {{--<a href="{{route('board.project.create')}}">nieuw skill</a>--}}
 
     </div>
 

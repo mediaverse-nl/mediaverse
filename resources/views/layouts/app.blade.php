@@ -220,7 +220,7 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('referenties') }}">Referenties</a></li>
-                    <li><a href="{{ route('page.about') }}">Over ons</a></li>
+                    {{--<li><a href="{{ route('page.about') }}">Over ons</a></li>--}}
                     <li><a href="{{ route('contact.create')}}">Contact</a></li>
                 </ul>
                 @if (Auth::check())
@@ -235,7 +235,7 @@
 
         <div class="" style="height: 25px; background-color: #267AB7; line-height: 25px;">
             <div class="container">
-                <a href="/" class="fa fa-facebook-square" style="color: #fff;"></a>
+                <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts" target="_blank" class="fa fa-facebook-square" style="color: #fff;"></a>
                 <a href="/" class="fa fa-twitter-square" style="color: #fff;"></a>
                 <a href="/" class="fa fa-linkedin-square" style="color: #fff;"></a>
                 <a href="/" class="fa fa-google-plus-square" style="color: #fff;"></a>
@@ -275,8 +275,8 @@
                     <span style="color: #777;"><i class="fa fa-phone-square" style="color: #777;" aria-hidden="true"></i> +31 6 - 53779761</span>
                     <div class="clearfix" style="margin-bottom: 10px;"></div>
                     <div style="font-size:35px;">
-                        <i class="fa fa-twitter-square" style="color: #3B5998; " aria-hidden="true"></i>
-                        <i class="fa fa-facebook-square" style="color: #00ACED; " aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square" style="color: #00ACED; " aria-hidden="true"></i>
+                        <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts"><i class="fa fa-facebook-square" style="color: #3B5998; " aria-hidden="true"></i></a>
                         <i class="fa fa-linkedin-square" style="color: #0077B5; " aria-hidden="true"></i>
                         <i class="fa fa-google-plus-square" style="color: #DC4A38; " aria-hidden="true"></i>
                     </div>

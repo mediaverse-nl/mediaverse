@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Page;
 
+use App\Project;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,14 +12,16 @@ use App\Http\Requests;
 class PagesController extends Controller
 {
     protected $page;
+    protected $projects;
 
     public function __construct()
     {
 //        $this->page = Page::where('page', \Request::route()->getPath())->first();
+        $this->projects = new Project();
     }
 
     public function home(){
-        return view('home')->with('seo', $this->page);
+        return view('home')->with('seo', $this->page)->with('portfolio', $this->projects->where('status', 'ready')->get());
     }
 
     //web applicaties

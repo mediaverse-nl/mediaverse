@@ -14,4 +14,9 @@ class ProjectTask extends Model
     {
         return $this->belongsTo('App\Project');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

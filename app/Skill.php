@@ -15,4 +15,9 @@ class Skill extends Model
         return $this->hasMany('App\ProjectSkill', 'skill_id', 'id');
     }
 
+    public function userSkill()
+    {
+        return $this->hasMany('App\UserSkill', 'skill_id', 'id');
+    }
+
 }

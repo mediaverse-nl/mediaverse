@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'nieuw project')
+@section('title', 'Project')
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')
@@ -36,7 +36,7 @@
 
     <div class="col-md-6">
 
-        <a href="{{route('board.project.create')}}">nieuw skill</a>
+        <a class="btn btn-default" href="{{route('board.project.create')}}">nieuw project</a>
 
     </div>
 

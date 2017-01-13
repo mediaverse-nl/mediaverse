@@ -126,7 +126,7 @@ class SkillController extends Controller
 
         \Session::flash('succes_message','successfully.');
 
-        return redirect()->route('board.skill.edit', $request->id);
+        return redirect()->route('board.skill.index');
     }
 
     /**

@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "laravelcollective/html": "5.2.*",
-        "barryvdh/laravel-translation-manager": "^0.2.5"
+        "barryvdh/laravel-translation-manager": "^0.2.5",
+        "barryvdh/laravel-debugbar": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

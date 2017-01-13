@@ -34,7 +34,10 @@
                         <span><b>Vind ons op</b></span>
                         <p style="font-size: 35px;">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts">
+                               <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            </a>
+
                             <i class="fa fa-linkedin-square" aria-hidden="true"></i>
                             <i class="fa fa-google-plus-square" aria-hidden="true"></i>
                         </p>
@@ -51,16 +54,6 @@
                         <br>
                     </div>
 
-                    <h1 class="col-md-12"><hr> Locatie</h1>
-
-                    <div class="col-md-12">
-
-                        <div style="overflow:hidden;height:300px;width:100%;">
-                            <div id="gmap_canvas" style="height:300px;width:100%; ">
-                                <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -128,10 +121,20 @@
         <hr>
     </div>
 
+    <div style="background-color: #00ACED; width: 100%; height: 300px; margin-bottom: -50px;">
+        <div style="overflow:hidden;height:100%;width:100%;">
+            <div id="gmap_canvas" style="height:300px;width:100%; ">
+                <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @push('css')
+    <style>
 
+    </style>
 @endpush
 
 @push('scripts')
