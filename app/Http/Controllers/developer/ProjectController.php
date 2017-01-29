@@ -96,7 +96,7 @@ class ProjectController extends Controller
         $project = $this->project->find($id);
 
         $array = [];
-        foreach ($project->projectUser as $user){
+        foreach ($project->projectUser()->orderBy('check', 'desc') as $user){
             $array[] = $user->user;
         }
 
@@ -105,6 +105,7 @@ class ProjectController extends Controller
             ->where('status', 'running')
             ->where('user_id', Auth::user()->id)
             ->groupBy('status')
+
             ->exists();
 
         return view('admin.developer.project.show')->with('project', $project)->with('users', $array)->with('status', $status);
@@ -176,13 +177,32 @@ class ProjectController extends Controller
         $task = $this->projectTask->find($request->id);
 
         if($request->status == 'stop'){
+
             $startTime = Carbon::parse($task->updated_at);
             $finishTime = Carbon::now();
             $totalDuration = $finishTime->diffInSeconds($startTime);
+
             $task->done_min = $task->done_min + $totalDuration;
         }
 
         $task->status = $request->status;
+
+        $task->save();
+
+        \Session::flash('succes_message','successfully.');
+
+        return redirect()->route('developer.project.show', $task->project->id);
+    }
+
+    public function taskStatus(Request $request)
+    {
+        $task = $this->projectTask->find($request->id);
+
+        if($request->check){
+            $task->check = false;
+        }else{
+            $task->check = true;
+        }
 
         $task->save();
 
@@ -199,7 +219,7 @@ class ProjectController extends Controller
      */
     public function destroy(Request $request)
     {
-        $task = $this->projectTask->find($request->id);
+        $task = $this->projectTask->find($request->invoice_item);
 
         $this->projectTask->destroy($task->id);
 

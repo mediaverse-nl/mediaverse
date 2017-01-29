@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $seo ? $seo->title : '' )
-@section('description', $seo ? $seo->description : '')
-@section('keywords',  $seo ? $seo->keywords : '')
+@section('title', trans('page.website.title'))
+@section('description', trans('page.website.description'))
+@section('keywords', trans('page.website.keywords'))
 
 @push('meta-tags')
 
@@ -32,9 +32,9 @@
                     Zonder een goed innerlijk, geen goed uiterlijk
                 </h2>
                 <p>
-                    Onder ons kopje design [voeg hyperlink toe] kunt u lezen hoe wij u kunnen helpen met de grafische vormgeving van uw website. Hoe wij u en uw klanten beter
+                    Onder ons kopje <a href="{{route('page.design')}}">design</a> kunt u lezen hoe wij u kunnen helpen met de grafische vormgeving van uw website. Hoe wij u en uw klanten beter
                     samen kunnen brengen door een goed beeld van u te schetsen op de site. Maar bij een website komt niet alleen het grafische gedeelte kijken. Een website
-                    moet ook gebruiksvriendelijk en interactief zijn, op een goede server worden gehost [voeg hyperlink toe] en de optimale beveiliging hebben.
+                    moet ook gebruiksvriendelijk en interactief zijn, op een goede server worden <a href="{{route('page.hosting')}}">gehost</a> en de optimale beveiliging hebben.
                 </p>
                 <p>
                     <strong><em>“Websites should look good from the inside and inside out.” ― Paul Cookson</em></strong>
@@ -45,7 +45,7 @@
                 </h2>
                 <p>
                     Mediaverse geeft de hoogste prioriteit aan de beveiliging van een website. Uw gegevens en die van uw klanten moeten altijd gewaarborgd zijn en blijven. Wij
-                    geven u de beschrikking over een goed functionerend administratie-panel of content management systeem [hyperlink CMS] van waaruit u de site gemakkelijk
+                    geven u de beschrikking over een goed functionerend administratie-panel of <a href="{{route('page.cms')}}">content management systeem</a> van waaruit u de site gemakkelijk
                     kunt bewerken en veilig houden. Als wij een site voor u op zetten zal die via ons worden gehost, waardoor wij altijd oog op zowel de veiligheid als de
                     uptime van de server en de site kunnen houden.
                 </p>

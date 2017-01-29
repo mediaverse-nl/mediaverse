@@ -12,6 +12,7 @@ return array(
     */
     'route' => [
         'prefix' => 'translations',
+        'as' => 'marketing.translation.index',
         'middleware' => [
             'web',
             'auth',

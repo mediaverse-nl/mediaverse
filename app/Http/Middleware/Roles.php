@@ -13,12 +13,15 @@ class Roles
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ...$roles)
     {
-        if (auth()->check() && auth()->user()->hasRole($role)) {
+
+        if (auth()->check() && auth()->user()->hasRole($roles)) {
             return $next($request);
         }
 
-        return redirect('panel');
+        \Session::flash('error_message','je hebt geen toegang tot de pagina.');
+
+        return redirect('dashboard');
     }
 }

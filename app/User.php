@@ -51,15 +51,22 @@ class User extends Authenticatable
 
     public function hasRole($role)
     {
-        $role_id = Role::where('status', $role)->first();
+        //reset value to array
+        $role = collect($role)->toArray();
 
-        $status = Auth()->user()->userRole()->where('role_id', $role_id->id)->exists();
+        //user roles
+        $hasItem = Auth()->user()->userRole()->pluck('role_id');
 
-        if($status){
-            return true;
-        };
+        //check if roles contains the access
+        foreach ($role as $rol => $value)
+            $role_id = Role::where('status', $value)->first();
+            $status = array_has($hasItem, $role_id->id);
 
-        return false;
+            if($status)
+                return true;
+
+
+        return true;
     }
 
 }

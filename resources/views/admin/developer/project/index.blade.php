@@ -15,6 +15,8 @@
                     <th>uren</th>
                     {{--<th>prijs</th>--}}
                     <th>status</th>
+                    <th>project uren</th>
+                    <th>gewerkte uren</th>
                     {{--<th>type</th>--}}
                 </tr>
             </thead>
@@ -26,6 +28,8 @@
                         <td>{{$project->project->duur}}</td>
                         {{--<td>{{$project->project->price}}</td>--}}
                         <td>{{$project->project->status}}</td>
+                        <td>{{minToHours($project->project->projectTask->where('user_id', Auth::user()->id)->sum('do_min'))}}</td>
+                        <td>{{minToHours($project->project->projectTask->where('user_id', Auth::user()->id)->sum('done_min'))}}</td>
 {{--                        <td>{{$project->project->type}}</td>--}}
                     </tr>
                 @endforeach

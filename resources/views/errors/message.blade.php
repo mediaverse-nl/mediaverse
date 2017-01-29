@@ -7,5 +7,15 @@
 @endif
 
 @if(Session::has('succes_message'))
-    <div class="alert alert-success fade in "><span class="glyphicon glyphicon-ok"></span><em> {!! session('succes_message') !!}</em></div>
+    <div class="alert alert-success fade in ">
+        <span class="glyphicon glyphicon-ok"></span>
+        <em> {!! session('succes_message') !!}</em>
+    </div>
+@endif
+
+@if(Session::has('error_message'))
+    <div class="alert alert-danger fade in ">
+        <span class="glyphicon"></span>
+        <em> {!! session('error_message') !!}</em>
+    </div>
 @endif

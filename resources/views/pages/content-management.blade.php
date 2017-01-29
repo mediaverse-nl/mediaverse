@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $seo ? $seo->title : '' )
-@section('description', $seo ? $seo->description : '')
-@section('keywords',  $seo ? $seo->keywords : '')
+@section('title', trans('page.cms.title'))
+@section('description', trans('page.cms.description'))
+@section('keywords', trans('page.cms.keywords'))
 
 @push('meta-tags')
 
@@ -92,12 +92,12 @@
 @stop
 
 @push('css')
-<style>
-    h2{
-        font-size: 18px !important;
-        margin-bottom: 7px !important;
-    }
-</style>
+    <style>
+        h2{
+            font-size: 18px !important;
+            margin-bottom: 7px !important;
+        }
+    </style>
 @endpush
 
 @push('scripts')

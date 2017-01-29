@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', trans('page.contact.title'))
+@section('description', trans('page.contact.description'))
+@section('keywords', trans('page.contact.keywords'))
+
 @section('content')
 
     @include('includes._breadcrumbs', ['breadcrumbs' => Breadcrumbs::render('contact')])
@@ -29,17 +33,19 @@
                         <p>Pietercoecke straat 14,<br> 5643VK Eindhoven</p>
                         <br>
                         <span><b>Contact</b></span>
-                        <p>tel: +13 0 53779761 <br> Email: info@mediaverse.nl</p>
+                        <p>tel: +31 6 53779761 <br> Email: info@mediaverse.nl</p>
                         <br>
                         <span><b>Vind ons op</b></span>
                         <p style="font-size: 35px;">
-                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                            <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts">
+                            <a href="https://twitter.com/mediaverse_nl" target="_blank">
+                                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts" target="_blank">
                                <i class="fa fa-facebook-square" aria-hidden="true"></i>
                             </a>
-
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                            <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                            <a href="https://www.linkedin.com/company/mediaverse.nl?trk=company_logo" target="_blank">
+                                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                            </a>
                         </p>
                     </div>
 
@@ -58,63 +64,74 @@
             </div>
             <div class="col-md-6">
                 <h1>Neem contact op</h1>
-                {!! Form::open(['route' => 'contact.store', 'class' => 'form-horizontal']) !!}
 
-                    <div class="form-group {{!$errors->has('naam') ? : 'has-error'}}">
-                        {!! Form::label('naam', 'Naam *', ['class' => 'control-label']) !!}
-                        <div class="col-sm-12">
-                            {!! Form::text('naam', null, ['class' => 'form-control', 'placeholder' => 'Voor & Achternaam']) !!}
-                            @if($errors->has('naam'))
-                                <label class="control-label small">{{ $errors->first('naam') }}</label>
-                            @endif
+                @if(!Session::has('succes_message'))
+                    {!! Form::open(['route' => 'contact.store', 'class' => 'form-horizontal']) !!}
+
+                        <div class="form-group {{!$errors->has('naam') ? : 'has-error'}}">
+                            {!! Form::label('naam', 'Naam *', ['class' => 'control-label']) !!}
+                            <div class="col-sm-12">
+                                {!! Form::text('naam', null, ['class' => 'form-control', 'placeholder' => 'Voor & Achternaam']) !!}
+                                @if($errors->has('naam'))
+                                    <label class="control-label small">{{ $errors->first('naam') }}</label>
+                                @endif
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="form-group {{!$errors->has('email') ? : 'has-error'}}">
-                                {!! Form::label('email', 'Email *', ['class' => 'control-label']) !!}
-                                <div class="col-sm-12">
-                                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'info@mediaverse.nl']) !!}
-                                    @if($errors->has('email'))
-                                        <label class="control-label small">{{ $errors->first('email') }}</label>
-                                    @endif
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="form-group {{!$errors->has('email') ? : 'has-error'}}">
+                                    {!! Form::label('email', 'Email *', ['class' => 'control-label']) !!}
+                                    <div class="col-sm-12">
+                                        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'info@mediaverse.nl']) !!}
+                                        @if($errors->has('email'))
+                                            <label class="control-label small">{{ $errors->first('email') }}</label>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row" style="margin-left: 0px;">
-                            <div class="form-group">
-                                {!! Form::label('telefoon_nr', 'Telefoon Nr', ['class' => 'control-label']) !!}
-                                <div class="col-sm-12">
-                                    {!! Form::text('telefoon_nr', null, ['class' => 'form-control', 'placeholder' => '+31 6 53 779761']) !!}
-                                    @if($errors->has('email'))
-                                        <label class="control-label small" style="color: transparent"> 0</label>
-                                    @endif
+                        <div class="col-md-6">
+                            <div class="row" style="margin-left: 0px;">
+                                <div class="form-group {{!$errors->has('telefoon_nr') ? : 'has-error'}}">
+                                    {!! Form::label('telefoon_nr', 'Telefoon Nr', ['class' => 'control-label']) !!}
+                                    <div class="col-sm-12">
+                                        {!! Form::text('telefoon_nr', null, ['class' => 'form-control', 'placeholder' => '06 53 779761']) !!}
+                                        @if($errors->has('telefoon_nr'))
+                                            <label class="control-label small"> {{ $errors->first('telefoon_nr') }}</label>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {{--</div>--}}
+                        {{--</div>--}}
 
-                    <div class="form-group {{!$errors->has('bericht') ? : 'has-error'}}">
-                        {!! Form::label('bericht', 'Bericht *', ['class' => 'control-label']) !!}
-                        <div class="col-sm-12">
-                            {!! Form::textarea('bericht', null, ['class' => 'form-control', 'rows' => '6']) !!}
-                            @if($errors->has('bericht'))
-                                <label class="control-label small">{{ $errors->first('bericht') }}</label>
-                            @endif
+                        <div class="form-group {{!$errors->has('bericht') ? : 'has-error'}}">
+                            {!! Form::label('bericht', 'Bericht *', ['class' => 'control-label']) !!}
+                            <div class="col-sm-12">
+                                {!! Form::textarea('bericht', null, ['class' => 'form-control', 'rows' => '6']) !!}
+                                @if($errors->has('bericht'))
+                                    <label class="control-label small">{{ $errors->first('bericht') }}</label>
+                                @endif
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <input id="submit" name="submit" type="submit" value="Verzenden" class="btn btn-primary col-md-12">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input id="submit" name="submit" type="submit" value="Verzenden" class="btn btn-primary col-md-12">
+                            </div>
                         </div>
-                    </div>
-                {!! Form::close() !!}
+                    {!! Form::close() !!}
+                @else
+
+                    @if(Session::has('succes_message'))
+                        <div class="alert alert-success fade in ">
+                            <span class="glyphicon"></span>
+                            <em>  <p><b>Het contact formulier is verzonden!</b> <br> <br> We zullen z.s.m. contact met u opnemen!</p></em>
+                        </div>
+                    @endif
+                @endif
 
             </div>
         </div>

@@ -78,6 +78,7 @@
 </head>
 <body>
 <div style="width: 80%; margin: auto;">
+    <a href="/dashboard" class="btn btn-warning" style="margin-top: 20px;">Back to Admin Dashboard</a>
     <h1>Translation Manager</h1>
     <p>Warning, translations are not visible until they are exported back to the app/lang file, using 'php artisan translation:export' command or publish button.</p>
     <div class="alert alert-success success-import" style="display:none;">

@@ -1,7 +1,7 @@
 <style>
     .panel-group .active {
         transition: all 0.5s ease;
-        background-color: #267AB7;
+        background-color: #0E0E0E;
     }
     .active a{
         color: white !important;
@@ -10,9 +10,24 @@
         background-color: #0E0E0E;
         /*opacity: 0.6;*/
     }
+    .panel-group li:hover {
+        background-color: #0E0E0E;
+        /*opacity: 0.6;*/
+    }
+    .panel-group .panel{
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .list-group-item{
+        background-color: #333;
+        border: none;
+    }
     .menu-bar > li{
-        background: #B0BEC5;
+        background: #333 !important;
         width: 100%;
+    }
+    .list-group-item > a{
+        color: white !important;
     }
     .accordion-toggle:after {
         font-family: 'FontAwesome';
@@ -31,19 +46,16 @@
             {{--<li class="{{ Request::url() == route('admin.reference.index') ? 'active' : '' }}"><a href="{{route('admin.reference.index')}}">references</a></li>--}}
         {{--</ul>--}}
     {{--</div>--}}
-    <div class="" style="">
+    <div class="" style="margin-top: 25px;">
         {{--<h2>Bel ons</h2>--}}
-        <hr>
-        <p>Offerte aanvraagn? neem contact met ons op via ons contactformulier</p>
+        {{--<hr>--}}
+        <p><b>Offerte aanvraagn?</b> neem contact op met ons via ons contactformulier</p>
         <a href="{{route('contact.create')}}" class="btn btn-primary">Neem contact op</a>
-        <hr>
-        <h3 style="font-size: 18px;">Bel ons op:</h3>
-        <span class="lead"><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</span>
         <hr>
     </div>
 
     <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="background-color: #0E0E0E; !important;" >
             {{--<div class="panel-heading accordion-heading">--}}
                 {{--<h4 class="panel-title">--}}
                     {{--<a data-toggle="collapse" data-parent="#accordion" href="#Websites">--}}
@@ -140,6 +152,14 @@
                     </li>
                 {{--</div>--}}
 
+        </div>
+
+        <div class="" style="">
+            {{--<h2>Bel ons</h2>--}}
+            <hr>
+            <h3 style="font-size: 18px;">Bel ons op:</h3>
+            <span class="lead"><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</span>
+            <hr>
         </div>
 
     </div>

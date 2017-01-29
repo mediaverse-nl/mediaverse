@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $seo ? $seo->title : '' )
-@section('description', $seo ? $seo->description : '')
-@section('keywords',  $seo ? $seo->keywords : '')
+@section('title', trans('page.laravel-website.title'))
+@section('description', trans('page.laravel-website.description'))
+@section('keywords', trans('page.laravel-website.keywords'))
 
 @push('meta-tags')
 

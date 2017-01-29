@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $seo ? $seo->title : '' )
-@section('description', $seo ? $seo->description : '')
-@section('keywords',  $seo ? $seo->keywords : '')
+@section('title', trans('page.design.title'))
+@section('description', trans('page.design.description'))
+@section('keywords', trans('page.design.keywords'))
 
 @push('meta-tags')
 

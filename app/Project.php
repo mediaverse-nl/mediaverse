@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Project extends Model
 {
@@ -56,6 +57,22 @@ class Project extends Model
     public function projectRole()
     {
         return $this->hasMany('App\ProjectRole', 'project_id', 'id');
+    }
+
+    public function invoice()
+    {
+        return $this->hasOne('App\Invoice', 'project_id', 'id');
+    }
+
+    public static function taskTimer($timestamp, $oldstamp)
+    {
+        $startTime = Carbon::parse($timestamp);
+        $finishTime = Carbon::now();
+        $totalDuration = $finishTime->diffInSeconds($startTime);
+
+        $diffrence = $oldstamp + $totalDuration;
+
+        return $diffrence;
     }
 
 }

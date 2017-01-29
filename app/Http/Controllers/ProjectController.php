@@ -20,7 +20,24 @@ class ProjectController extends Controller
 
     public function show($name)
     {
-        return view('referentie.show')->with('project', $this->project->where('name', str_replace('-', ' ', $name))->first());
+        $project = $this->project->where('name', str_replace('-', ' ', $name));
+        $projects = $this->project->where('status', 'ready')->get();
+
+        $back = '';
+        $foward = '';
+
+        foreach ($projects as $k => $row) {
+            if (isset($projects[$k+1]) && $row->name == str_replace('-', ' ', $name)){
+                $foward = $projects[$k+1];
+            }
+            if (isset($projects[$k-1]) && $row->name == str_replace('-', ' ', $name)){
+                $back = $projects[$k-1];
+            }
+        }
+
+        return view('referentie.show')
+            ->with('project', $project->first())
+            ->with('paginate', ['forward' => $foward, 'back' => $back]);
     }
 
 }

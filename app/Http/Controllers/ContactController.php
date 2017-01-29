@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
 
 use Validator;
@@ -34,9 +35,10 @@ class ContactController extends Controller
 
         ];
         $rules = [
-            'naam' => 'required|alpha',
-            'email' => 'required|email',
-            'bericht' => 'required',
+            'naam' => 'required|between:4,60|string',
+            'email' => 'required|email|max:80',
+            'telefoon_nr' => 'numeric|min:8',
+            'bericht' => 'required|between:50,500|string',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -48,14 +50,21 @@ class ContactController extends Controller
                 ->withInput();
         }
 
-        Mail::send('email', $request->all(), function($message) use ($request)
+        Mail::send('email.contact', ['request' => $request->all()], function($message) use ($request)
         {
-            //$message->from($data['email'] , $data['first_name']); uncomment if using first name and email fields
-            $message->from('info@mediaverse.nl', 'We zullen zo spoedig mogelijk contact met u opnemen.');
-            //email 'To' field: cahnge this to emails that you want to be notified.
-            $message->to($request->email, $request->name)->cc('feedback@gmail.com')->subject('feedback form submit');
-
+            $message->from('info@mediaverse.nl', 'Mediaverse.nl.');
+            $message->to($request->email, $request->naam)->subject('Contact formulier');
         });
+
+        $contact = new Contact;
+
+        $contact->name = $request->naam;
+        $contact->mobile = $request->telefoon_nr;
+        $contact->email = $request->email;
+        $contact->message = $request->bericht;
+        $contact->status = "none";
+
+        $contact->save();
 
         \Session::flash('succes_message','Thanks for contacting us!');
 

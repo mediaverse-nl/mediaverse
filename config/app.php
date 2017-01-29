@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */
@@ -161,6 +162,10 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\TranslationManager\ManagerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
+
+        Mollie\Laravel\MollieServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
 
     ],
@@ -216,6 +221,10 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Mollie' => Mollie\Laravel\Facades\Mollie::class,
+
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
 
 
     ],

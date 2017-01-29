@@ -2,6 +2,16 @@
 
 namespace App\Providers;
 
+use App\Contact;
+use App\Invoice;
+use App\Project;
+use App\ProjectTask;
+use App\ProjectUser;
+use App\Service;
+use App\Skill;
+use App\User;
+use Auth;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +23,31 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.menus.__admin', function($view)
+        {
+            $view->with('info', [
+                'project' => Project::all(),
+                'task' => ProjectUser::all(),
+                'invoice' => Invoice::all(),
+                'service' => Service::all(),
+                'skill' => Skill::all(),
+                'contact' => Contact::where('status', 'none')->orderBy('id', 'desc'),
+                'user' => User::all(),
+                'myTask' => ProjectTask::where('user_id', Auth::user()->id)->where('status', 'running'),
+            ]);
+        });
+
+        Socialite::extend('mollie', function ($app) {
+            $config = $app['config']['services.mollie'];
+
+            return Socialite::buildProvider('Mollie\Laravel\MollieConnectProvider', $config);
+        });
+
+//        view()->composer('layouts.admin', function($view)
+//        {
+//            $view->with('my_tasks', ProjectTask::where('user', Auth::user()->id)->where('status', 'running'));
+//        });
+
     }
 
     /**

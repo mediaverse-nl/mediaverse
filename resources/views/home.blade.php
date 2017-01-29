@@ -5,7 +5,7 @@
 @section('keywords', trans('page.home.keywords'))
 
 @push('meta-tags')
-    <meta name="google-site-verification" content="eN2ZhbgwWLU3wuEhlogHC2uuYJlk08uzhqjqF4zE7x4" />
+
 @endpush
 
 @section('content')
@@ -14,42 +14,39 @@
         <div class="slider-main row">
             <div class="col-lg-12">
                 <div class="row view one-img"></div>
-                <h1 class="text-center" style="text-align: center;"><b>@lang('banner.title_1') Webshop nodig?</b></h1>
-                <p class="text-center">@lang('banner.text_1') n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn wortels <br>
-                    in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
+                <h1 class="text-center" style="text-align: center;"><b>{{trans('banner.title_1')}}</b></h1>
+                <p class="text-center slide-text">{{html_entity_decode(trans('banner.text_1'), ENT_COMPAT, 'UTF-8')}}</p>
             </div>
             <div class="col-lg-12">
                 <div class="row view two-img"></div>
-                <h1 class="text-center" style="text-align: center;"><b>@lang('banner.title_2') website nodig?</b></h1>
-                <p class="text-center">@lang('banner.text_2') n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. <br>
-                    het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
+                <h1 class="text-center center-block" style="text-align: center;"><b>{{trans('banner.title_2')}}</b></h1>
+                <p class="text-center slide-text">{{htmlentities (trans('banner.text_2'))}}</p>
             </div>
             <div class="col-lg-12">
                 <div class="row view three-img"></div>
-                <h1 class="text-center" style="text-align: center;"><b>@lang('banner.title_3') Oplossing nodig?</b></h1>
-                <p class="text-center">@lang('banner.text_3') n tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum <br>
-                    niet zomaar willekeurige tekst. het heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.</p>
+                <h1 class="text-center" style="text-align: center;"><b>{{trans('banner.title_3')}}</b></h1>
+                <p class="text-center slide-text">{{htmlentities (trans('banner.text_3'))}}</p>
             </div>
 
         </div>
 
     </div>
 
-    <div class="container" style="margin-top: -70px">
+    <div class="container" style="margin-top: -150px">
 
         <div class="row">
             <a href="{{route('page.websites')}}">
-                <div class="col-lg-4 text-center main-service animated">
-                    <h1>@lang('services.website.title')</h1>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center main-service animated">
+                    <h1>{{trans('services.website.title')}}</h1>
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/responsive.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
                     </div>
                 </div>
             </a>
-            <a href="{{route('page.seo')}}">
-                <div class="col-lg-4 text-center main-service animated">
-                    <h1>@lang('services.seo.title')</h1>
+            <a href="{{route('page.internet_marketing')}}">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center main-service animated">
+                    <h1>{{trans('services.seo.title')}}</h1>
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
                         <img src="/images/icons/seo.png" class="img-responsive center-block" style="height: 85%; width: 85%;">
@@ -57,8 +54,8 @@
                 </div>
             </a>
             <a href="{{route('page.webshop')}}">
-                <div class="col-lg-4 text-center main-service animated">
-                    <h1>@lang('services.webshop.title')</h1>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center main-service animated">
+                    <h1>{{trans('services.webshop.title')}}</h1>
 
                     <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 200px; height: 200px; overflow: hidden">
                         <br>
@@ -72,48 +69,48 @@
         <hr>
 
         <div class="container-fluid services animated">
-            <h3 class="text-center">@lang('text.services_title') Welke dienst zoekt u?</h3>
-            <p class="text-center">@lang('text.services_text')Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek.</p>
+            <h3 class="text-center">{{trans('text.services_title')}}</h3>
+            <p class="text-center">{{trans('text.services_text')}}</p>
             <br>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="thumbnail">
                     <i class="fa fa-camera-retro" aria-hidden="true"></i>
                     Fotografie
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="thumbnail">
                     <i class="fa fa-server" aria-hidden="true"></i>
                     Hosting
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="thumbnail">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     Content management
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="thumbnail">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     Vindbaar op google
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="thumbnail">
                     <i class="fa fa-font" aria-hidden="true"></i>
                     Teksten voor uw site
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="thumbnail">
                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                     Logo's / illustraties
                 </div>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <hr>
-                <a class="btn btn-default center-block" style="width: 250px;">Bekijk al onze diensten</a>
+                <a href="{{route('page.diensten')}}" class="btn btn-default center-block" style="width: 250px;">Bekijk al onze diensten</a>
 
             </div>
         </div>
@@ -126,20 +123,25 @@
                 <img class="img-responsive" src="http://johnpolacek.github.io/scrolldeck.js/decks/responsive/img/responsive_web_design.png">
             </div>
             <div id="slider-right" class="col-lg-6 animated">
-                <h2 class="lead text-center">@lang('text.responsive_title') Responsive Website Mobile, Tablet en Computer</h2>
-                <p class="lead text-center">@lang('text.responsive_text') Uw site overal en altijd berijkbaar.</p>
+                <h2 class="lead text-center" style="margin-top: 20px;">{{trans('text.responsive_title')}}</h2>
+                <p class="lead text-center">
+                    {{trans('text.responsive_text')}}<br><br>
+                    <a class="btn btn-sm btn-primary" style="background-color: #267AB7;" href="{{route('page.design')}}">Lees meer</a>
+                </p>
+
             </div>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row" style="background: #267AB7; height: 200px; border-bottom: 20px solid #1e61b7; margin-bottom: 20px">
-            <div class="container">
-                <h2 class="text-center " style="color: white !important; margin-top: 25px;">@lang('text.our_work_title') Take a look at some of our work</h2>
-                <div class="col-md-6 col-md-offset-3 ">
-                    <p class="text-center" style="color: #fff;">@lang('text.our_work_text')n indruk te geven van het grafische effect van tekst op deze plek.
-                        Wat u hier leest is een voorbeeldtekst. Deze wordt later
-                        vervangen door de uiteindelijke</p>
+            <div class="container ">
+                <div class="animated portfolio">
+                    <h2 class="text-center " style="color: white !important; margin-top: 25px;">{{trans('text.our_work_title')}}</h2>
+                    <div class="col-md-6 col-md-offset-3 ">
+                        <p class="text-center" style="color: #fff;">{{trans('text.our_work_text')}}</p>
+                        <a href="{{route('referenties')}}"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,30 +149,31 @@
         <div class="triangle-down center-block" style="margin-top: -20px;"> </div>
 
         <div class="container" style="margin-top: 30px;">
+            <div class="animated portfolio-content">
 
-            @foreach($portfolio as $item)
-                <div class="col-lg-3">
-                    <div class="panel panel-default" style="border-radius: 0px; padding: 3px; background-color: #F4F4F4">
-                        <a href="{{route('referenties.show', $item->name)}}">
-                            <div class="col-ms-12" style="border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 0px; padding: 3px;">
-                                <img class="img-responsive" style="height: 120px;" src="/images/portfolio/{{$item->projectImage->first()->path}}">
-                            </div>
-                            <h2 class="" style="margin: 0px 15px 0px 0px !important; color: #267AB7 !important;">{{$item->name}}</h2>
-                            <small style="color: #0E0E0E">
-                                @foreach($item->projectService as $task)
-                                    {{$task->service->name}}
-                                @endforeach
-                            </small>
-                        </a>
+                @foreach($portfolio as $item)
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel" style="border-radius: 0px; padding: 3px;">
+                            <a href="{{route('referenties.show', $item->name)}}">
+                                <div class="" style="width: auto; border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 0px; padding: 3px;">
+                                    <img class="img-responsive" style="width: 100%;" src="/images/portfolio/{{$item->projectImage->first()->path}}">
+                                </div>
+                                <h2 class="" style="margin: 0px 15px 0px 0px !important; color: #267AB7 !important;">{{$item->name}}</h2>
+                                <small  style="color: #0E0E0E">
+                                    @foreach($item->projectService as $task)
+                                        <span class="badge" style="margin-right: 5px; background-color: #0E0E0E;">{{($task->service->name)}}</span>
+                                    @endforeach
+                                </small>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
 
-
+            </div>
         </div>
+
     </div>
 @stop
-
 
 @push('scripts')
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
@@ -195,19 +198,27 @@
         //http://daneden.github.io/animate.css/
         $("#slider-left").waypoint(function() {
             $('#slider-left').addClass('bounceInLeft');
-        },{ offset: '100%' });
+        },{ offset: '85%' });
 
         $("#slider-right").waypoint(function() {
             $('#slider-right').addClass('bounceIn');
-        },{ offset: '100%' });
+        },{ offset: '85%' });
 
         $(".main-service").waypoint(function() {
             $('.main-service').addClass('bounceIn');
-        },{ offset: '100%' });
+        },{ offset: '85%' });
 
         $(".services").waypoint(function() {
             $('.services').addClass('fadeInUp');
-        },{ offset: '100%' });
+        },{ offset: '85%' });
+
+        $(".portfolio").waypoint(function() {
+            $('.portfolio').addClass('fadeInUp');
+        },{ offset: '85%' });
+
+        $(".portfolio-content").waypoint(function() {
+            $('.portfolio-content').addClass('bounceIn');
+        },{ offset: '85%' });
 
     </script>
 @endpush
@@ -218,6 +229,7 @@
 
     <style>
 
+    .slick-slide {outline: none;}
     #slider-left {
         -webkit-animation-duration: 0.8s;
         -webkit-animation-delay: 0.2s;
@@ -228,6 +240,60 @@
         -webkit-animation-duration: 0.8s;
         -webkit-animation-delay: 0.6s;
         -webkit-animation-iteration-count: 1;
+    }
+    /*.slide-text{*/
+        /*padding: 0px 350px;*/
+    /*}*/
+
+    /* Large desktop */
+    @media (min-width: 1200px) {
+        .slider-main{
+
+        }
+        .main-service > div{
+            width: 100px;
+            height: 100px;
+        }
+        .slide-text{
+            padding: 0px 350px;
+        }
+    }
+
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 768px) and (max-width: 979px) {
+        .slider-main{
+
+        }
+        .slide-text{
+            padding: 0px 100px !important;
+        }
+    }
+
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 767px) {
+        .slider-main{
+
+        }
+        .slide-text{
+            padding: 0px 30px;
+        }
+    }
+
+    /* Landscape phones and down */
+    @media (max-width: 480px) {
+        .slider-main{
+
+        }
+        .main-service > h1{
+            font-size: 20px;
+        }
+        .main-service > div{
+            width: 100px !important;
+            height: 100px !important;
+        }
+        .slide-text{
+            padding: 0px 30px;
+        }
     }
 
     .slider-main{
@@ -285,7 +351,7 @@
     }
 
     .view {
-        height: 700px !important;
+        height: 600px !important;
         padding: 0px;
         position: relative;
         background: #000000;

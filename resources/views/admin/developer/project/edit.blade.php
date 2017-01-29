@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('do_min', 'Ingeschatte tijd') !!}
+                {!! Form::label('do_min', 'Ingeschatte tijd (min)') !!}
                 {!! Form::number('do_min', null, ['class' => 'form-control', 'placeholder' => '']) !!}
             </div>
 

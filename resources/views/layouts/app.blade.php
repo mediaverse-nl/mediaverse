@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@yield('title')</title>
-    <link rel="author" href="https://plus.google.com/[YOUR PERSONAL G+ PROFILE HERE]"/>
+    {{--<link rel="author" href="https://plus.google.com/[YOUR PERSONAL G+ PROFILE HERE]"/>--}}
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
     <meta name="robots" content="index, follow">
@@ -37,9 +37,8 @@
     <style>
         body {
             font-family: "Open Sans", Arial, sans-serif;
-            margin-top: 75px !important;
-            /* Margin bottom by footer height */
-            margin-bottom: 350px;
+            /*margin-bottom: 0px !important;*/
+            margin-bottom: 290px;
         }
 
         .fa-btn {
@@ -55,7 +54,6 @@
             bottom: 0;
             width: 100%;
             /* Set the fixed height of the footer here */
-            height: 300px;
         }
         .page-header{
             /*background-color: #0E0E0E;*/
@@ -75,11 +73,11 @@
         }
         .upper-footer{
             background-color: #0E0E0E;
-            height: 250px;;
+            height: auto;
         }
         .bottom-footer{
             background-color: #060606;
-            height: 60px;
+            /*height: 60px;*/
             padding: 0px;
         }
         .bottom-stash ul{
@@ -164,21 +162,71 @@
             color: #428bca;
             font-size: 18px;
         }
-        .
+
+
+        /* Large desktop */
+        @media (min-width: 1200px) {
+            footer{
+                /*height: auto!important;*/
+                height: 200px;
+            }
+            body{
+                /* Margin bottom by footer height */
+                margin-bottom: 250px;
+            }
+        }
+
+        /* Portrait tablet to landscape and desktop */
+        @media (min-width: 768px) and (max-width: 979px) {
+            footer{
+                /*height: auto!important;*/
+                height: 200px;
+            }
+            body{
+                /* Margin bottom by footer height */
+                margin-bottom: 250px;
+            }
+        }
+
+        /* Landscape phone to portrait tablet */
+        @media (max-width: 767px) {
+            footer{
+                /*height: auto!important;*/
+                height: 200px;
+            }
+            body{
+                /* Margin bottom by footer height */
+                margin-bottom: 350px;
+            }
+        }
+
+        /* Landscape phones and down */
+        @media (max-width: 480px) {
+            footer{
+                /*height: auto!important;*/
+                height: 200px;
+            }
+            body{
+                /* Margin bottom by footer height */
+                margin-bottom: 200px;
+            }
+        }
+
+
         @media (max-width: 768px) {
-            .dropdown-menu-lg {
-                margin-left: 0 ;
-                margin-right: 0 ;
-            }
-            .dropdown-menu-lg > li {
-                margin-bottom: 30px;
-            }
-            .dropdown-menu-lg > li:last-child {
-                margin-bottom: 0;
-            }
-            .dropdown-menu-lg .dropdown-header {
-                padding: 3px 15px !important;
-            }
+            /*.dropdown-menu-lg {*/
+                /*margin-left: 0 ;*/
+                /*margin-right: 0 ;*/
+            /*}*/
+            /*.dropdown-menu-lg > li {*/
+                /*margin-bottom: 30px;*/
+            /*}*/
+            /*.dropdown-menu-lg > li:last-child {*/
+                /*margin-bottom: 0;*/
+            /*}*/
+            /*.dropdown-menu-lg .dropdown-header {*/
+                /*padding: 3px 15px !important;*/
+            /*}*/
         }
     </style>
 </head>
@@ -236,13 +284,12 @@
         <div class="" style="height: 25px; background-color: #267AB7; line-height: 25px;">
             <div class="container">
                 <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts" target="_blank" class="fa fa-facebook-square" style="color: #fff;"></a>
-                <a href="/" class="fa fa-twitter-square" style="color: #fff;"></a>
-                <a href="/" class="fa fa-linkedin-square" style="color: #fff;"></a>
-                <a href="/" class="fa fa-google-plus-square" style="color: #fff;"></a>
+                <a href="https://twitter.com/mediaverse_nl" target="_blank" class="fa fa-twitter-square" style="color: #fff;"></a>
+                <a href="https://www.linkedin.com/company/mediaverse.nl?trk=company_logo" target="_blank" class="fa fa-linkedin-square" style="color: #fff;"></a>
 
                 <div class="pull-right">
                     <a href="" class="" style="color: #fff;">info@mediaverse.nl</a> <span style="color: #fff; padding: 0px 10px;"> | </span>
-                    <span style="color: #fff;">06 53 77 97 61</span>
+                    <span style="color: #fff;">+31 6 53 77 97 61</span>
                 </div>
             </div>
         </div>
@@ -254,7 +301,7 @@
     <footer class="footer">
         <div class="upper-footer">
             <div class="container">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-4 ">
                     <h3 style="color: #fff;">Diensten</h3>
                     <ul class="list-unstyled">
                         <li>> <a href="{{ route('page.websites') }}" style="color:#777;">Applicaties</a></li>
@@ -262,9 +309,10 @@
                         <li>> <a href="{{ route('page.hosting') }}" style="color:#777;">Hosting </a></li>
                         <li>> <a href="{{ route('page.design') }}" style="color:#777;">Logo / illustraties </a></li>
                         <li>> <a href="{{ route('page.photography') }}" style="color:#777;">Fotografie </a></li>
+
                     </ul>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-4 ">
                     <h3 style="color: #fff;">Contact</h3>
                     <span style="color: #777; margin-bottom: 20px;"><i class="fa fa-map-marker" style="color: #777;" aria-hidden="true"></i> Pietercoecke straat 14, 5643 VK Eindhoven</span>
                     <div class="clearfix" style="margin-bottom: 10px;"></div>
@@ -275,13 +323,19 @@
                     <span style="color: #777;"><i class="fa fa-phone-square" style="color: #777;" aria-hidden="true"></i> +31 6 - 53779761</span>
                     <div class="clearfix" style="margin-bottom: 10px;"></div>
                     <div style="font-size:35px;">
-                        <i class="fa fa-twitter-square" style="color: #00ACED; " aria-hidden="true"></i>
-                        <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts"><i class="fa fa-facebook-square" style="color: #3B5998; " aria-hidden="true"></i></a>
-                        <i class="fa fa-linkedin-square" style="color: #0077B5; " aria-hidden="true"></i>
-                        <i class="fa fa-google-plus-square" style="color: #DC4A38; " aria-hidden="true"></i>
+
+                        <a href="https://twitter.com/mediaverse_nl" target="_blank">
+                            <i class="fa fa-twitter-square"  style="color: #00ACED; "  aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.facebook.com/mediaverse.nl/?ref=ts&fref=ts" target="_blank">
+                            <i class="fa fa-facebook-square" style="color: #3B5998; " aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/mediaverse.nl?trk=company_logo" target="_blank">
+                            <i class="fa fa-linkedin-square" style="color: #0077B5; " aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-4 ">
                     <br>
                     <span><img src="/images/icons/Slack CMYK.png" class="img-responsiv" style="height: 50px;">
                         <br>
@@ -296,7 +350,7 @@
             <div class="container"><br>
                 <ul class="bottom-stash pull-left">
                     <li><a style="color: #777 !important;" href="{{ route('page.algvoorwaarden') }}">algemene voorwaarden</a></li>
-                    <li><a style="color: #777 !important;" href="{{ route('page.sitemap') }}">sitemap</a></li>
+{{--                    <li><a style="color: #777 !important;" href="{{ route('page.sitemap') }}">sitemap</a></li>--}}
                     <li><a style="color: #777 !important;" href="{{ route('page.priverklaring') }}">privacy verklaring</a></li>
                     <li><a style="color: #777 !important;" href="{{ route('contact.create') }}">contact</a></li>
                 </ul>
@@ -309,6 +363,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-90567284-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
     @stack('scripts')
 
 </body>

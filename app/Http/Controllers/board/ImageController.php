@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\board;
 
-use App\ProductImage;
+use App\ProjectImages;
+//use ProductImage;
 
 use File;
 
