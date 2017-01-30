@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', trans('references.'.$project->name.'.title'))
-@section('description', trans('reference.'.$project->name.'.description'))
-@section('keywords', trans('references.'.$project->name.'.keywords'))
+@section('title', trans('references.title.'.str_replace(' ', '-', $project->name)))
+@section('description', $project->resultaat)
+@section('keywords', trans('references.keywords.'.str_replace(' ', '-', $project->name)))
 
 @push('meta-tags')
 
@@ -29,14 +29,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         @if($paginate['back'] != '')
-                            <a href="{{route('referenties.show', str_replace('-', ' ', $paginate['back']->name))}}" class="btn btn-primary pull-left"><i class="fa fa-backward" aria-hidden="true"></i> Volgende</a>
+                            <a href="{{route('referenties.show', str_replace('-', ' ', $paginate['back']->name))}}" class="btn btn-primary pull-left t-btn"><i class="fa fa-backward" aria-hidden="true"></i> Volgende</a>
                         @else
-                            <a class="btn btn-primary pull-left" disabled=""><i class="fa fa-backward" aria-hidden="true"></i> Volgende</a>
+                            <a class="btn btn-primary pull-left t-btn" disabled=""><i class="fa fa-backward" aria-hidden="true"></i> Volgende</a>
                         @endif
                         @if($paginate['forward'] != '')
-                            <a href="{{route('referenties.show', str_replace(' ', '-', $paginate['forward']->name))}}" class="btn btn-primary pull-right">Vorige <i class="fa fa-forward" aria-hidden="true"></i></a>
+                            <a href="{{route('referenties.show', str_replace(' ', '-', $paginate['forward']->name))}}" class="btn btn-primary pull-right t-btn">Vorige <i class="fa fa-forward" aria-hidden="true"></i></a>
                         @else
-                            <a class="btn btn-primary pull-right" disabled=""><i class="fa fa-forward" aria-hidden="true"></i> Vorige</a>
+                            <a class="btn btn-primary pull-right t-btn" disabled=""><i class="fa fa-forward" aria-hidden="true"></i> Vorige</a>
                         @endif
                     </div>
                 </div>
@@ -56,13 +56,17 @@
                 <br>
                 <p>{{$project->resultaat}}</p>
                 <br>
-                <br>
+
                 <p><a href="{{$project->website}}">{{$project->website}}</a></p>
 
             </div>
 
         </div>
+        <br>
+        <hr>
     </div>
+
+
 
 @stop
 
@@ -93,11 +97,11 @@
 
     <style>
         .slick-slide {outline: none;}
-        .btn, .btn-primary{
+        .t-btn{
             width: 100px !important;
             border-radius: 20px;
         }
-        .fa{
+        .t-btn > .fa{
             color: #fff !important;
             background-color: #267AB7;
         }

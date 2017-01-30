@@ -21,7 +21,7 @@ class PagesController extends Controller
     }
 
     public function home(){
-        return view('home')->with('seo', $this->page)->with('portfolio', $this->projects->where('status', 'ready')->get());
+        return view('home')->with('seo', $this->page)->with('portfolio', $this->projects->where('status', 'ready')->get()->take(3));
     }
 
     //web applicaties

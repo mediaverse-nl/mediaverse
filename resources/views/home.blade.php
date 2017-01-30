@@ -154,9 +154,9 @@
                 @foreach($portfolio as $item)
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="panel" style="border-radius: 0px; padding: 3px;">
-                            <a href="{{route('referenties.show', $item->name)}}">
+                            <a class="proj" href="{{route('referenties.show', str_replace(' ', '-', $item->name))}}">
                                 <div class="" style="width: auto; border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 0px; padding: 3px;">
-                                    <img class="img-responsive" style="width: 100%;" src="/images/portfolio/{{$item->projectImage->first()->path}}">
+                                    <img class="img-responsive" style="width: 100%; height: 180px;" src="/images/portfolio/{{$item->projectImage->first()->path}}">
                                 </div>
                                 <h2 class="" style="margin: 0px 15px 0px 0px !important; color: #267AB7 !important;">{{$item->name}}</h2>
                                 <small  style="color: #0E0E0E">
@@ -411,6 +411,9 @@
         border-left: 35px solid transparent;
         border-right: 35px solid transparent;
         border-top: 10px solid #1e61b7;
+    }
+    .proj{
+        text-dorientation: none !important;
     }
 
 </style>
