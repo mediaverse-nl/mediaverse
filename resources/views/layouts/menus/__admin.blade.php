@@ -135,10 +135,10 @@
                     <a href="{{route('financial.finance.index')}}"><i class="fa fa-fw fa-eur" aria-hidden="true"></i> Financials <label class="badge pull-right"></label></a>
                 </li>
                 <li class="{{ Request::is('financial/user*') ? 'active' : null }}">
-                    <a><i class="fa fa-fw fa-id-card" aria-hidden="true"></i> Payroll <label class="pull-right"></label></a>
+                    <a><i class="fa fa-fw fa-id-card" aria-hidden="true" disabled=""></i> Payroll <label class="pull-right"></label></a>
                 </li>
                 <li class="{{ Request::is('financial/invoice*') ? 'active' : null }}">
-                    <a href="{{route('financial.invoice.index')}}"><i class="fa fa-fw fa-credit-card" aria-hidden="true"></i> Invoices  <label class="badge pull-right">{{($info['invoice']->where('status', 'open')->count())}}</label></a>
+                    <a href="{{route('financial.invoice.index')}}"><i class="fa fa-fw fa-credit-card" aria-hidden="true"></i> Invoices <label class="badge pull-right">{{($info['invoice']->where('status', 'open')->count())}}</label></a>
                 </li>
             @endif
 

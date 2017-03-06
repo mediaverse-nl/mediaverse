@@ -154,7 +154,9 @@
                 @foreach($portfolio as $item)
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="panel" style="border-radius: 0px; padding: 3px;">
+                            {{--{{$item}}--}}
                             <a class="proj" href="{{route('referenties.show', str_replace(' ', '-', $item->name))}}">
+{{--                                {{$item->projectImage}}--}}
                                 <div class="" style="width: auto; border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 0px; padding: 3px;">
                                     <img class="img-responsive" style="width: 100%; height: 180px;" src="/images/portfolio/{{$item->projectImage->first()->path}}">
                                 </div>
@@ -185,7 +187,7 @@
             infinite: true,
             dots: true,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 8000,
 //            infinite: true,
             speed: 300,
             slidesToShow: 1,
@@ -228,7 +230,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 
     <style>
+    .proj:hover {
+        text-decoration: none;
+    }
 
+    .slick-dots{
+
+    }
     .slick-slide {outline: none;}
     #slider-left {
         -webkit-animation-duration: 0.8s;

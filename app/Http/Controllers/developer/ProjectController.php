@@ -96,9 +96,12 @@ class ProjectController extends Controller
         $project = $this->project->find($id);
 
         $array = [];
-        foreach ($project->projectUser()->orderBy('check', 'desc') as $user){
+        foreach ($project->projectUser()->get() as $user){
             $array[] = $user->user;
+
+//            dd($user->user);
         }
+//        dd($array);
 
         $status = DB::table('project_task')
             ->select(DB::raw('count(*) as status, status'))

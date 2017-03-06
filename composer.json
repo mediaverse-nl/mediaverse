@@ -12,7 +12,11 @@
         "laravel/socialite": "~2.0",
         "barryvdh/laravel-translation-manager": "^0.2.5",
         "barryvdh/laravel-debugbar": "^2.3",
-        "mollie/laravel-mollie": "^1.3"
+        "mollie/laravel-mollie": "^1.3",
+        "ckeditor/ckeditor": "^4.6",
+        "unisharp/laravel-ckeditor": "^4.6",
+        "intervention/image": "2.*",
+        "tsawler/laravel-filemanager": "^0.6.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

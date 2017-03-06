@@ -17,7 +17,13 @@
 
             @include('includes._menu')
 
+
+
             <div class="col-lg-8">
+
+                <textarea id="messageArea" name="messageArea" rows="7" class="form-control ckeditor textarea" placeholder="Write your message.."></textarea>
+
+
                 <h1>
                     Webshop
                 </h1>
@@ -104,4 +110,14 @@
 
 @push('scripts')
 
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script>
+        $('.textarea').ckeditor({
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files'
+        });
+        // $('.textarea').ckeditor(); // if class is prefered.
+
+    </script>
 @endpush

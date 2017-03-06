@@ -167,6 +167,12 @@ return [
         Mollie\Laravel\MollieServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        Unisharp\Ckeditor\ServiceProvider::class,
+
+        Tsawler\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+
 
     ],
 
@@ -217,6 +223,8 @@ return [
         'Input' => Illuminate\Support\Facades\Input::class,
 
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+
+        'Image'     => Intervention\Image\Facades\Image::class,
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
