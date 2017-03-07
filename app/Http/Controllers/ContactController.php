@@ -38,7 +38,7 @@ class ContactController extends Controller
             'naam' => 'required|between:4,60|string',
             'email' => 'required|email|max:80',
             'telefoon_nr' => 'numeric|min:8',
-            'bericht' => 'required|between:50,500|string',
+            'bericht' => 'required|between:5,500|string',
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);

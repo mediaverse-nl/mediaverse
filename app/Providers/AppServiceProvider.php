@@ -26,13 +26,13 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.menus.__admin', function($view)
         {
             $view->with('info', [
-                'project' => Project::all(),
-                'task' => ProjectUser::all(),
-                'invoice' => Invoice::all(),
-                'service' => Service::all(),
-                'skill' => Skill::all(),
+                'project' => Project::get(),
+                'task' => ProjectUser::get(),
+                'invoice' => Invoice::get(),
+                'service' => Service::get(),
+                'skill' => Skill::get(),
                 'contact' => Contact::where('status', 'none')->orderBy('id', 'desc'),
-                'user' => User::all(),
+                'user' => User::get(),
                 'myTask' => ProjectTask::where('user_id', Auth::user()->id)->where('status', 'running'),
             ]);
         });

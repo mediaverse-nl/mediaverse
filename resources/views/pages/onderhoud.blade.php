@@ -16,14 +16,28 @@
         <div class="row">
 
             @include('includes._menu')
+            @if(Auth::check())
+
+            @if(Auth::user()->hasRole('marketing') || Auth::user()->hasRole('board') )
+                <div class="col-lg-8">
+                    @if($content == null)
+                        {{ Form::open(['route' => 'marketing.content.store', 'method' => 'POST']) }}
+                    @else
+                        {{ Form::open(['route' => 'marketing.content.update', 'method' => 'PATCH']) }}
+                    @endif
+                    {{Form::hidden('page', \Route::getFacadeRoot()->current()->getActionName())}}
+                    {{Form::textarea('textarea', $content != null ? $content->text : null, ['id' => 'texteditor', 'class' => 'ckeditor textarea'])}}
+                    <br>
+                    {{Form::submit('Wijzigen', ['class' => 'btn btn-default pull-right'])}}
+                    {{ Form::close() }}
+                </div>
+            @endif
+            @endif
 
             <div class="col-lg-8">
-                <h1>Onderhoud</h1>
-
-                {{--<b>kop </b>--}}
-                {{--<p>--}}
-                    {{--Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,--}}
-                {{--</p>--}}
+                @if($content != null)
+                    {!! $content->text !!}
+                @endif
             </div>
 
         </div>
@@ -36,5 +50,12 @@
 @endpush
 
 @push('scripts')
-
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script>
+    $('#texteditor').ckeditor({
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    });
+</script>
 @endpush

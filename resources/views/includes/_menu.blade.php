@@ -49,8 +49,8 @@
     <div class="" style="margin-top: 25px;">
         {{--<h2>Bel ons</h2>--}}
         {{--<hr>--}}
-        <p><b>Offerte aanvraagn?</b> neem contact op met ons via ons contactformulier</p>
-        <a href="{{route('contact.create')}}" class="btn btn-primary">Neem contact op</a>
+        <p><b>@lang('button.offerte_aanvragen')</b> @lang('text.contact_us_through')</p>
+        <a href="{{route('contact.create')}}" class="btn btn-primary">@lang('button.contact_us')</a>
         <hr>
     </div>
 
@@ -157,8 +157,8 @@
         <div class="" style="">
             {{--<h2>Bel ons</h2>--}}
             <hr>
-            <h3 style="font-size: 18px;">Bel ons op:</h3>
-            <span class="lead"><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</span>
+            <p style="font-size: 18px;"><b>Bel ons op</b>:</p>
+            <p style="font-size: 18px;" class=""><i class="fa fa-phone" aria-hidden="true"></i> +31 6 53 77 97 61</p>
             <hr>
         </div>
 

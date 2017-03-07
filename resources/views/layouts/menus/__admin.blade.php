@@ -104,9 +104,9 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li class="{{ Request::is('dashboard*') ? 'active' : null }}">
-                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-tachometer" aria-hidden="true"></i> Dashboard</a>
+                <a href="{{route('dashboard')}}"><i class="fa fa-fw fa-tachometer" aria-hidden="true"></i> Dashboard </a>
             </li>
-            @if(Auth::user()->hasRole('board'))
+            @if(Auth::user()->hasRole(['board']))
                 <li class="{{ Request::is('board/service*') ? 'active' : null }}">
                     <a href="{{route('board.service.index')}}"><i class="fa fa-fw fa-code-fork" aria-hidden="true"></i> Services <label class="badge pull-right">{{($info['service']->count())}}</label></a>
                 </li>
@@ -121,7 +121,7 @@
                 </li>
             @endif
 
-            @if(Auth::user()->hasRole('marketing') || Auth::user()->hasRole('board'))
+            @if(Auth::user()->hasRole(['marketing']) || Auth::user()->hasRole(['board']))
                 <li class="{{ Request::is('marketing/message*') ? 'active' : null }}">
                     <a href="{{route('marketing.message.index')}}"><i class="fa fa-fw fa-comment-o" aria-hidden="true"></i> Messages <label class="badge pull-right">{{($info['contact']->where('status', 'none')->count())}}</label></a>
                 </li>
@@ -130,7 +130,7 @@
                 </li>
             @endif
 
-            @if(Auth::user()->hasRole('financial') || Auth::user()->hasRole('board'))
+            @if(Auth::user()->hasRole(['financial']) || Auth::user()->hasRole(['board']))
                 <li class="{{ Request::is('financial/finance*') ? 'active' : null }}">
                     <a href="{{route('financial.finance.index')}}"><i class="fa fa-fw fa-eur" aria-hidden="true"></i> Financials <label class="badge pull-right"></label></a>
                 </li>
@@ -142,7 +142,7 @@
                 </li>
             @endif
 
-            @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('financial'))
+            @if(Auth::user()->hasRole(['developer']) || Auth::user()->hasRole(['financial']))
                 <li class="{{ Request::is('developer/project*') ? 'active' : null }}">
                     <a href="{{route('developer.project.index')}}"><i class="fa fa-fw fa-tasks"></i> Mijn projecten <label class="pull-right badge">{{($info['task']->where('user_id', Auth::user()->id)->count())}}</label></a>
                 </li>

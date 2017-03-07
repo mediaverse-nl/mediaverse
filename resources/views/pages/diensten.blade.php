@@ -16,10 +16,16 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1>{{trans('text.services')}}</h1>
-                <p>{{trans('text.services_description')}}</p>
-                <br>
+                <div class="row">
+                    <h1 class="text-center">{{trans('text.services')}}</h1>
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <p class="text-center">{{trans('text.services_description')}}</p>
+                    </div>
+                </div>
 
+                <br>
+                <br>
+                <br>
                 <div class="row">
                     <div class="col-lg-6" style="border-right: 1px solid #e7e7e7;">
                         <div class="col-lg-2">

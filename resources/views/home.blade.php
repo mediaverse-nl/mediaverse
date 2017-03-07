@@ -27,9 +27,7 @@
                 <h1 class="text-center" style="text-align: center;"><b>{{trans('banner.title_3')}}</b></h1>
                 <p class="text-center slide-text">{{htmlentities (trans('banner.text_3'))}}</p>
             </div>
-
         </div>
-
     </div>
 
     <div class="container" style="margin-top: -150px">

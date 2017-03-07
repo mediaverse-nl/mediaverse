@@ -16,19 +16,28 @@
         <div class="row">
 
             @include('includes._menu')
+            @if(Auth::check())
+
+            @if(Auth::user()->hasRole('marketing') || Auth::user()->hasRole('board') )
+                <div class="col-lg-8">
+                    @if($content == null)
+                        {{ Form::open(['route' => 'marketing.content.store', 'method' => 'POST']) }}
+                    @else
+                        {{ Form::open(['route' => 'marketing.content.update', 'method' => 'PATCH']) }}
+                    @endif
+                    {{Form::hidden('page', \Route::getFacadeRoot()->current()->getActionName())}}
+                    {{Form::textarea('textarea', $content != null ? $content->text : null, ['id' => 'texteditor', 'class' => 'ckeditor textarea'])}}
+                    <br>
+                    {{Form::submit('Wijzigen', ['class' => 'btn btn-default pull-right'])}}
+                    {{ Form::close() }}
+                </div>
+            @endif
+            @endif
 
             <div class="col-lg-8">
-                <h1>Laravel Websites</h1>
-                <p>
-                    Laravel is een een framework die wij zoveel mogelijk proberen te hanteren in het schrijven van onze website, -shops en -applicaties. Om de
-                    gebruiksvriendelijkheid en functionaliteit van onze producten te kunnen waarborgen houden wij onophoudelijk onze aandacht gevestigd op nieuwe
-                    ontwikkelingen in de ICT-branche. Laravel is voor ons dus een bewuste keuze. Het is een framework dat zorgt voor snelle producten en het verhoogt de
-                    productiviteit van onze programmeurs.
-                </p>
-                <p>
-                    Door gebruik te maken van nieuwe frameworks, zoals Laravel, worden de applicaties die gebouwd worden ook een stuk veiliger. Nieuwe functies kunnen
-                    moeiteloos worden toegevoegd zonder dat dit gevolg zal hebben voor de functionaliteit en stabiliteit van het product.
-                </p>
+                @if($content != null)
+                    {!! $content->text !!}
+                @endif
             </div>
 
         </div>
@@ -39,7 +48,13 @@
 @push('css')
 
 @endpush
-
 @push('scripts')
-
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script>
+    $('#texteditor').ckeditor({
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    });
+</script>
 @endpush

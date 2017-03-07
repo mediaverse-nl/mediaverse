@@ -30,10 +30,10 @@
 
                     <div class="col-md-6">
                         <span><b>Locatie</b></span>
-                        <p>Pietercoecke straat 14,<br> 5643VK Eindhoven</p>
+                        <p>Daalakkersweg 2-182,<br> 5641JA Eindhoven</p>
                         <br>
                         <span><b>Contact</b></span>
-                        <p>tel: +31 6 53779761 <br> Email: info@mediaverse.nl</p>
+                        <p>tel: +31 6 53779761 <br>tel: +31 6 19959534 <br> Email: info@mediaverse.nl</p>
                         <br>
                         <span><b>Vind ons op</b></span>
                         <p style="font-size: 35px;">
@@ -53,7 +53,7 @@
                         <span><b>Bedrijfsgegevens</b></span>
                         <p>
                             Handelsnaam: Mediaverse<br>
-                            Bank: NL42 ABNA 0594 0761 10<br><br>
+                            Bank: NL93 ABNA 0536 5042 37<br><br>
                             kvk: 58808442 <br>
                             btw nr: 212068842B01 <br> </p>
                         <br>
@@ -161,7 +161,7 @@
     function init_map(){
         var myOptions = {
             zoom:13,
-            center:new google.maps.LatLng(51.4271692,5.507636199999979),
+            center:new google.maps.LatLng(51.446687, 5.522400),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
         };
@@ -171,10 +171,10 @@
         );
         marker = new google.maps.Marker({
             map: map,
-            position: new google.maps.LatLng(51.4271692, 5.507636199999979)
+            position: new google.maps.LatLng(51.446687, 5.522400)
         });
         infowindow = new google.maps.InfoWindow({
-            content:"<b>Mediaverse</b><br/>pietercoecke straat 14<br/>5643vk eindhoven"
+            content:"<b>Mediaverse</b><br/>Daalakkersweg 2-182<br/>5641JA Eindhoven"
         });
         google.maps.event.addListener(
                 marker, "click", function(){

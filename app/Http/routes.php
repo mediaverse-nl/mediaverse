@@ -59,9 +59,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/messages', ['as' => 'message.index', 'uses' => 'marketing\ContactController@index']);
         Route::get('/message/{id}/show', ['as' => 'message.show', 'uses' => 'marketing\ContactController@show']);
         Route::patch('/message', ['as' => 'message.update', 'uses' => 'marketing\ContactController@update']);
+
+        Route::post('text-editor/store', ['as' => 'content.store', 'uses' => 'marketing\TextEditorController@store']);
+        Route::patch('text-editor/edit', ['as' => 'content.update', 'uses' => 'marketing\TextEditorController@update']);
     });
 
-    Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'role:developer,marketing,board'], function () {
+    Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'role:developer,marketing,board,financial'], function () {
         Route::get('/', ['as' => 'index', 'uses' => 'Auth\ProfileController@index']);
         Route::get('/create', ['as' => 'create', 'uses' => 'Auth\ProfileController@create']);
         Route::get('/{id}/edit', ['as' => 'edit', 'uses' => 'Auth\ProfileController@edit']);
@@ -81,7 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('project/task/destroy', ['as' => 'task.destroy', 'uses' => 'developer\ProjectController@destroy']);
     });
 
-    Route::group(['prefix' => 'financial', 'as' => 'financial.', 'middleware' => ['role:developer,financial,board']], function ()
+    Route::group(['prefix' => 'financial', 'as' => 'financial.', 'middleware' => ['role:financial,board']], function ()
     {
         Route::get('finance', ['as' => 'finance.index', 'uses' => 'financial\FinancialController@index']);
 

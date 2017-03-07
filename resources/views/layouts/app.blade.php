@@ -163,6 +163,9 @@
             font-size: 18px;
         }
 
+        /*.fa:hover{*/
+            /*text-decoration: none !important;*/
+        /*}*/
 
         /* Large desktop */
         @media (min-width: 1200px) {
@@ -314,7 +317,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 ">
                     <h3 style="color: #fff;">Contact</h3>
-                    <span style="color: #777; margin-bottom: 20px;"><i class="fa fa-map-marker" style="color: #777;" aria-hidden="true"></i> Pietercoecke straat 14, 5643 VK Eindhoven</span>
+                    <span style="color: #777; margin-bottom: 20px;"><i class="fa fa-map-marker" style="color: #777;" aria-hidden="true"></i> Daalakkersweg 2-182, 5641JA Eindhoven</span>
                     <div class="clearfix" style="margin-bottom: 10px;"></div>
 
                     <span style="color: #fff;"><i class="fa fa-envelope" style="color: #777;" aria-hidden="true"></i> info@mediaverse.nl</span>
