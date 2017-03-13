@@ -173,6 +173,9 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+
+
 
     ],
 
@@ -232,6 +235,9 @@ return [
         'Mollie' => Mollie\Laravel\Facades\Mollie::class,
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+
+        'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
 
 
 

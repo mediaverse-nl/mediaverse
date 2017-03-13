@@ -58,18 +58,18 @@
         <li class="dropdown">
 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                @if($info['myTask']->exists() == true)
-                    <i style="font-size: 10px; top: 10px; right: 174px; position: fixed; color: #F0AD4E;" class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                @endif
+                {{--@if($info['myTask']->exists() == true)--}}
+                    {{--<i style="font-size: 10px; top: 10px; right: 174px; position: fixed; color: #F0AD4E;" class="fa fa-exclamation-circle" aria-hidden="true"></i>--}}
+                {{--@endif--}}
                 <i class="fa fa-bell"></i>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu alert-dropdown">
-                @if($info['myTask']->exists() == true)
-                    <li>
-                        <a href="{{route('developer.project.show', $info['myTask']->first()->project->id)}}">Running task <span class="label label-warning">Warning</span></a>
-                    </li>
-                @endif
+                {{--@if($info['myTask']->exists() == true)--}}
+                    {{--<li>--}}
+                        {{--<a href="{{route('developer.project.show', $info['myTask']->first()->project->id)}}">Running task <span class="label label-warning">Warning</span></a>--}}
+                    {{--</li>--}}
+                {{--@endif--}}
 
                 {{--<li class="divider"></li>--}}
                 {{--<li>--}}

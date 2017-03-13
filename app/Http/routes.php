@@ -107,6 +107,14 @@ Route::group(['middleware' => 'auth'], function () {
     {
 //        Route::get('/factuur',  ['as' => 'page.invoices', 'uses' => 'board\InvoiceController@index']);
 
+        Route::get('calendar', ['as' => 'calendar.index', 'uses' => 'Auth\CalendarController@index']);
+        Route::get('calendar/{id}/show', ['as' => 'calendar.show', 'uses' => 'Auth\CalendarController@show']);
+        Route::get('calendar/create', ['as' => 'calendar.create', 'uses' => 'Auth\CalendarController@create']);
+        Route::get('calendar/{id}/edit', ['as' => 'calendar.edit', 'uses' => 'Auth\CalendarController@edit']);
+        Route::patch('calendar', ['as' => 'calendar.update', 'uses' => 'Auth\CalendarController@update']);
+        Route::post('calendar', ['as' => 'calendar.store', 'uses' => 'Auth\CalendarController@store']);
+        Route::delete('calendar/destroy', ['as' => 'calendar.destroy', 'uses' => 'Auth\CalendarController@destroy']);
+
         Route::get('project', ['as' => 'project.index', 'uses' => 'board\ProjectController@index']);
         Route::get('project/create', ['as' => 'project.create', 'uses' => 'board\ProjectController@create']);
         Route::get('project/{id}/edit', ['as' => 'project.edit', 'uses' => 'board\ProjectController@edit']);

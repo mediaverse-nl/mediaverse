@@ -31,9 +31,9 @@ class AppServiceProvider extends ServiceProvider
                 'invoice' => Invoice::get(),
                 'service' => Service::get(),
                 'skill' => Skill::get(),
-                'contact' => Contact::where('status', 'none')->orderBy('id', 'desc'),
+                'contact' => Contact::where('status', 'none')->orderBy('id', 'desc')->get(),
                 'user' => User::get(),
-                'myTask' => ProjectTask::where('user_id', Auth::user()->id)->where('status', 'running'),
+                'myTask' => ProjectTask::where('user_id', Auth::user()->id)->where('status', 'running')->get(),
             ]);
         });
 
