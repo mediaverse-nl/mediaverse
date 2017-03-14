@@ -119,6 +119,9 @@
                 <li class="{{ Request::is('board/project*') ? 'active' : null }}">
                     <a href="{{route('board.project.index')}}"><i class="fa fa-fw fa-briefcase" aria-hidden="true"></i> Projects <label class="badge pull-right">{{($info['project']->where('status', 'prograss')->count())}}</label></a>
                 </li>
+                <li class="{{ Request::is('board/calendar*') ? 'active' : null }}">
+                    <a href="{{route('board.calendar.index')}}"><i class="fa fa-fw fa-briefcase" aria-hidden="true"></i> Calendar <label class="badge pull-right">{{($info['project']->where('status', 'prograss')->count())}}</label></a>
+                </li>
             @endif
 
             @if(Auth::user()->hasRole(['marketing']) || Auth::user()->hasRole(['board']))

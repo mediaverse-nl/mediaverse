@@ -21,6 +21,6 @@ class Roles
 
         \Session::flash('error_message','je hebt geen toegang tot deze URL pagina.');
 
-        return redirect('/dashboard');
+        return redirect('/');
     }
 }

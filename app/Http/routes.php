@@ -113,7 +113,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('calendar/{id}/edit', ['as' => 'calendar.edit', 'uses' => 'Auth\CalendarController@edit']);
         Route::patch('calendar', ['as' => 'calendar.update', 'uses' => 'Auth\CalendarController@update']);
         Route::post('calendar', ['as' => 'calendar.store', 'uses' => 'Auth\CalendarController@store']);
-        Route::delete('calendar/destroy', ['as' => 'calendar.destroy', 'uses' => 'Auth\CalendarController@destroy']);
+        Route::delete('calendar/destroy/{id}', ['as' => 'calendar.destroy', 'uses' => 'Auth\CalendarController@destroy']);
 
         Route::get('project', ['as' => 'project.index', 'uses' => 'board\ProjectController@index']);
         Route::get('project/create', ['as' => 'project.create', 'uses' => 'board\ProjectController@create']);

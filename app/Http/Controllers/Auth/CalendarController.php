@@ -33,53 +33,42 @@ class CalendarController extends Controller
         $events = [];
 
         foreach ($calendar as $item){
+
             $events[] = \Calendar::event(
-                $item->naam, //event title
-                false, //full day event?
-                $item->start_tijd, //start time (you can also use Carbon instead of DateTime)
-                '2017-03-12T1005', //end time (you can also use Carbon instead of DateTime)
-                0 //optionally, you can specify an event ID
+                $item->naam,
+                false,
+                $item->start_tijd,
+                $item->eind_tijd,
+                $item->id,
+                [
+                    'url' => route('board.calendar.show', $item->id),
+                    'editable' => false,
+                    'color' => '#333333'
+                ]
             );
         }
 
         $events[] = \Calendar::event(
             'Event One', //event title
             false, //full day event?
-            '2017-03-12T0800', //start time (you can also use Carbon instead of DateTime)
+            '2017-03-12T0200', //start time (you can also use Carbon instead of DateTime)
             '2017-03-12T1005', //end time (you can also use Carbon instead of DateTime)
             0 //optionally, you can specify an event ID
-        );
-
-        $events[] = \Calendar::event(
-            "Valentine's Day", //event title
-            false, //full day event?
-            '2017-3-12 20:25:25', //start time (you can also use Carbon instead of DateTime)
-            '2017-3-12 23:25:25', //end time (you can also use Carbon instead of DateTime)
-            '123', //optionally, you can specify an event ID
-            [
-                'url' => 'http://full-calendar.io',
-                'editable' => true
-            ]
         );
 
         $calendar = \Calendar::addEvents($events)
         ->setOptions([
             'firstDay' => 1
         ])->setCallbacks([
-//            'viewRender' => ''
+//            'viewRender' => "",
+            'eventClick' => "
+                    function(event, element) {
+                event.title = \"CLICKED!\";
+                fullCalendar('updateEvent', event);
+            }"
         ]);
 
         return view('auth.calendar.index')->with('calendar', $calendar);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -109,10 +98,12 @@ class CalendarController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-//        dd(Carbon::createFromFormat('Y-m-d', $request->start_tijd)->toDateTimeString());
 
+//        Carbon::createFromFormat('Y-m-d', $request->start_tijd)->toDateTimeString();
         $calendar->naam = $request->naam;
-        $calendar->start_tijd = Carbon::createFromFormat('Y-m-d', $request->start_tijd)->toDateTimeString();
+        $calendar->titel = $request->titel;
+        $calendar->eind_tijd = $request->eind_tijd.' '.($request->tijd_uur_eind ? :'00').':'.($request->tijd_min_eind ? :'00').':00';
+        $calendar->start_tijd = $request->start_tijd.' '.($request->tijd_uur ? :'00').':'.($request->tijd_min ? :'00').':00';
 
         $calendar->save();
 
@@ -129,7 +120,9 @@ class CalendarController extends Controller
      */
     public function show($id)
     {
-        //
+        $calendar = $this->calendar->find($id);
+
+        return view('auth.calendar.show')->with('calendar', $calendar);
     }
 
     /**
@@ -150,9 +143,40 @@ class CalendarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $calendar = $this->calendar->find($request->id);
+
+        $rules = [
+//            'task_name' => 'required',
+//            'user' => 'required',
+//            'moscow' => 'required',
+//            'do_min' => 'required',
+//            'project_id' => 'required',
+//            'status' => 'required',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('board.calendar.index')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $calendar->user_id = $request->user;
+        $calendar->naam = $request->naam;
+        $calendar->titel = $request->titel;
+        $calendar->status = $request->status;
+//        $calendar->eind_tijd = Carbon::createFromFormat('Y-m-d', $request->eind_tijd)->toDateTimeString();
+        $calendar->start_tijd = Carbon::createFromFormat('Y-m-d', $request->start_tijd)->toDateTimeString();
+
+        $calendar->save();
+
+        \Session::flash('succes_message','successfully.');
+
+        return redirect()->route('board.calendar.index');
     }
 
     /**
@@ -163,6 +187,9 @@ class CalendarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = $this->calendar->findOrFail($id);
+        $item->delete();
+
+        return Redirect()->route('board.calendar.index');
     }
 }

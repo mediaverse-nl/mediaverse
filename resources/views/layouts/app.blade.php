@@ -248,7 +248,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ route('home') }}" style="color: #267AB7; font-weight: bolder; font-size: 25px">
-                    <img class="img-responsive" style="height: 45px; margin-top: -14px;" src="/images/mediaverse-logo.jpg">
+                    <img class="img-responsive" style="height: 45px; margin-top: -14px;" src="/images/mediaverse-logo.PNG">
                 </a>
             </div>
 
