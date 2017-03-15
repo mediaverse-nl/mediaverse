@@ -11,14 +11,46 @@
         <div class="panel with-nav-tabs panel-default">
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab1default" data-toggle="tab">Deadline</a></li>
-                    <li><a href="#tab2default" data-toggle="tab">Afspraak</a></li>
-                    <li><a href="#tab3default" data-toggle="tab">Rooster</a></li>
+                    <li class="active"><a href="#tab1default" data-toggle="tab">Vandaag</a></li>
+                    <li><a href="#tab2default" data-toggle="tab">Deadline</a></li>
+                    <li><a href="#tab3default" data-toggle="tab">Afspraak</a></li>
+                    <li><a href="#tab4default" data-toggle="tab">Rooster</a></li>
                 </ul>
             </div>
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="tab1default">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>begin</th>
+                                        <th>eind</th>
+                                        <th>naam</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($list_today as $item)
+                                        @php
+                                            $dt_eind = new \Carbon\Carbon($item->eind_tijd);
+                                            $dt_start = new \Carbon\Carbon($item->start_tijd);
+                                        @endphp
+                                        <tr>
+                                            <td>{{$dt_start->format('h:ia')}}</td>
+                                            <td>{{$dt_eind->format('h:ia')}}</td>
+                                            <td>{{$item->naam}}</td>
+                                            <td><a class="btn btn-default btn-xs" href="{{route('board.calendar.show', $item->id)}}">bekijken</a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        {{--{{dd($calendar->get())}}--}}
+                    </div>
+                    <div class="tab-pane fade" id="tab2default">
                         {!! Form::open(['route' => 'board.calendar.store', 'method' => 'POST']) !!}
                             <div class="row">
                                 <div class="form-group col-lg-6">
@@ -57,7 +89,7 @@
                                 {!! Form::text('naam', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('titel', 'titel') !!}
+                                {!! Form::label('titel', 'beschrijving') !!}
                                 {!! Form::text('titel', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                             </div>
                             <div class="form-group">
@@ -69,9 +101,10 @@
 
                         {!! Form::close()!!}
                     </div>
-                    <div class="tab-pane fade" id="tab2default">Default 2</div>
-                    <div class="tab-pane fade" id="tab3default">
+                    <div class="tab-pane fade" id="tab3default">Default 2</div>
+                    <div class="tab-pane fade" id="tab4default">
                         {!! Form::open(['route' => 'board.calendar.store', 'method' => 'POST']) !!}
+                        {!! Form::hidden('status', 'rooster', ['class' => 'form-control', 'placeholder' => '']) !!}
                         <div class="row">
                             <div class="form-group col-lg-6">
                                 {!! Form::label('datum', 'datum') !!}
@@ -104,7 +137,6 @@
                             {!! Form::label('user', 'user') !!}
                             {!! Form::select('user', collect(\App\User::all())->pluck('name', 'id'), null, ['class' => 'form-control']) !!}
                         </div>
-
                         <div class="form-group">
                             {!! Form::label('naam', 'naam') !!}
                             {!! Form::text('naam', null, ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -112,10 +144,6 @@
                         <div class="form-group">
                             {!! Form::label('titel', 'titel') !!}
                             {!! Form::text('titel', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-                        </div>
-                        <div class="form-group">
-                            {{--                            {!! Form::label('status', 'status') !!}--}}
-                            {!! Form::hidden('status', 'event', ['class' => 'form-control', 'placeholder' => '']) !!}
                         </div>
 
                         {!! Form::submit('Toevoegen', ['class' => 'btn btn-success pull-right'])!!}

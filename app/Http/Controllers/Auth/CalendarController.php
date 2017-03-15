@@ -29,6 +29,7 @@ class CalendarController extends Controller
     public function index()
     {
         $calendar = $this->calendar->get();
+        $list_today = $this->calendar->whereDay('start_tijd', '=', date('d'))->get();
 
         $events = [];
 
@@ -60,15 +61,29 @@ class CalendarController extends Controller
         ->setOptions([
             'firstDay' => 1
         ])->setCallbacks([
-//            'viewRender' => "",
-            'eventClick' => "
-                    function(event, element) {
-                event.title = \"CLICKED!\";
-                fullCalendar('updateEvent', event);
-            }"
+            'eventDrop' => "
+                function(event, delta, revertFunc) {
+                    var title = event.title;
+                    var start = event.start.format();
+                    var end = (event.end == null) ? start : event.end.format();
+                    $.ajax({
+                      url: 'process.php',
+                      data: 'type=resetdate&title='+title+'&start='+start+'&end='+end+'&eventid='+id,
+                      type: 'POST',
+                      dataType: 'json',
+                      success: function(response){
+                        if(response.status != 'success')
+                        revertFunc();
+                      },
+                      error: function(e){
+                        revertFunc();
+                        alert('Error processing your request: '+e.responseText);
+                      }
+                  });
+                }"
         ]);
 
-        return view('auth.calendar.index')->with('calendar', $calendar);
+        return view('auth.calendar.index')->with('calendar', $calendar)->with('list_today', $list_today);
     }
 
     /**
