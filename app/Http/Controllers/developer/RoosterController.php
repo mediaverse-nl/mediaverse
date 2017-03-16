@@ -1,14 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\financial;
+namespace App\Http\Controllers\developer;
 
 use Illuminate\Http\Request;
 
+use App\Calendar;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class PayrollController extends Controller
+class RoosterController extends Controller
 {
+    protected $calendar;
+
+    public function __construct()
+    {
+        $this->calendar = new Calendar();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,40 @@ class PayrollController extends Controller
      */
     public function index()
     {
-        return view('admin.rooster.index');
+        $calendar = $this->calendar->where('user_id', Auth::user()->id)->get();
+        $list_today = $this->calendar->whereDay('start_tijd', '=', date('d'))->get();
+        $EventColors = Calendar::calendarEventColors();
+
+        $events = [];
+
+        foreach ($calendar as $item){
+
+            $filtered  = $EventColors->where('status', $item->status);
+
+            $filtered->first();
+
+            $events[] = \Calendar::event(
+                $item->naam,
+                false,
+                $item->start_tijd,
+                $item->eind_tijd,
+                $item->id,
+                [
+                    'url' => route('developer.rooster.show', $item->id),
+                    'editable' => false,
+                    'color' => $filtered->count() != 0 ? $filtered[0]['color'] : '#ddd'
+                ]
+            );
+        }
+
+        $calendar = \Calendar::addEvents($events)
+            ->setOptions([
+                'firstDay' => 1
+            ])->setCallbacks([
+//                'eventDrop' =>
+            ]);
+
+        return view('admin.developer.rooster.index')->with('calendar', $calendar)->with('list_today', $list_today);
     }
 
     /**

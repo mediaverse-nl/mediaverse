@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'payroll')
+@section('title', 'rooster')
 {{--@section('breadcrumb', Breadcrumbs::render('dashboard'))--}}
 
 @section('content')

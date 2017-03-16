@@ -82,17 +82,25 @@ Route::group(['middleware' => 'auth'], function () {
         Route::patch('project/start', ['as' => 'project.start', 'uses' => 'developer\ProjectController@startTimer']);
         Route::patch('project/check', ['as' => 'project.check', 'uses' => 'developer\ProjectController@taskStatus']);
         Route::delete('project/task/destroy', ['as' => 'task.destroy', 'uses' => 'developer\ProjectController@destroy']);
+
+        Route::get('rooster', ['as' => 'rooster.index', 'uses' => 'developer\RoosterController@index']);
+        Route::get('rooster/{id}/show', ['as' => 'rooster.show', 'uses' => 'developer\RoosterController@show']);
+        Route::get('rooster/create', ['as' => 'rooster.create', 'uses' => 'developer\RoosterController@create']);
+        Route::get('rooster/{id}/edit', ['as' => 'rooster.edit', 'uses' => 'developer\RoosterController@edit']);
+        Route::patch('rooster', ['as' => 'rooster.update', 'uses' => 'developer\RoosterController@update']);
+        Route::post('rooster', ['as' => 'rooster.store', 'uses' => 'developer\RoosterController@store']);
+        Route::delete('rooster/destroy', ['as' => 'rooster.destroy', 'uses' => 'developer\RoosterController@destroy']);
     });
 
     Route::group(['prefix' => 'financial', 'as' => 'financial.', 'middleware' => ['role:financial,board']], function ()
     {
         Route::get('finance', ['as' => 'finance.index', 'uses' => 'financial\FinancialController@index']);
 
-        Route::get('payroll/', ['as' => 'payroll.index', 'uses' => 'financial\PayrollController@index']);
-        Route::get('payroll/create', ['as' => 'payroll.create', 'uses' => 'financial\PayrollController@create']);
-        Route::get('payroll/{id}/edit', ['as' => 'payroll.edit', 'uses' => 'financial\PayrollController@edit']);
-        Route::get('payroll/{id}/show', ['as' => 'payroll.show', 'uses' => 'financial\PayrollController@show']);
-        Route::patch('payroll', ['as' => 'payroll.update', 'uses' => 'financial\PayrollController@update']);
+        Route::get('rooster/', ['as' => 'rooster.index', 'uses' => 'financial\PayrollController@index']);
+        Route::get('rooster/create', ['as' => 'rooster.create', 'uses' => 'financial\PayrollController@create']);
+        Route::get('rooster/{id}/edit', ['as' => 'rooster.edit', 'uses' => 'financial\PayrollController@edit']);
+        Route::get('rooster/{id}/show', ['as' => 'rooster.show', 'uses' => 'financial\PayrollController@show']);
+        Route::patch('rooster', ['as' => 'rooster.update', 'uses' => 'financial\PayrollController@update']);
 
         Route::get('invoice', ['as' => 'invoice.index', 'uses' => 'board\InvoiceController@index']);
         Route::get('invoice/{id}/show', ['as' => 'invoice.show', 'uses' => 'board\InvoiceController@show']);

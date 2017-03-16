@@ -120,7 +120,7 @@
                     <a href="{{route('board.project.index')}}"><i class="fa fa-fw fa-briefcase" aria-hidden="true"></i> Projects <label class="badge pull-right">{{($info['project']->where('status', 'prograss')->count())}}</label></a>
                 </li>
                 <li class="{{ Request::is('board/calendar*') ? 'active' : null }}">
-                    <a href="{{route('board.calendar.index')}}"><i class="fa fa-fw fa-briefcase" aria-hidden="true"></i> Calendar <label class="badge pull-right"></label></a>
+                    <a href="{{route('board.calendar.index')}}"><i class="fa fa-fw fa-calendar-check-o" aria-hidden="true"></i> Calendar <label class="badge pull-right"></label></a>
                 </li>
             @endif
 
@@ -148,6 +148,9 @@
             @if(Auth::user()->hasRole(['developer']) || Auth::user()->hasRole(['financial']))
                 <li class="{{ Request::is('developer/project*') ? 'active' : null }}">
                     <a href="{{route('developer.project.index')}}"><i class="fa fa-fw fa-tasks"></i> Mijn projecten <label class="pull-right badge">{{($info['task']->where('user_id', Auth::user()->id)->count())}}</label></a>
+                </li>
+                <li class="{{ Request::is('developer/rooster*') ? 'active' : null }}">
+                    <a href="{{route('developer.rooster.index')}}"><i class="fa fa-fw fa-calendar"></i> Mijn rooster <label class="pull-right badge"></label></a>
                 </li>
             @endif
 
