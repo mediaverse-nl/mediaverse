@@ -5,10 +5,26 @@
 
 @section('content')
 
-    <div class="invoice-box">
-        {{--{{dd($calendar)}}--}}
-    </div>
+    @php
+        $td_start = new DateTime($calendar->start_tijd);
+        $td_eind = new DateTime($calendar->eind_tijd);
+    @endphp
 
+    <div class="col-lg-6">
+
+        {{ Form::open(['method' => 'DELETE', 'route' => ['board.calendar.destroy', $calendar->id]]) }}
+        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm pull-right btn-xs'])!!}
+        {!! Form::close()!!}
+        <a href="{{route('board.calendar.edit', $calendar->id)}}" class="btn btn-default btn-xs pull-right btn-warning">Wijzigen</a>
+        <br>
+        <hr>
+        <h1>{{$calendar->naam}}</h1>
+        <p>{{$calendar->titel}}</p>
+        @if($calendar->user_id != 0)
+            <span>Voor: {{$calendar->user->name}}</span><hr>
+        @endif
+        <p>Van (<b>{{$td_start->format('Y-m-d - ga')}}</b>) tot (<b>{{$td_eind->format('Y-m-d - ga')}}</b>)</p>
+    </div>
 
     <div class="col-lg-4">
         <div class="panel panel-default">
@@ -21,10 +37,7 @@
                 {!! Form::hidden('id', $calendar->id) !!}
                 <div class="form-group">
                     {!! Form::label('datasdepicker', 'datepicasdaker') !!}
-                    @php
-                        $td = new DateTime($calendar->start_tijd)
-                    @endphp
-                    {!! Form::text('start_tijd', $td->format('Y-m-d'), ['class' => 'form-control datepicker', 'placeholder' => '', 'data-provide' => 'datepicker']) !!}
+                    {!! Form::text('start_tijd', $td_eind->format('Y-m-d'), ['class' => 'form-control datepicker', 'placeholder' => '', 'data-provide' => 'datepicker']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('naam', 'naam') !!}
@@ -56,12 +69,7 @@
 
                 {!! Form::close()!!}
 
-                {{ Form::open(['method' => 'DELETE', 'route' => ['board.calendar.destroy', $calendar->id]]) }}
 
-{{--                {!! Form::model($calendar, ['route' => 'board.calendar.destroy', 'method' => 'DELETE']) !!}--}}
-                    {{--{!! Form::hidden('id', $calendar->id) !!}--}}
-                    {!! Form::submit('delete', ['class' => 'btn btn-danger btn-sm pull-right'])!!}
-                {!! Form::close()!!}
 
             </div>
         </div>
@@ -73,7 +81,9 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
 
 <style>
-
+    .btn{
+        margin-left: 10px;
+    }
 </style>
 @endpush
 

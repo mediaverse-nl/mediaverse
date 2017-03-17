@@ -49,6 +49,11 @@ class User extends Authenticatable
         return $this->hasMany('App\ProjectTask', 'user_id', 'id');
     }
 
+    public function calendar()
+    {
+        return $this->hasMany('App\Calendar', 'user_id', 'id');
+    }
+
     public function hasRole($role)
     {
         //reset value to array

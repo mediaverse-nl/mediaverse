@@ -48,6 +48,8 @@ class CalendarController extends Controller
                 $item->id,
                 [
                     'url' => route('board.calendar.show', $item->id),
+                    'class' => 'asdasd',
+                    'id' => 'asdasd',
                     'editable' => false,
                     'color' => $filtered->count() != 0 ? $filtered->collapse()['color'] : '#ddd'
                 ]
