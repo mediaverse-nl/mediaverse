@@ -30,10 +30,15 @@ class CalendarController extends Controller
     {
         $calendar = $this->calendar->get();
         $list_today = $this->calendar->whereDay('start_tijd', '=', date('d'))->get();
+        $EventColors = Calendar::calendarEventColors();
 
         $events = [];
 
         foreach ($calendar as $item){
+
+            $filtered  = $EventColors->where('status', $item->status);
+
+            $filtered->first();
 
             $events[] = \Calendar::event(
                 $item->naam,
@@ -44,7 +49,7 @@ class CalendarController extends Controller
                 [
                     'url' => route('board.calendar.show', $item->id),
                     'editable' => false,
-                    'color' => '#333333'
+                    'color' => $filtered->count() != 0 ? $filtered->collapse()['color'] : '#ddd'
                 ]
             );
         }
@@ -115,6 +120,7 @@ class CalendarController extends Controller
         }
 
 //        Carbon::createFromFormat('Y-m-d', $request->start_tijd)->toDateTimeString();
+        $calendar->status = $request->status;
         $calendar->naam = $request->naam;
         $calendar->titel = $request->titel;
         $calendar->eind_tijd = $request->eind_tijd.' '.($request->tijd_uur_eind ? :'00').':'.($request->tijd_min_eind ? :'00').':00';

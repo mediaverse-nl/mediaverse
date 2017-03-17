@@ -17,11 +17,11 @@ class Calendar extends Model
 
     public static function calendarEventColors(){
         return $EventColors = collect([
-            ['status' => 'rooster','color' => '#ff9966'],
-            ['status' => 'project','color' => '#66ccff'],
-            ['status' => 'ziek','color' => '#333'],
-            ['status' => 'afwezig','color' => '#333'],
-            ['status' => 'afspraak','color' => '#333'],
+            ['status' => 'rooster', 'color' => '#ff9966'],
+            ['status' => 'project', 'color' => '#66ccff'],
+            ['status' => 'ziek', 'color' => '#333'],
+            ['status' => 'afwezig', 'color' => '#333'],
+            ['status' => 'afspraak' ,'color' => '#333'],
         ]);
     }
 }

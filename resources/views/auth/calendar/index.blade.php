@@ -52,6 +52,8 @@
                     </div>
                     <div class="tab-pane fade" id="tab2default">
                         {!! Form::open(['route' => 'board.calendar.store', 'method' => 'POST']) !!}
+                            {!! Form::hidden('status', 'project') !!}
+
                             <div class="row">
                                 <div class="form-group col-lg-6">
                                     {!! Form::label('datum', 'start datum') !!}
@@ -60,14 +62,7 @@
                                         {!! Form::text('start_tijd', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'data-provide' => 'datepicker']) !!}
                                     </div>
                                 </div>
-                                <div class="form-group col-lg-3">
-                                    {!! Form::label('uur', 'uur') !!}
-                                    {!! Form::number('tijd_uur', 0, ['class' => 'form-control pull-right', 'min' => '0', 'max' => '23']) !!}
-                                </div>
-                                <div class="form-group col-lg-3">
-                                    {!! Form::label('min', 'min') !!}
-                                    {!! Form::number('tijd_min', 0, ['class' => 'form-control pull-right', 'min' => '0', 'max' => '59', 'step' => '15']) !!}
-                                </div>
+
                                 <div class="form-group col-lg-6">
                                     {!! Form::label('datum', 'eind datum') !!}
                                     <div class="input-group">
@@ -75,26 +70,15 @@
                                         {!! Form::text('eind_tijd', null, ['class' => 'form-control datepicker', 'placeholder' => '', 'data-provide' => 'datepicker']) !!}
                                     </div>
                                 </div>
-                                <div class="form-group col-lg-3">
-                                    {!! Form::label('uur', 'uur') !!}
-                                    {!! Form::number('tijd_uur_eind', 0, ['class' => 'form-control pull-right', 'min' => '0', 'max' => '23']) !!}
-                                </div>
-                                <div class="form-group col-lg-3">
-                                    {!! Form::label('min', 'min') !!}
-                                    {!! Form::number('tijd_min_eind', 0, ['class' => 'form-control pull-right', 'min' => '0', 'max' => '59', 'step' => '15']) !!}
-                                </div>
+
                             </div>
                             <div class="form-group">
                                 {!! Form::label('naam', 'naam') !!}
                                 {!! Form::text('naam', null, ['class' => 'form-control', 'placeholder' => '']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('titel', 'beschrijving') !!}
+                                {!! Form::label('titel', 'korte beschrijving') !!}
                                 {!! Form::text('titel', null, ['class' => 'form-control', 'placeholder' => '']) !!}
-                            </div>
-                            <div class="form-group">
-    {{--                            {!! Form::label('status', 'status') !!}--}}
-                                {!! Form::hidden('status', 'event', ['class' => 'form-control', 'placeholder' => '']) !!}
                             </div>
 
                             {!! Form::submit('Toevoegen', ['class' => 'btn btn-success pull-right'])!!}

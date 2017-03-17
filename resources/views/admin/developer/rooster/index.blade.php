@@ -12,8 +12,9 @@
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab1default" data-toggle="tab">Vandaag</a></li>
-                    <li><a href="#tab2default" data-toggle="tab">Deadline</a></li>
+                    <li><a href="#tab2default" data-toggle="tab">Project</a></li>
                     <li><a href="#tab3default" data-toggle="tab">Afspraak</a></li>
+                    <li><a href="#tab4default" data-toggle="tab">Rooster</a></li>
                     <li><a href="#tab4default" data-toggle="tab">Rooster</a></li>
                 </ul>
             </div>
