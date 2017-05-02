@@ -29,7 +29,7 @@ class CalendarController extends Controller
     public function index()
     {
         $calendar = $this->calendar->get();
-        $list_today = $this->calendar->whereDay('start_tijd', '=', date('d'))->get();
+        $list_today = $this->calendar->whereDay('eind_tijd', '=', date('d'))->get();
         $EventColors = Calendar::calendarEventColors();
 
         $events = [];
@@ -122,6 +122,7 @@ class CalendarController extends Controller
         }
 
 //        Carbon::createFromFormat('Y-m-d', $request->start_tijd)->toDateTimeString();
+        $calendar->user_id = $request->has('user') ? 0 : $request->user;
         $calendar->status = $request->status;
         $calendar->naam = $request->naam;
         $calendar->titel = $request->titel;
