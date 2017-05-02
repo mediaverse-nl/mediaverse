@@ -13,78 +13,78 @@
             <hr>
         </div>
 
-        <div class="col-lg-4">
-            <div class="col-md-2">
-                <i class="fa fa-group fa-3x"></i>
-            </div>
-            <div class="col-md-10">
-                <h4 class="">Customer Support</h4>
-                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-        </div>
+        {{--<div class="col-lg-4">--}}
+            {{--<div class="col-md-2">--}}
+                {{--<i class="fa fa-group fa-3x"></i>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-10">--}}
+                {{--<h4 class="">Customer Support</h4>--}}
+                {{--<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <div class="col-lg-4">
-            <div class="col-md-2">
-                <i class="fa fa-group fa-3x"></i>
-            </div>
-            <div class="col-md-10">
-                <h4 class="">Laravel 5</h4>
-                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-        </div>
+        {{--<div class="col-lg-4">--}}
+            {{--<div class="col-md-2">--}}
+                {{--<i class="fa fa-group fa-3x"></i>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-10">--}}
+                {{--<h4 class="">Laravel 5</h4>--}}
+                {{--<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <div class="col-lg-4">
-            <div class="col-md-2">
-                <i class="fa fa-group fa-3x"></i>
-            </div>
-            <div class="col-md-10">
-                <h4 class="">HTML5 / CSS3 / JS</h4>
-                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-        </div>
+        {{--<div class="col-lg-4">--}}
+            {{--<div class="col-md-2">--}}
+                {{--<i class="fa fa-group fa-3x"></i>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-10">--}}
+                {{--<h4 class="">HTML5 / CSS3 / JS</h4>--}}
+                {{--<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <div class="col-lg-4">
-            <div class="col-md-2">
-                <i class="fa fa-group fa-3x"></i>
-            </div>
-            <div class="col-md-10">
-                <h4 class="">Hosting</h4>
-                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-        </div>
+        {{--<div class="col-lg-4">--}}
+            {{--<div class="col-md-2">--}}
+                {{--<i class="fa fa-group fa-3x"></i>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-10">--}}
+                {{--<h4 class="">Hosting</h4>--}}
+                {{--<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <div class="col-lg-4">
-            <div class="col-md-2">
-                <i class="fa fa-group fa-3x"></i>
-            </div>
-            <div class="col-md-10">
-                <h4 class="">SEO</h4>
-                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-        </div>
+        {{--<div class="col-lg-4">--}}
+            {{--<div class="col-md-2">--}}
+                {{--<i class="fa fa-group fa-3x"></i>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-10">--}}
+                {{--<h4 class="">SEO</h4>--}}
+                {{--<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <div class="col-lg-4">
-            <div class="col-md-2">
-                <i class="fa fa-group fa-3x"></i>
-            </div>
-            <div class="col-md-10">
-                <h4 class="">Security</h4>
-                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>
-            </div>
-        </div>
+        {{--<div class="col-lg-4">--}}
+            {{--<div class="col-md-2">--}}
+                {{--<i class="fa fa-group fa-3x"></i>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-10">--}}
+                {{--<h4 class="">Security</h4>--}}
+                {{--<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing <span class="alternative-font">metus.</span> elit. Quisque rutrum pellentesque imperdiet.</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
     </div>
 </div>
 
-<div class="container-fluid" style="background-color: #0E0E0E; height: 500px; border-top: 3px solid #267AB7; margin: 50px 0px;">
+{{--<div class="container-fluid" style="background-color: #0E0E0E; height: 500px; border-top: 3px solid #267AB7; margin: 50px 0px;">--}}
 
-    <div class="row">
-        <div class="col-lg-4">
-asdasd
-        </div>
-    </div>
+    {{--<div class="row">--}}
+        {{--<div class="col-lg-4">--}}
+            {{--asdasd--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
-</div>
+{{--</div>--}}
 
 <div class="container" style="background-color: ; height: 600px;">
 

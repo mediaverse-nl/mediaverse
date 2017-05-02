@@ -271,7 +271,7 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('referenties') }}">Referenties</a></li>
-                    {{--<li><a href="{{ route('page.about') }}">Over ons</a></li>--}}
+                    <li><a href="{{ route('page.about') }}">Over ons</a></li>
                     <li><a href="{{ route('contact.create')}}">Contact</a></li>
                 </ul>
                 @if (Auth::check())

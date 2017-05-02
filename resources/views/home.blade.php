@@ -31,7 +31,6 @@
     </div>
 
     <div class="container" style="margin-top: -150px">
-
         <div class="row">
             <a href="{{route('page.websites')}}">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center main-service animated">
@@ -66,51 +65,136 @@
 
         <hr>
 
+
         <div class="container-fluid services animated">
+
             <h3 class="text-center">{{trans('text.services_title')}}</h3>
             <p class="text-center">{{trans('text.services_text')}}</p>
             <br>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <i class="fa fa-camera-retro" aria-hidden="true"></i>
-                    Fotografie
-                </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                <a href="" style="text-decoration: none;">
+                    <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">
+                        <br>
+                        <i class="fa fa-fw fa-camera-retro img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center">Fotografie</p>
+                </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <i class="fa fa-server" aria-hidden="true"></i>
-                    Hosting
-                </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                <a href="" style="text-decoration: none;">
+                    <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">
+                        <br>
+                        <i class="fa fa-fw fa-server img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center">Hosting</p>
+                </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    Content management
-                </div>
+
+            {{--<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">--}}
+                {{--<a href="" style="text-decoration: none;">--}}
+                    {{--<div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">--}}
+                        {{--<br>--}}
+                        {{--<i class="fa fa-fw fa-server img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>--}}
+                    {{--</div>--}}
+                    {{--<p class="text-center">Hosting</p>--}}
+                {{--</a>--}}
+            {{--</div>--}}
+
+            {{--<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">--}}
+                {{--<a href="" style="text-decoration: none;">--}}
+                    {{--<div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">--}}
+                        {{--<br>--}}
+                        {{--<i class="fa fa-fw fa-server img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>--}}
+                    {{--</div>--}}
+                    {{--<p class="text-center">Hosting</p>--}}
+                {{--</a>--}}
+            {{--</div>--}}
+
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                <a href="" style="text-decoration: none;">
+                    <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">
+                        <br>
+                        <i class="fa fa-fw fa-server img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center">Hosting</p>
+                </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    Vindbaar op google
-                </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                <a href="" style="text-decoration: none;">
+                    <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">
+                        <br>
+                        <i class="fa fa-fw fa-server img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center">Hosting</p>
+                </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <i class="fa fa-font" aria-hidden="true"></i>
-                    Teksten voor uw site
-                </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                <a href="" style="text-decoration: none;">
+                    <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">
+                        <br>
+                        <i class="fa fa-fw fa-server img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center">Hosting</p>
+                </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
-                    Logo's / illustraties
-                </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                <a href="" style="text-decoration: none;">
+                    <div class="center-block" style="border-radius: 50%; background: #F4F4F4; width: 130px; height: 130px; overflow: hidden">
+                        <br>
+                        <i class="fa fa-fw fa-pencil-square-o img-responsive center-block" style="font-size: 90px; vertical-align: -15%;" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center">Content management</p>
+                </a>
             </div>
+
+            {{--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+                {{--<a href="{{route('page.webshop')}}">--}}
+                    {{--<div class="thumbnail" style="border-radius: 100%; width: 130px; height: 130px;">--}}
+                        {{--<i class="fa fa-camera-retro" aria-hidden="true"></i>--}}
+                    {{--</div>--}}
+                    {{--Fotografie--}}
+                {{--</a>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+                {{--<div class="thumbnail">--}}
+                    {{--<i class="fa fa-server" aria-hidden="true"></i>--}}
+                    {{--Hosting--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+                {{--<div class="thumbnail">--}}
+                    {{--<i class="fa fa-pencil-square-o" aria-hidden="true"></i>--}}
+                    {{--Content management--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+                {{--<div class="thumbnail">--}}
+                    {{--<i class="fa fa-search" aria-hidden="true"></i>--}}
+                    {{--Vindbaar op google--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+                {{--<div class="thumbnail">--}}
+                    {{--<i class="fa fa-font" aria-hidden="true"></i>--}}
+                    {{--Teksten voor uw site--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+                {{--<div class="thumbnail">--}}
+                    {{--<i class="fa fa-picture-o" aria-hidden="true"></i>--}}
+                    {{--Logo's / illustraties--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <hr>
                 <a href="{{route('page.diensten')}}" class="btn btn-default center-block" style="width: 250px;">Bekijk al onze diensten</a>
 
             </div>
+
         </div>
 
     </div>
@@ -131,48 +215,48 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row" style="background: #267AB7; height: 200px; border-bottom: 20px solid #1e61b7; margin-bottom: 20px">
-            <div class="container ">
-                <div class="animated portfolio">
-                    <h2 class="text-center " style="color: white !important; margin-top: 25px;">{{trans('text.our_work_title')}}</h2>
-                    <div class="col-md-6 col-md-offset-3 ">
-                        <p class="text-center" style="color: #fff;">{{trans('text.our_work_text')}}</p>
-                        <a href="{{route('referenties')}}"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    {{--<div class="container-fluid">--}}
+        {{--<div class="row" style="background: #267AB7; height: 200px; border-bottom: 20px solid #1e61b7; margin-bottom: 20px">--}}
+            {{--<div class="container ">--}}
+                {{--<div class="animated portfolio">--}}
+                    {{--<h2 class="text-center " style="color: white !important; margin-top: 25px;">{{trans('text.our_work_title')}}</h2>--}}
+                    {{--<div class="col-md-6 col-md-offset-3 ">--}}
+                        {{--<p class="text-center" style="color: #fff;">{{trans('text.our_work_text')}}</p>--}}
+                        {{--<a href="{{route('referenties')}}"></a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <div class="triangle-down center-block" style="margin-top: -20px;"> </div>
+        {{--<div class="triangle-down center-block" style="margin-top: -20px;"> </div>--}}
 
-        <div class="container" style="margin-top: 30px;">
-            <div class="animated portfolio-content">
+        {{--<div class="container" style="margin-top: 30px;">--}}
+            {{--<div class="animated portfolio-content">--}}
 
-                @foreach($portfolio as $item)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="panel" style="border-radius: 0px; padding: 3px;">
+                {{--@foreach($portfolio as $item)--}}
+                    {{--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+                        {{--<div class="panel" style="border-radius: 0px; padding: 3px;">--}}
                             {{--{{$item}}--}}
-                            <a class="proj" href="{{route('referenties.show', str_replace(' ', '-', $item->name))}}">
+                            {{--<a class="proj" href="{{route('referenties.show', str_replace(' ', '-', $item->name))}}">--}}
 {{--                                {{$item->projectImage}}--}}
-                                <div class="" style="width: auto; border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 0px; padding: 3px;">
-                                    <img class="img-responsive" style="width: 100%; height: 180px;" src="/images/portfolio/{{$item->projectImage->first()->path}}">
-                                </div>
-                                <h2 class="" style="margin: 0px 15px 0px 0px !important; color: #267AB7 !important;">{{$item->name}}</h2>
-                                <small  style="color: #0E0E0E">
-                                    @foreach($item->projectService as $task)
-                                        <span class="badge" style="margin-right: 5px; background-color: #0E0E0E;">{{($task->service->name)}}</span>
-                                    @endforeach
-                                </small>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
+                                {{--<div class="" style="width: auto; border: 1px solid rgba(0, 0, 0, 0.09); border-radius: 0px; padding: 3px;">--}}
+                                    {{--<img class="img-responsive" style="width: 100%; height: 180px;" src="/images/portfolio/{{$item->projectImage->first()->path}}">--}}
+                                {{--</div>--}}
+                                {{--<h2 class="" style="margin: 0px 15px 0px 0px !important; color: #267AB7 !important;">{{$item->name}}</h2>--}}
+                                {{--<small  style="color: #0E0E0E">--}}
+                                    {{--@foreach($item->projectService as $task)--}}
+                                        {{--<span class="badge" style="margin-right: 5px; background-color: #0E0E0E;">{{($task->service->name)}}</span>--}}
+                                    {{--@endforeach--}}
+                                {{--</small>--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--@endforeach--}}
 
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
 
-    </div>
+    {{--</div>--}}
 @stop
 
 @push('scripts')
